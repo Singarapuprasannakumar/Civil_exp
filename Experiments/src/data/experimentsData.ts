@@ -1,0 +1,220 @@
+import { Experiment } from '../types';
+
+export const experimentsData: Experiment[] = [
+  {
+    id: 1,
+    num: '01',
+    title: 'Moisture Content',
+    desc: 'Determine the moisture content of soil sample using oven drying method.',
+    iconName: 'Droplet',
+    iconBg: 'rgba(37, 99, 235, 0.1)',
+    iconColor: '#2563EB',
+    standard: 'IS 2720 Part 2 / ASTM D2216',
+    status: 'Ready',
+    hasCode: true,
+    defaultInputs: { m1: 12.5, m2: 36.4, m3: 30.1 },
+    inputLabels: {
+      m1: 'Mass of container + lid (M1) (g)',
+      m2: 'Mass of container + lid + moist soil (M2) (g)',
+      m3: 'Mass of container + lid + oven dry soil (M3) (g)'
+    },
+    calculatedLabels: {
+      c1: 'Mass of Water Mw (g)',
+      c2: 'Mass of Dry Soil Md (g)',
+      res: 'Moisture Content (%)'
+    },
+    unit: '%'
+  },
+  {
+    id: 2,
+    num: '02',
+    title: 'Specific Gravity',
+    desc: 'Determine specific gravity of soil solids using pycnometer method.',
+    iconName: 'Scale',
+    iconBg: 'rgba(20, 184, 166, 0.1)',
+    iconColor: '#14B8A6',
+    standard: 'IS 2720 Part 3 / ASTM D854',
+    status: 'Ready',
+    hasCode: true
+  },
+  {
+    id: 3,
+    num: '03',
+    title: 'Liquid Limit',
+    desc: 'Determine the liquid limit of soil using Casagrande apparatus and flow curve method.',
+    iconName: 'TestTube2',
+    iconBg: 'rgba(245, 158, 11, 0.1)',
+    iconColor: '#F59E0B',
+    standard: 'IS 2720 Part 5 / ASTM D4318',
+    status: 'Ready',
+    hasCode: true
+  },
+  {
+    id: 4,
+    num: '04',
+    title: 'Plastic Limit',
+    desc: 'Determine the Plastic Limit of soil by rolling soil threads until they crumble at approximately 3 mm diameter.',
+    iconName: 'PenTool',
+    iconBg: 'rgba(239, 68, 68, 0.1)',
+    iconColor: '#EF4444',
+    standard: 'IS 2720 Part 5 / ASTM D4318',
+    status: 'Ready',
+    hasCode: true
+  },
+  {
+    id: 5,
+    num: '05',
+    title: 'Shrinkage Limit',
+    desc: 'Determine the Shrinkage Limit of soil using the shrinkage dish and mercury displacement method.',
+    iconName: 'Layers',
+    iconBg: 'rgba(16, 185, 129, 0.1)',
+    iconColor: '#10B981',
+    standard: 'IS 2720 Part 6 / ASTM D4943',
+    status: 'Ready',
+    hasCode: true
+  },
+  {
+    id: 6,
+    num: '06',
+    title: 'Differential Free Swell Index',
+    desc: 'Determine the Differential Free Swell Index of soil by comparing the equilibrium volume in distilled water and kerosene.',
+    iconName: 'Activity',
+    iconBg: 'rgba(124, 58, 237, 0.1)',
+    iconColor: '#7C3AED',
+    standard: 'IS 2720 Part 40 / ASTM D4546',
+    status: 'Ready',
+    hasCode: true
+  },
+  {
+    id: 7,
+    num: '07',
+    title: 'Sand Replacement Method',
+    desc: 'Determine the in-situ density of soil using the Sand Replacement Method.',
+    iconName: 'Cone',
+    iconBg: 'rgba(245, 158, 11, 0.1)',
+    iconColor: '#D97706',
+    standard: 'IS 2720 Part 28 / ASTM D1556',
+    status: 'Ready',
+    hasCode: true
+  },
+  {
+    id: 8,
+    num: '08',
+    title: 'Core Cutter Method',
+    desc: 'Determine the in-situ bulk density and dry density of soil using the Core Cutter Method.',
+    iconName: 'Cylinder',
+    iconBg: 'rgba(16, 185, 129, 0.1)',
+    iconColor: '#059669',
+    standard: 'IS 2720 Part 29 / ASTM D2937',
+    status: 'Ready',
+    hasCode: true
+  },
+  {
+    id: 9,
+    num: '09',
+    title: 'Sieve Analysis',
+    desc: 'Determine the particle size distribution of soil by sieve analysis and classify the soil based on grain size characteristics.',
+    iconName: 'Filter',
+    iconBg: 'rgba(37, 99, 235, 0.1)',
+    iconColor: '#2563EB',
+    standard: 'IS 2720 Part 4 / ASTM D422',
+    status: 'Ready',
+    hasCode: true
+  },
+  {
+    id: 10,
+    num: '10',
+    title: 'IS Light Compaction Test',
+    desc: 'Determine the Optimum Moisture Content (OMC) and Maximum Dry Density (MDD) of soil using the IS Light Compaction Test.',
+    iconName: 'Hammer',
+    iconBg: 'rgba(239, 68, 68, 0.1)',
+    iconColor: '#DC2626',
+    standard: 'IS 2720 Part 7 / ASTM D698',
+    status: 'Ready',
+    hasCode: true
+  },
+  {
+    id: 11,
+    num: '11',
+    title: 'Falling Head Permeability Test',
+    desc: 'Determine permeability using falling head laboratory method for fine-grained soils.',
+    iconName: 'Gauge',
+    iconBg: 'rgba(20, 184, 166, 0.1)',
+    iconColor: '#0D9488',
+    standard: 'IS 2720 Part 17 / ASTM D2434',
+    status: 'Ready',
+    hasCode: true
+  },
+  {
+    id: 12,
+    num: '12',
+    title: 'Constant Head Permeability Test',
+    desc: 'Determine permeability using constant head laboratory method for coarse-grained soils.',
+    iconName: 'Waves',
+    iconBg: 'rgba(37, 99, 235, 0.1)',
+    iconColor: '#2563EB',
+    standard: 'IS 2720 Part 17 / ASTM D2434',
+    status: 'Ready',
+    hasCode: true
+  },
+  {
+    id: 13,
+    num: '13',
+    title: 'Direct Shear Test',
+    desc: 'Determine shear strength parameters of soil.',
+    iconName: 'MoveHorizontal',
+    iconBg: 'rgba(124, 58, 237, 0.1)',
+    iconColor: '#7C3AED',
+    standard: 'IS 2720 Part 13 / ASTM D3080',
+    status: 'Ready',
+    hasCode: true
+  },
+  {
+    id: 14,
+    num: '14',
+    title: 'UCS Test',
+    desc: 'Determine Unconfined Compressive Strength (qu) and Cohesion (cu) of soil.',
+    iconName: 'ArrowDownToLine',
+    iconBg: 'rgba(20, 184, 166, 0.1)',
+    iconColor: '#14B8A6',
+    standard: 'IS 2720 Part 10 / ASTM D2166',
+    status: 'Ready',
+    hasCode: true
+  },
+  {
+    id: 15,
+    num: '15',
+    title: 'Vane Shear Test',
+    desc: 'Determine undrained shear strength of soil using the laboratory vane shear apparatus.',
+    iconName: 'Compass',
+    iconBg: 'rgba(239, 68, 68, 0.1)',
+    iconColor: '#DC2626',
+    standard: 'IS 4434 / ASTM D2573',
+    status: 'Ready',
+    hasCode: true
+  },
+  {
+    id: 16,
+    num: '16',
+    title: 'California Bearing Ratio (CBR)',
+    desc: 'Determine the California Bearing Ratio (CBR) of subgrade soil using penetration test data and evaluate subgrade strength.',
+    iconName: 'ShieldCheck',
+    iconBg: 'rgba(37, 99, 235, 0.1)',
+    iconColor: '#2563EB',
+    standard: 'IS 2720 Part 16 / ASTM D1883',
+    status: 'Ready',
+    hasCode: true
+  },
+  {
+    id: 17,
+    num: '17',
+    title: 'Geotechnical Design Tools',
+    desc: 'SPT Correlations • Adhesion Factor (α) • Bearing Capacity Factor (Nq)',
+    iconName: 'Calculator',
+    iconBg: 'rgba(124, 58, 237, 0.1)',
+    iconColor: '#7C3AED',
+    standard: 'IS 2911 / Tomlinson 1957',
+    status: 'Ready',
+    hasCode: true
+  }
+];
