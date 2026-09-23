@@ -8,6 +8,7 @@ import { Line } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
   CategoryScale,
+  LogarithmicScale,
   LinearScale,
   PointElement,
   LineElement,
@@ -17,7 +18,7 @@ import {
   Filler
 } from 'chart.js';
 
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler);
+ChartJS.register(CategoryScale, LogarithmicScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler);
 
 interface SieveAnalysisPageProps {
   experiment: Experiment;
@@ -213,17 +214,16 @@ export const SieveAnalysisPage: React.FC<SieveAnalysisPageProps> = ({ experiment
   };
 
   // Chart.js Configuration for Grain Size Distribution Curve
-  const chartLabels = rows.map(r => `${r.sieveSize}`);
   const chartDataConfig = {
-    labels: chartLabels,
     datasets: [
       {
         label: 'Percentage Passing (%)',
-        data: rows.map(r => r.percentPassing),
+        data: rows.map(r => ({ x: r.sieveSize, y: r.percentPassing })).filter(d => d.x > 0),
         borderColor: '#2563EB',
         backgroundColor: 'rgba(37, 99, 235, 0.1)',
         borderWidth: 2.5,
-        pointRadius: 6,
+        pointRadius: 7,
+        pointHoverRadius: 9,
         pointBackgroundColor: '#DC2626',
         pointBorderColor: '#EF4444',
         fill: true,
@@ -521,23 +521,43 @@ export const SieveAnalysisPage: React.FC<SieveAnalysisPageProps> = ({ experiment
               responsive: true,
               maintainAspectRatio: false,
               plugins: {
-                legend: { position: 'top' },
+                legend: { position: 'top', labels: { font: { size: 14 } } },
                 tooltip: {
+                  bodyFont: { size: 14 },
+                  titleFont: { size: 14 },
                   callbacks: {
-                    label: (ctx) => `${ctx.dataset.label}: ${ctx.raw}%`
+                    label: (ctx: any) => `${ctx.dataset.label}: ${Number(ctx.raw?.y || ctx.raw).toFixed(2)}%`,
+                    title: (ctx: any) => `Sieve Size: ${ctx[0].raw?.x || ctx[0].label} mm`
                   }
                 }
-              },
+              } as any,
               scales: {
                 x: {
-                  title: { display: true, text: 'Sieve Particle Size (mm)', font: { size: 11, weight: 'bold' } },
-                  grid: { color: 'rgba(226, 232, 240, 0.6)' }
+                  type: 'logarithmic',
+                  reverse: true, // Standard Grain Size charts often reverse X (largest to smallest)
+                  title: { display: true, text: 'Particle Size (mm) [Log Scale]', font: { size: 16, weight: 'bold' } },
+                  border: { display: true, color: '#1e3a8a', width: 1.5 },
+                  // @ts-ignore
+                  grid: { color: 'rgba(30, 58, 138, 0.35)', lineWidth: 1, borderDash: [5, 5] },
+                  ticks: {
+                    font: { size: 14, weight: 'bold' },
+                    callback: function(value: any) {
+                        return value;
+                    }
+                  }
                 },
                 y: {
+                  type: 'linear',
                   min: 0,
                   max: 100,
-                  title: { display: true, text: 'Percentage Passing (%)', font: { size: 11, weight: 'bold' } },
-                  grid: { color: 'rgba(226, 232, 240, 0.6)' }
+                  title: { display: true, text: 'Percentage Passing (%)', font: { size: 16, weight: 'bold' } },
+                  border: { display: true, color: '#1e3a8a', width: 1.5 },
+                  // @ts-ignore
+                  grid: { color: 'rgba(30, 58, 138, 0.35)', lineWidth: 1, borderDash: [5, 5] },
+                  ticks: { 
+                    font: { size: 14, weight: 'bold' },
+                    stepSize: 20
+                  }
                 }
               }
             }}
