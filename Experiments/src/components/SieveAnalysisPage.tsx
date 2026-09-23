@@ -27,8 +27,11 @@ interface SieveAnalysisPageProps {
 
 export interface SieveRow {
   obsNo: number;
+  id: number;
   sieveSize: number;      // mm
+  rawSieveSize: string | number;
   weightRetained: number; // g
+  rawWeightRetained: string | number;
   cumulativeWeight: number; // g
   percentRetained: number; // %
   percentPassing: number;  // %
@@ -79,18 +82,26 @@ export const SieveAnalysisPage: React.FC<SieveAnalysisPageProps> = ({ experiment
   const [tableGenerated, setTableGenerated] = useState<boolean>(true);
 
   // Initial IS Standard Sieve Set
-  const [rawInputs, setRawInputs] = useState<{ sieveSize: number; weightRetained: number }[]>([
-    { sieveSize: 4.75, weightRetained: 45.0 },
-    { sieveSize: 2.00, weightRetained: 120.0 },
-    { sieveSize: 1.00, weightRetained: 180.0 },
-    { sieveSize: 0.425, weightRetained: 250.0 },
-    { sieveSize: 0.250, weightRetained: 190.0 },
-    { sieveSize: 0.150, weightRetained: 110.0 },
-    { sieveSize: 0.075, weightRetained: 75.0 }
+  const [rawInputs, setRawInputs] = useState<{ id: number; sieveSize: string | number; weightRetained: string | number }[]>([
+    { id: 1, sieveSize: 4.75, weightRetained: 45.0 },
+    { id: 2, sieveSize: 2.00, weightRetained: 120.0 },
+    { id: 3, sieveSize: 1.00, weightRetained: 180.0 },
+    { id: 4, sieveSize: 0.425, weightRetained: 250.0 },
+    { id: 5, sieveSize: 0.250, weightRetained: 190.0 },
+    { id: 6, sieveSize: 0.150, weightRetained: 110.0 },
+    { id: 7, sieveSize: 0.075, weightRetained: 75.0 }
   ]);
 
   // Sort descending by sieve size matching Python script
-  const sortedData = [...rawInputs].sort((a, b) => b.sieveSize - a.sieveSize);
+  const parsedInputs = rawInputs.map(item => ({
+    id: item.id,
+    sieveSize: item.sieveSize === '' ? 0 : Number(item.sieveSize),
+    weightRetained: item.weightRetained === '' ? 0 : Number(item.weightRetained),
+    rawSieve: item.sieveSize,
+    rawWeight: item.weightRetained
+  }));
+  // Keep vertical table order locked to prevent rows shuffling when typing empty values
+  const sortedData = parsedInputs;
 
   let runTotal = 0;
   const rows: SieveRow[] = sortedData.map((item, idx) => {
@@ -100,8 +111,11 @@ export const SieveAnalysisPage: React.FC<SieveAnalysisPageProps> = ({ experiment
 
     return {
       obsNo: idx + 1,
+      id: item.id,
       sieveSize: item.sieveSize,
+      rawSieveSize: item.rawSieve,
       weightRetained: Number(item.weightRetained.toFixed(3)),
+      rawWeightRetained: item.rawWeight,
       cumulativeWeight: Number(runTotal.toFixed(3)),
       percentRetained: Number(pr.toFixed(2)),
       percentPassing: Number(pp.toFixed(2))
@@ -152,7 +166,7 @@ export const SieveAnalysisPage: React.FC<SieveAnalysisPageProps> = ({ experiment
 
     for (let i = 0; i < count; i++) {
       const size = standardSizes[i] || Number((4.75 / Math.pow(2, i)).toFixed(3));
-      newInputs.push({ sieveSize: size, weightRetained: 50.0 + i * 20.0 });
+      newInputs.push({ id: Date.now() + i, sieveSize: size, weightRetained: 50.0 + i * 20.0 });
     }
     setRawInputs(newInputs);
     setTableGenerated(true);
@@ -160,21 +174,21 @@ export const SieveAnalysisPage: React.FC<SieveAnalysisPageProps> = ({ experiment
   };
 
   // Real-time cell edit
-  const handleCellEdit = (idx: number, field: 'sieveSize' | 'weightRetained', val: number) => {
-    setRawInputs(prev => prev.map((item, i) => i === idx ? { ...item, [field]: val } : item));
+  const handleCellEdit = (id: number, field: 'sieveSize' | 'weightRetained', val: string | number) => {
+    setRawInputs(prev => prev.map(item => item.id === id ? { ...item, [field]: val } : item));
   };
 
   const handleAddRow = () => {
-    const minSize = Math.min(...rawInputs.map(r => r.sieveSize));
+    const minSize = Math.min(...parsedInputs.map(r => r.sieveSize));
     const newSize = Number((minSize / 2).toFixed(3));
-    setRawInputs(prev => [...prev, { sieveSize: newSize > 0 ? newSize : 0.045, weightRetained: 25.0 }]);
+    setRawInputs(prev => [...prev, { id: Date.now(), sieveSize: newSize > 0 ? newSize : 0.045, weightRetained: 25.0 }]);
     setNumObsInput(prev => prev + 1);
     onShowToast("Added new sieve row.");
   };
 
-  const handleDeleteRow = (idx: number) => {
+  const handleDeleteRow = (id: number) => {
     setRawInputs(prev => {
-      const filtered = prev.filter((_, i) => i !== idx);
+      const filtered = prev.filter(item => item.id !== id);
       setNumObsInput(filtered.length);
       return filtered;
     });
@@ -185,13 +199,13 @@ export const SieveAnalysisPage: React.FC<SieveAnalysisPageProps> = ({ experiment
     setRegdNo('REG-2026-SA01');
     setTotalWeight(1000.0);
     setRawInputs([
-      { sieveSize: 4.75, weightRetained: 45.0 },
-      { sieveSize: 2.00, weightRetained: 120.0 },
-      { sieveSize: 1.00, weightRetained: 180.0 },
-      { sieveSize: 0.425, weightRetained: 250.0 },
-      { sieveSize: 0.250, weightRetained: 190.0 },
-      { sieveSize: 0.150, weightRetained: 110.0 },
-      { sieveSize: 0.075, weightRetained: 75.0 }
+      { id: 1, sieveSize: 4.75, weightRetained: 45.0 },
+      { id: 2, sieveSize: 2.00, weightRetained: 120.0 },
+      { id: 3, sieveSize: 1.00, weightRetained: 180.0 },
+      { id: 4, sieveSize: 0.425, weightRetained: 250.0 },
+      { id: 5, sieveSize: 0.250, weightRetained: 190.0 },
+      { id: 6, sieveSize: 0.150, weightRetained: 110.0 },
+      { id: 7, sieveSize: 0.075, weightRetained: 75.0 }
     ]);
     setNumObsInput(7);
     setTableGenerated(true);
@@ -388,10 +402,9 @@ export const SieveAnalysisPage: React.FC<SieveAnalysisPageProps> = ({ experiment
                     {/* SIEVE SIZE INPUT */}
                     <td className="p-2">
                       <input
-                        type="number"
-                        step="0.001"
-                        value={row.sieveSize}
-                        onChange={(e) => handleCellEdit(idx, 'sieveSize', parseFloat(e.target.value) || 0)}
+                        type="text"
+                        value={row.rawSieveSize}
+                        onChange={(e) => handleCellEdit(row.id, 'sieveSize', e.target.value)}
                         className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2.5 py-1 text-xs font-bold text-blue-600 outline-none focus:border-blue-600 w-full shadow-inner"
                       />
                     </td>
@@ -399,10 +412,9 @@ export const SieveAnalysisPage: React.FC<SieveAnalysisPageProps> = ({ experiment
                     {/* WEIGHT RETAINED INPUT */}
                     <td className="p-2 border-r border-slate-100 dark:border-slate-800">
                       <input
-                        type="number"
-                        step="0.1"
-                        value={row.weightRetained}
-                        onChange={(e) => handleCellEdit(idx, 'weightRetained', parseFloat(e.target.value) || 0)}
+                        type="text"
+                        value={row.rawWeightRetained}
+                        onChange={(e) => handleCellEdit(row.id, 'weightRetained', e.target.value)}
                         className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2.5 py-1 text-xs outline-none focus:border-blue-600 w-full shadow-inner"
                       />
                     </td>
@@ -424,7 +436,7 @@ export const SieveAnalysisPage: React.FC<SieveAnalysisPageProps> = ({ experiment
                     {/* DELETE */}
                     <td className="p-2.5 text-center">
                       <button
-                        onClick={() => handleDeleteRow(idx)}
+                        onClick={() => handleDeleteRow(row.id)}
                         className="text-slate-400 hover:text-red-500 p-1 rounded transition-colors"
                         title="Delete Sieve"
                       >

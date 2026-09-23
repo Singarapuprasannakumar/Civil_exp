@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { 
   ChevronRight, Plus, Trash2, FileSpreadsheet, Save, RotateCcw, ArrowLeft, CheckCircle2, Calculator,
-  Table as TableIcon, Sliders, Layers
+  Table as TableIcon, Sliders, Layers, Droplets
 } from 'lucide-react';
 import { Experiment } from '../types';
 
@@ -13,122 +13,196 @@ interface SandReplacementPageProps {
 
 export interface SRObservation {
   obsNo: number;
-  // Stage 1: Calibration Inputs
-  w1: number; // Sand Pouring Cylinder (g)
-  w2: number; // Empty Receiver (g)
-  w3: number; // Cylinder + Sand Before Filling Receiver (g)
-  w4: number; // Cylinder + Sand After Filling Receiver (g)
-  sandInCone: number; // Mass of Sand in Cone Portion (g)
-  v1: number; // Volume of Receiver (cc)
+  // Calibration
+  w1: string | number;
+  w2: string | number;
+  w3: string | number;
+  w4: string | number;
+  w5: string | number;
+  v1: string | number;
   
-  // Stage 1: Calculated
-  weightSandReceiver: number; // W3 - W4 - sandInCone
-  densitySand: number;        // weightSandReceiver / V1
-
-  // Stage 2: Field Density Inputs
-  w7: number; // Cylinder + Sand Before Filling Hole (g)
-  w8: number; // Cylinder + Sand After Filling Hole (g)
-  w9: number; // Excavated Soil (g)
-  moisture: number; // Moisture Content (%)
-
-  // Stage 2: Calculated
-  sandUsedTotal: number; // W7 - W8
-  sandInHole: number;    // sandUsedTotal - sandInCone
-  volumeHole: number;    // sandInHole / densitySand
-  wetDensity: number;    // W9 / volumeHole
-  dryDensity: number;    // wetDensity / (1 + moisture / 100)
+  // Field Test
+  w7: string | number;
+  w8: string | number;
+  w9: string | number;
+  
+  // Water Content
+  cupNo: string | number;
+  w10: string | number;
+  w11: string | number;
+  w12: string | number;
+  g: string | number;
+  
+  // Calculated
+  sandInReceiver: string | number;
+  densitySand: string | number;
+  sandInCone: string | number;
+  sandInHole: string | number;
+  volumeHole: string | number;
+  bulkDensity: string | number;
+  waterContent: string | number;
+  dryDensity: string | number;
+  voidRatio: string | number;
 }
 
 export const SandReplacementPage: React.FC<SandReplacementPageProps> = ({ experiment, onBack, onShowToast }) => {
-  // Test Information State
   const [regdNo, setRegdNo] = useState<string>('REG-2026-SR01');
-  const [numObsInput, setNumObsInput] = useState<number>(2);
+  const [numObsInput, setNumObsInput] = useState<number | string>(2);
   const [tableGenerated, setTableGenerated] = useState<boolean>(true);
 
-  // Helper function to calculate row values per Python logic
   const computeRowValues = (
     obsNo: number,
-    w1: number, w2: number, w3: number, w4: number, sandInCone: number, v1: number,
-    w7: number, w8: number, w9: number, moisture: number
+    w1: string | number, w2: string | number, w3: string | number,
+    w4: string | number, w5: string | number, v1: string | number,
+    w7: string | number, w8: string | number, w9: string | number,
+    cupNo: string | number, w10: string | number, w11: string | number,
+    w12: string | number, g: string | number
   ): SRObservation => {
-    const weightSandReceiver = w3 - w4 - sandInCone;
-    const densitySand = v1 > 0 ? weightSandReceiver / v1 : 0;
+    const parse = (val: any) => {
+      if (val === '' || val === null || val === undefined) return null;
+      const n = Number(val);
+      return isNaN(n) ? null : n;
+    };
 
-    const sandUsedTotal = w7 - w8;
-    const sandInHole = sandUsedTotal - sandInCone;
-    const volumeHole = densitySand > 0 ? sandInHole / densitySand : 0;
-    const wetDensity = volumeHole > 0 ? w9 / volumeHole : 0;
-    const dryDensity = wetDensity / (1 + moisture / 100);
+    const nw1 = parse(w1);
+    const nw2 = parse(w2);
+    const nw3 = parse(w3);
+    const nw4 = parse(w4);
+    const nw5 = parse(w5);
+    const nv1 = parse(v1);
+
+    const nw7 = parse(w7);
+    const nw8 = parse(w8);
+    const nw9 = parse(w9);
+
+    const nw10 = parse(w10);
+    const nw11 = parse(w11);
+    const nw12 = parse(w12);
+    const ng = parse(g);
+
+    let sandInReceiver: string | number = '-';
+    let densitySand: string | number = '-';
+    let sandInCone: string | number = '-';
+    let sandInHole: string | number = '-';
+    let volumeHole: string | number = '-';
+    let bulkDensity: string | number = '-';
+    let waterContent: string | number = '-';
+    let dryDensity: string | number = '-';
+    let voidRatio: string | number = '-';
+
+    // 1. Sand in Receiver & Density
+    if (nw5 !== null && nw2 !== null) {
+      const ms = nw5 - nw2;
+      sandInReceiver = ms;
+      if (nv1 !== null && nv1 > 0) {
+        densitySand = ms / nv1;
+      }
+    }
+
+    // 2. Sand in Cone
+    if (nw1 !== null && nw2 !== null && nw3 !== null && nw4 !== null && nw5 !== null) {
+      sandInCone = (nw3 - nw1) - (nw4 - nw1) - (nw5 - nw2);
+    }
+
+    // 3. Field Density calculations
+    if (nw7 !== null && nw8 !== null && typeof sandInCone === 'number') {
+      const sh = (nw7 - nw8) - sandInCone;
+      sandInHole = sh;
+
+      if (typeof densitySand === 'number' && densitySand > 0) {
+        const vh = sh / densitySand;
+        volumeHole = vh;
+
+        if (nw9 !== null && vh > 0) {
+          bulkDensity = nw9 / vh;
+        }
+      }
+    }
+
+    // 4. Water Content
+    if (nw10 !== null && nw11 !== null && nw12 !== null) {
+      if (nw11 - nw12 > 0) {
+        waterContent = ((nw10 - nw11) / (nw11 - nw12)) * 100;
+      }
+    }
+
+    // 5. Dry Density & Void Ratio
+    if (typeof bulkDensity === 'number' && typeof waterContent === 'number') {
+      const dd = bulkDensity / (1 + waterContent / 100);
+      dryDensity = dd;
+
+      if (dd > 0 && ng !== null) {
+        voidRatio = (ng / dd) - 1;
+      }
+    }
+
+    const fmt = (val: string | number, dec: number) => typeof val === 'number' ? Number(val.toFixed(dec)) : val;
 
     return {
       obsNo,
-      w1: Number(w1.toFixed(3)),
-      w2: Number(w2.toFixed(3)),
-      w3: Number(w3.toFixed(3)),
-      w4: Number(w4.toFixed(3)),
-      sandInCone: Number(sandInCone.toFixed(3)),
-      v1: Number(v1.toFixed(3)),
-      weightSandReceiver: Number(weightSandReceiver.toFixed(3)),
-      densitySand: Number(densitySand.toFixed(4)),
-
-      w7: Number(w7.toFixed(3)),
-      w8: Number(w8.toFixed(3)),
-      w9: Number(w9.toFixed(3)),
-      moisture: Number(moisture.toFixed(2)),
-
-      sandUsedTotal: Number(sandUsedTotal.toFixed(3)),
-      sandInHole: Number(sandInHole.toFixed(3)),
-      volumeHole: Number(volumeHole.toFixed(3)),
-      wetDensity: Number(wetDensity.toFixed(4)),
-      dryDensity: Number(dryDensity.toFixed(4))
+      w1, w2, w3, w4, w5, v1,
+      w7, w8, w9,
+      cupNo, w10, w11, w12, g,
+      sandInReceiver: fmt(sandInReceiver, 3),
+      densitySand: fmt(densitySand, 4),
+      sandInCone: fmt(sandInCone, 3),
+      sandInHole: fmt(sandInHole, 3),
+      volumeHole: fmt(volumeHole, 3),
+      bulkDensity: fmt(bulkDensity, 4),
+      waterContent: fmt(waterContent, 2),
+      dryDensity: fmt(dryDensity, 4),
+      voidRatio: fmt(voidRatio, 4)
     };
   };
 
-  // Default pre-populated Sand Replacement dataset
+  const createDefaultRow = (idx: number) => {
+    return computeRowValues(
+      idx, 
+      1500, 1100, 7500, 5200, 2450, 1000, 
+      7500, 4800, 2450, 
+      1, 50, 45, 10, 2.65
+    );
+  };
+
   const [observations, setObservations] = useState<SRObservation[]>([
-    computeRowValues(1, 1500.0, 1100.0, 7500.0, 5200.0, 450.0, 1000.0, 7500.0, 4800.0, 2450.0, 12.5),
-    computeRowValues(2, 1500.0, 1100.0, 7500.0, 5210.0, 448.0, 1000.0, 7500.0, 4815.0, 2465.0, 12.0)
+    createDefaultRow(1),
+    createDefaultRow(2)
   ]);
 
-  // Handle table generation
   const handleGenerateTable = () => {
-    const count = Math.max(1, Math.min(20, numObsInput));
+    let c = parseInt(String(numObsInput));
+    if (isNaN(c)) c = 1;
+    const count = Math.max(1, Math.min(20, c));
     const newRows: SRObservation[] = [];
     for (let i = 1; i <= count; i++) {
-      newRows.push(computeRowValues(i, 1500.0, 1100.0, 7500.0, 5200.0, 450.0, 1000.0, 7500.0, 4800.0, 2450.0, 12.5));
+      newRows.push(createDefaultRow(i));
     }
     setObservations(newRows);
     setTableGenerated(true);
     onShowToast(`Generated observation table with ${count} field trials.`);
   };
 
-  // Real-time live cell editing
   const handleCellEdit = (
     obsNo: number, 
-    field: 'w1' | 'w2' | 'w3' | 'w4' | 'sandInCone' | 'v1' | 'w7' | 'w8' | 'w9' | 'moisture', 
-    val: number
+    field: keyof SRObservation, 
+    val: string
   ) => {
     setObservations(prev => prev.map(obs => {
       if (obs.obsNo !== obsNo) return obs;
-      const w1 = field === 'w1' ? val : obs.w1;
-      const w2 = field === 'w2' ? val : obs.w2;
-      const w3 = field === 'w3' ? val : obs.w3;
-      const w4 = field === 'w4' ? val : obs.w4;
-      const sandInCone = field === 'sandInCone' ? val : obs.sandInCone;
-      const v1 = field === 'v1' ? val : obs.v1;
-
-      const w7 = field === 'w7' ? val : obs.w7;
-      const w8 = field === 'w8' ? val : obs.w8;
-      const w9 = field === 'w9' ? val : obs.w9;
-      const moisture = field === 'moisture' ? val : obs.moisture;
-
-      return computeRowValues(obsNo, w1, w2, w3, w4, sandInCone, v1, w7, w8, w9, moisture);
+      
+      const newObs = { ...obs, [field]: val };
+      return computeRowValues(
+        obsNo,
+        newObs.w1, newObs.w2, newObs.w3, newObs.w4, newObs.w5, newObs.v1,
+        newObs.w7, newObs.w8, newObs.w9,
+        newObs.cupNo, newObs.w10, newObs.w11, newObs.w12, newObs.g
+      );
     }));
   };
 
   const handleAddRow = () => {
     const idx = observations.length + 1;
-    const newObs = computeRowValues(idx, 1500.0, 1100.0, 7500.0, 5200.0, 450.0, 1000.0, 7500.0, 4800.0, 2450.0, 12.5);
+    const newObs = createDefaultRow(idx);
     setObservations(prev => [...prev, newObs]);
     setNumObsInput(idx);
     onShowToast(`Added Observation #${idx}`);
@@ -136,7 +210,9 @@ export const SandReplacementPage: React.FC<SandReplacementPageProps> = ({ experi
 
   const handleDeleteRow = (obsNo: number) => {
     setObservations(prev => {
-      const filtered = prev.filter(o => o.obsNo !== obsNo).map((o, i) => computeRowValues(i + 1, o.w1, o.w2, o.w3, o.w4, o.sandInCone, o.v1, o.w7, o.w8, o.w9, o.moisture));
+      const filtered = prev.filter(o => o.obsNo !== obsNo).map((o, i) => computeRowValues(
+        i + 1, o.w1, o.w2, o.w3, o.w4, o.w5, o.v1, o.w7, o.w8, o.w9, o.cupNo, o.w10, o.w11, o.w12, o.g
+      ));
       setNumObsInput(filtered.length);
       return filtered;
     });
@@ -145,84 +221,85 @@ export const SandReplacementPage: React.FC<SandReplacementPageProps> = ({ experi
 
   const handleReset = () => {
     setRegdNo('REG-2026-SR01');
-    setObservations([
-      computeRowValues(1, 1500.0, 1100.0, 7500.0, 5200.0, 450.0, 1000.0, 7500.0, 4800.0, 2450.0, 12.5),
-      computeRowValues(2, 1500.0, 1100.0, 7500.0, 5210.0, 448.0, 1000.0, 7500.0, 4815.0, 2465.0, 12.0)
-    ]);
+    setObservations([createDefaultRow(1), createDefaultRow(2)]);
     setNumObsInput(2);
     setTableGenerated(true);
-    onShowToast('Reset to initial Sand Replacement dataset.');
+    onShowToast('Reset to initial dataset.');
   };
 
-  // Export Excel matching exact 17 Python script columns
   const handleExportExcel = () => {
     let csvContent = "data:text/csv;charset=utf-8,";
-    // 17 EXACT COLUMNS FROM PYTHON CODE
-    csvContent += "Regd. No.,Observation No.,Weight of Sand Pouring Cylinder W1 (g),Weight of Empty Receiver W2 (g),Weight of Cylinder + Sand before Filling Receiver W3 (g),Weight of Cylinder + Sand after Filling Receiver W4 (g),Volume of Receiver V1 (cc),Bulk Density of Sand γs (g/cc),Sand in Cone Portion (g),Weight of Cylinder + Sand before Filling Hole W7 (g),Weight of Cylinder + Sand after Filling Hole W8 (g),Weight of Excavated Soil W9 (g),Moisture Content (%),Weight of Sand in Hole (g),Volume of Hole (cc),Wet Density (g/cc),Dry Density (g/cc)\n";
+    
+    csvContent += "Regd. No.,Observation No.,Weight of Cylinder W1 (g),Weight of Container W2 (g),Weight Cylinder Full Sand W3 (g),Weight Cylinder + Rem. Sand W4 (g),Weight Receiver + Sand W5 (g),Volume Receiver V1 (cc),Weight Sand Receiver (g),Density Sand γs (g/cc),Sand in Cone (g),Weight Cylinder + Sand Field W7 (g),Weight Cylinder After Hole W8 (g),Weight Excavated Soil W9 (g),Sand in Hole (g),Volume Hole (cc),Bulk Density (g/cc),Cup No.,Weight Cup+Wet Soil W10 (g),Weight Cup+Dry Soil W11 (g),Weight Cup W12 (g),Water Content (%),Dry Density (g/cc),Specific Gravity G,Void Ratio\n";
+
+    const fmt = (v: any) => {
+        if (v === '-' || v === null || v === '') return '';
+        if (typeof v === 'number') return v.toString();
+        const num = Number(v);
+        return isNaN(num) ? v.toString() : num.toString();
+    };
 
     observations.forEach(o => {
-      csvContent += `${regdNo},${o.obsNo},${o.w1.toFixed(3)},${o.w2.toFixed(3)},${o.w3.toFixed(3)},${o.w4.toFixed(3)},${o.v1.toFixed(3)},${o.densitySand.toFixed(4)},${o.sandInCone.toFixed(3)},${o.w7.toFixed(3)},${o.w8.toFixed(3)},${o.w9.toFixed(3)},${o.moisture.toFixed(2)},${o.sandInHole.toFixed(3)},${o.volumeHole.toFixed(3)},${o.wetDensity.toFixed(4)},${o.dryDensity.toFixed(4)}\n`;
+      csvContent += `${regdNo},${o.obsNo},${fmt(o.w1)},${fmt(o.w2)},${fmt(o.w3)},${fmt(o.w4)},${fmt(o.w5)},${fmt(o.v1)},${fmt(o.sandInReceiver)},${fmt(o.densitySand)},${fmt(o.sandInCone)},${fmt(o.w7)},${fmt(o.w8)},${fmt(o.w9)},${fmt(o.sandInHole)},${fmt(o.volumeHole)},${fmt(o.bulkDensity)},${fmt(o.cupNo)},${fmt(o.w10)},${fmt(o.w11)},${fmt(o.w12)},${fmt(o.waterContent)},${fmt(o.dryDensity)},${fmt(o.g)},${fmt(o.voidRatio)}\n`;
     });
 
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement("a");
     link.setAttribute("href", encodedUri);
-    link.setAttribute("download", "Sand_Replacement_Test_Results.csv");
+    link.setAttribute("download", "Sand_Replacement_Results.csv");
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
 
-    onShowToast("Exported to Sand_Replacement_Test_Results.csv matching Python openpyxl format!");
+    onShowToast("Exported to Sand_Replacement_Results.csv matching specifications.");
   };
 
   return (
     <div className="space-y-6 animate-in fade-in duration-200">
-      {/* BREADCRUMB & HEADER */}
       <div className="flex flex-col gap-2 border-b border-slate-200 dark:border-slate-800 pb-4">
-        <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+        <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
           <button onClick={onBack} className="hover:underline flex items-center gap-1">
-            <ArrowLeft className="w-3.5 h-3.5" />
+            <ArrowLeft className="w-4 h-4" />
             Dashboard
           </button>
-          <ChevronRight className="w-3.5 h-3.5" />
+          <ChevronRight className="w-4 h-4" />
           <span className="font-semibold text-amber-600 dark:text-amber-400">Sand Replacement Method</span>
         </div>
 
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight flex items-center gap-3">
+            <h1 className="text-3xl font-bold text-slate-900 dark:text-white tracking-tight flex items-center gap-3">
               <span>[07]</span>
-              <span>Sand Replacement Method Test</span>
-              <span className="text-xs font-semibold bg-amber-50 dark:bg-amber-950 text-amber-600 dark:text-amber-400 px-2.5 py-1 rounded-full border border-amber-200 dark:border-amber-800 flex items-center gap-1">
-                <CheckCircle2 className="w-3.5 h-3.5" />
-                <span>IS 2720 Part 28 / ASTM D1556</span>
+              <span>Sand Replacement Method</span>
+              <span className="text-sm font-semibold bg-amber-50 dark:bg-amber-950 text-amber-600 dark:text-amber-400 px-3 py-1.5 rounded-full border border-amber-200 dark:border-amber-800 flex items-center gap-1">
+                <CheckCircle2 className="w-4 h-4" />
+                <span>IS 2720 (Part 28) - 1974</span>
               </span>
             </h1>
-            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-              Determine the in-situ density of soil using the Sand Replacement Method.
+            <p className="text-sm text-slate-500 dark:text-slate-400 mt-2">
+              Determine the field/in-situ density of soil using the Sand Replacement Method.
             </p>
           </div>
 
           <button
             onClick={onBack}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 text-xs font-semibold hover:bg-slate-50 dark:hover:bg-slate-800"
+            className="flex items-center gap-1.5 px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800"
           >
-            <ArrowLeft className="w-3.5 h-3.5" />
+            <ArrowLeft className="w-4 h-4" />
             <span>Back to Dashboard</span>
           </button>
         </div>
       </div>
 
-      {/* 1. TEST INFORMATION CARD */}
       <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-soft space-y-4">
-        <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2 border-b border-slate-100 dark:border-slate-800 pb-3">
-          <TableIcon className="w-4 h-4 text-amber-600" />
+        <h3 className="text-base font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2 border-b border-slate-100 dark:border-slate-800 pb-3">
+          <TableIcon className="w-5 h-5 text-amber-600" />
           Test Information
         </h3>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-end">
-          <div className="flex flex-col gap-1">
-            <label className="text-xs font-semibold text-slate-600 dark:text-slate-300">
+          <div className="flex flex-col gap-1.5">
+            <label className="text-sm font-semibold text-slate-600 dark:text-slate-300">
               Registration Number
             </label>
             <input
@@ -230,130 +307,85 @@ export const SandReplacementPage: React.FC<SandReplacementPageProps> = ({ experi
               value={regdNo}
               onChange={(e) => setRegdNo(e.target.value)}
               placeholder="REG-2026-SR01"
-              className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-xs font-semibold text-slate-900 dark:text-white outline-none focus:border-amber-600"
+              className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-base font-semibold text-slate-900 dark:text-white outline-none focus:border-amber-600"
             />
           </div>
 
-          <div className="flex flex-col gap-1">
-            <label className="text-xs font-semibold text-slate-600 dark:text-slate-300">
+          <div className="flex flex-col gap-1.5">
+            <label className="text-sm font-semibold text-slate-600 dark:text-slate-300">
               Number of Observations
             </label>
             <input
-              type="number"
-              min="1"
-              max="20"
+              type="text"
               value={numObsInput}
-              onChange={(e) => setNumObsInput(parseInt(e.target.value) || 1)}
-              className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-xs font-bold text-slate-900 dark:text-white outline-none focus:border-amber-600 text-center"
+              onChange={(e) => setNumObsInput(e.target.value)}
+              className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-base font-bold text-slate-900 dark:text-white outline-none focus:border-amber-600 text-center"
             />
           </div>
 
           <button
             onClick={handleGenerateTable}
-            className="flex items-center justify-center gap-2 bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs py-2.5 rounded-xl shadow-md shadow-amber-600/20 transition-all hover:scale-102 col-span-2 sm:col-span-1"
+            className="flex items-center justify-center gap-2 bg-amber-600 hover:bg-amber-700 text-white font-bold text-base py-2.5 rounded-xl shadow-md shadow-amber-600/20 transition-all col-span-2 sm:col-span-1"
           >
-            <TableIcon className="w-4 h-4" />
-            <span>Generate Table</span>
+            <TableIcon className="w-5 h-5" />
+            <span>Generate Setup</span>
           </button>
         </div>
       </div>
 
       {tableGenerated && (
         <div className="space-y-6">
-          {/* 2. STAGE 1: CALIBRATION SECTION */}
-          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-5 shadow-soft space-y-4">
+          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-soft space-y-4">
             <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
-              <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
-                <Sliders className="w-4 h-4 text-blue-600" />
-                Stage 1: Calibration (Sand Bulk Density Determination)
+              <h3 className="text-base font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
+                <Sliders className="w-5 h-5 text-blue-600" />
+                Section 1 — Calibration Data
               </h3>
-              <span className="text-[11px] font-semibold text-blue-600 bg-blue-50 dark:bg-blue-950 px-2.5 py-1 rounded-full">
-                Receiver Vol = {observations[0]?.v1 || 1000} cc
-              </span>
+              <button
+                onClick={handleAddRow}
+                className="flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 font-bold text-sm px-4 py-2 rounded-xl transition-all"
+              >
+                <Plus className="w-4 h-4" />
+                <span>Add Record</span>
+              </button>
             </div>
-
+            
             <div className="overflow-x-auto">
-              <table className="w-full text-left text-xs border-collapse min-w-[980px]">
+              <table className="w-full text-left text-sm border-collapse min-w-[1000px]">
                 <thead>
-                  <tr className="bg-blue-50/80 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 font-bold border-b border-blue-200 dark:border-blue-800 text-[11px] uppercase tracking-wider">
-                    <th className="p-2.5 border-r border-blue-200 dark:border-blue-800">Obs</th>
-                    <th className="p-2.5">W1 (Cylinder) (g)</th>
-                    <th className="p-2.5">W2 (Receiver) (g)</th>
-                    <th className="p-2.5">W3 (Cyl + Sand Pre) (g)</th>
-                    <th className="p-2.5">W4 (Cyl + Sand Post) (g)</th>
-                    <th className="p-2.5">Sand in Cone (g)</th>
-                    <th className="p-2.5">V1 (Receiver cc)</th>
-                    <th className="p-2.5 bg-blue-100/50 dark:bg-blue-950/60 font-extrabold text-blue-900 dark:text-blue-200">Sand Receiver Wt (g)</th>
-                    <th className="p-2.5 bg-blue-200/50 dark:bg-blue-900/60 text-right font-extrabold text-blue-900 dark:text-blue-100">Density of Sand γs (g/cc)</th>
+                  <tr className="bg-blue-50/80 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 font-bold border-b border-blue-200 dark:border-blue-800 text-sm uppercase tracking-wider">
+                    <th className="p-3 border-r border-blue-200 dark:border-blue-800">Obs</th>
+                    <th className="p-3">W1 (Cyl) (g)</th>
+                    <th className="p-3">W2 (Container) (g)</th>
+                    <th className="p-3">W3 (Cyl+Sand Pre) (g)</th>
+                    <th className="p-3">W4 (Cyl+Sand Post) (g)</th>
+                    <th className="p-3">W5 (Rec+Sand) (g)</th>
+                    <th className="p-3">V1 (Rec Vol) (cc)</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-100 dark:divide-slate-800 font-mono text-[11px]">
+                <tbody className="divide-y divide-slate-100 dark:divide-slate-800 font-mono text-base">
                   {observations.map((obs) => (
                     <tr key={obs.obsNo} className="hover:bg-slate-50/60 dark:hover:bg-slate-800/40 transition-colors">
-                      <td className="p-2.5 font-bold text-slate-900 dark:text-white border-r border-slate-100 dark:border-slate-800">
+                      <td className="p-3 font-bold text-slate-900 dark:text-white border-r border-slate-100 dark:border-slate-800">
                         Obs-{obs.obsNo}
                       </td>
                       <td className="p-2">
-                        <input
-                          type="number"
-                          step="0.1"
-                          value={obs.w1}
-                          onChange={(e) => handleCellEdit(obs.obsNo, 'w1', parseFloat(e.target.value) || 0)}
-                          className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1 text-xs outline-none focus:border-blue-600 w-full"
-                        />
+                        <input type="text" value={obs.w1} onChange={(e) => handleCellEdit(obs.obsNo, 'w1', e.target.value)} className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1.5 outline-none focus:border-blue-600 w-full" />
                       </td>
                       <td className="p-2">
-                        <input
-                          type="number"
-                          step="0.1"
-                          value={obs.w2}
-                          onChange={(e) => handleCellEdit(obs.obsNo, 'w2', parseFloat(e.target.value) || 0)}
-                          className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1 text-xs outline-none focus:border-blue-600 w-full"
-                        />
+                        <input type="text" value={obs.w2} onChange={(e) => handleCellEdit(obs.obsNo, 'w2', e.target.value)} className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1.5 outline-none focus:border-blue-600 w-full" />
                       </td>
                       <td className="p-2">
-                        <input
-                          type="number"
-                          step="0.1"
-                          value={obs.w3}
-                          onChange={(e) => handleCellEdit(obs.obsNo, 'w3', parseFloat(e.target.value) || 0)}
-                          className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1 text-xs outline-none focus:border-blue-600 w-full"
-                        />
+                        <input type="text" value={obs.w3} onChange={(e) => handleCellEdit(obs.obsNo, 'w3', e.target.value)} className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1.5 outline-none focus:border-blue-600 w-full" />
                       </td>
                       <td className="p-2">
-                        <input
-                          type="number"
-                          step="0.1"
-                          value={obs.w4}
-                          onChange={(e) => handleCellEdit(obs.obsNo, 'w4', parseFloat(e.target.value) || 0)}
-                          className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1 text-xs outline-none focus:border-blue-600 w-full"
-                        />
+                        <input type="text" value={obs.w4} onChange={(e) => handleCellEdit(obs.obsNo, 'w4', e.target.value)} className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1.5 outline-none focus:border-blue-600 w-full" />
                       </td>
                       <td className="p-2">
-                        <input
-                          type="number"
-                          step="0.1"
-                          value={obs.sandInCone}
-                          onChange={(e) => handleCellEdit(obs.obsNo, 'sandInCone', parseFloat(e.target.value) || 0)}
-                          className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1 text-xs outline-none focus:border-blue-600 w-full"
-                        />
+                        <input type="text" value={obs.w5} onChange={(e) => handleCellEdit(obs.obsNo, 'w5', e.target.value)} className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1.5 outline-none focus:border-blue-600 w-full" />
                       </td>
                       <td className="p-2">
-                        <input
-                          type="number"
-                          step="0.1"
-                          value={obs.v1}
-                          onChange={(e) => handleCellEdit(obs.obsNo, 'v1', parseFloat(e.target.value) || 0)}
-                          className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1 text-xs outline-none focus:border-blue-600 w-full"
-                        />
-                      </td>
-
-                      <td className="p-2.5 bg-blue-50 dark:bg-blue-950/30 text-blue-800 dark:text-blue-200 font-bold">
-                        {obs.weightSandReceiver.toFixed(3)} g
-                      </td>
-
-                      <td className="p-2.5 bg-blue-100/60 dark:bg-blue-950/60 text-right font-extrabold text-blue-900 dark:text-blue-100">
-                        {obs.densitySand.toFixed(4)} g/cc
+                        <input type="text" value={obs.v1} onChange={(e) => handleCellEdit(obs.obsNo, 'v1', e.target.value)} className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1.5 outline-none focus:border-blue-600 w-full" />
                       </td>
                     </tr>
                   ))}
@@ -362,117 +394,86 @@ export const SandReplacementPage: React.FC<SandReplacementPageProps> = ({ experi
             </div>
           </div>
 
-          {/* 3. STAGE 2: FIELD DENSITY SECTION */}
-          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-5 shadow-soft space-y-4">
+          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-soft space-y-4">
             <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
-              <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
-                <Layers className="w-4 h-4 text-amber-600" />
-                Stage 2: Field Density (In-Situ Soil Density Determination)
+              <h3 className="text-base font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
+                <Layers className="w-5 h-5 text-amber-600" />
+                Section 2 — Field Test Data
               </h3>
-
-              <button
-                onClick={handleAddRow}
-                className="flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 font-bold text-xs px-3 py-1.5 rounded-xl transition-all"
-              >
-                <Plus className="w-3.5 h-3.5" />
-                <span>+ Add Row</span>
-              </button>
             </div>
-
+            
             <div className="overflow-x-auto">
-              <table className="w-full text-left text-xs border-collapse min-w-[1100px]">
+              <table className="w-full text-left text-sm border-collapse min-w-[700px]">
                 <thead>
-                  <tr className="bg-amber-50/80 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300 font-bold border-b border-amber-200 dark:border-amber-800 text-[11px] uppercase tracking-wider">
-                    <th className="p-2.5 border-r border-amber-200 dark:border-amber-800">Obs</th>
-                    <th className="p-2.5">W7 (Cyl + Sand Pre Hole) (g)</th>
-                    <th className="p-2.5">W8 (Cyl + Sand Post Hole) (g)</th>
-                    <th className="p-2.5">W9 (Excavated Soil) (g)</th>
-                    <th className="p-2.5">Moisture Content (%)</th>
-                    <th className="p-2.5 bg-amber-100/40 dark:bg-amber-950/30">Sand in Hole (g)</th>
-                    <th className="p-2.5 bg-amber-100/40 dark:bg-amber-950/30">Volume of Hole (cc)</th>
-                    <th className="p-2.5 bg-amber-100/40 dark:bg-amber-950/30">Wet Density (g/cc)</th>
-                    <th className="p-2.5 bg-amber-200/60 dark:bg-amber-950/70 text-right font-extrabold text-amber-950 dark:text-amber-100">Dry Density (g/cc)</th>
-                    <th className="p-2.5 text-center">Action</th>
+                  <tr className="bg-amber-50/80 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300 font-bold border-b border-amber-200 dark:border-amber-800 text-sm uppercase tracking-wider">
+                    <th className="p-3 border-r border-amber-200 dark:border-amber-800">Obs</th>
+                    <th className="p-3">W7 (Cyl+Sand Pre Hole) (g)</th>
+                    <th className="p-3">W8 (Cyl+Sand Post Hole) (g)</th>
+                    <th className="p-3">W9 (Excavated Soil) (g)</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-100 dark:divide-slate-800 font-mono text-[11px]">
+                <tbody className="divide-y divide-slate-100 dark:divide-slate-800 font-mono text-base">
                   {observations.map((obs) => (
                     <tr key={obs.obsNo} className="hover:bg-slate-50/60 dark:hover:bg-slate-800/40 transition-colors">
-                      <td className="p-2.5 font-bold text-slate-900 dark:text-white border-r border-slate-100 dark:border-slate-800">
+                      <td className="p-3 font-bold text-slate-900 dark:text-white border-r border-slate-100 dark:border-slate-800">
                         Obs-{obs.obsNo}
                       </td>
-
-                      {/* W7 */}
                       <td className="p-2">
-                        <input
-                          type="number"
-                          step="0.1"
-                          value={obs.w7}
-                          onChange={(e) => handleCellEdit(obs.obsNo, 'w7', parseFloat(e.target.value) || 0)}
-                          className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1 text-xs outline-none focus:border-amber-600 w-full shadow-inner"
-                        />
+                        <input type="text" value={obs.w7} onChange={(e) => handleCellEdit(obs.obsNo, 'w7', e.target.value)} className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1.5 outline-none focus:border-amber-600 w-full" />
                       </td>
-
-                      {/* W8 */}
                       <td className="p-2">
-                        <input
-                          type="number"
-                          step="0.1"
-                          value={obs.w8}
-                          onChange={(e) => handleCellEdit(obs.obsNo, 'w8', parseFloat(e.target.value) || 0)}
-                          className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1 text-xs outline-none focus:border-amber-600 w-full shadow-inner"
-                        />
+                        <input type="text" value={obs.w8} onChange={(e) => handleCellEdit(obs.obsNo, 'w8', e.target.value)} className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1.5 outline-none focus:border-amber-600 w-full" />
                       </td>
-
-                      {/* W9 */}
                       <td className="p-2">
-                        <input
-                          type="number"
-                          step="0.1"
-                          value={obs.w9}
-                          onChange={(e) => handleCellEdit(obs.obsNo, 'w9', parseFloat(e.target.value) || 0)}
-                          className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1 text-xs outline-none focus:border-amber-600 w-full shadow-inner"
-                        />
+                        <input type="text" value={obs.w9} onChange={(e) => handleCellEdit(obs.obsNo, 'w9', e.target.value)} className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1.5 outline-none focus:border-amber-600 w-full" />
                       </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
 
-                      {/* MOISTURE */}
+          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-soft space-y-4">
+            <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
+              <h3 className="text-base font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
+                <Droplets className="w-5 h-5 text-emerald-600" />
+                Section 3 — Water Content
+              </h3>
+            </div>
+            
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-sm border-collapse min-w-[900px]">
+                <thead>
+                  <tr className="bg-emerald-50/80 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-300 font-bold border-b border-emerald-200 dark:border-emerald-800 text-sm uppercase tracking-wider">
+                    <th className="p-3 border-r border-emerald-200 dark:border-emerald-800">Obs</th>
+                    <th className="p-3">Cup No</th>
+                    <th className="p-3">W10 (Cup+Wet) (g)</th>
+                    <th className="p-3">W11 (Cup+Dry) (g)</th>
+                    <th className="p-3">W12 (Cup) (g)</th>
+                    <th className="p-3">G (Spec. Grav)</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100 dark:divide-slate-800 font-mono text-base">
+                  {observations.map((obs) => (
+                    <tr key={obs.obsNo} className="hover:bg-slate-50/60 dark:hover:bg-slate-800/40 transition-colors">
+                      <td className="p-3 font-bold text-slate-900 dark:text-white border-r border-slate-100 dark:border-slate-800">
+                        Obs-{obs.obsNo}
+                      </td>
                       <td className="p-2">
-                        <input
-                          type="number"
-                          step="0.01"
-                          value={obs.moisture}
-                          onChange={(e) => handleCellEdit(obs.obsNo, 'moisture', parseFloat(e.target.value) || 0)}
-                          className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1 text-xs outline-none focus:border-amber-600 w-full shadow-inner"
-                        />
+                        <input type="text" value={obs.cupNo} onChange={(e) => handleCellEdit(obs.obsNo, 'cupNo', e.target.value)} className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1.5 outline-none focus:border-emerald-600 w-full" />
                       </td>
-
-                      {/* CALCULATED FIELDS */}
-                      <td className="p-2.5 bg-slate-50 dark:bg-slate-800/40 text-slate-700 dark:text-slate-300">
-                        {obs.sandInHole.toFixed(3)} g
+                      <td className="p-2">
+                        <input type="text" value={obs.w10} onChange={(e) => handleCellEdit(obs.obsNo, 'w10', e.target.value)} className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1.5 outline-none focus:border-emerald-600 w-full" />
                       </td>
-
-                      <td className="p-2.5 bg-slate-50 dark:bg-slate-800/40 text-slate-700 dark:text-slate-300">
-                        {obs.volumeHole.toFixed(3)} cc
+                      <td className="p-2">
+                        <input type="text" value={obs.w11} onChange={(e) => handleCellEdit(obs.obsNo, 'w11', e.target.value)} className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1.5 outline-none focus:border-emerald-600 w-full" />
                       </td>
-
-                      <td className="p-2.5 bg-slate-50 dark:bg-slate-800/40 text-slate-700 dark:text-slate-300">
-                        {obs.wetDensity.toFixed(4)} g/cc
+                      <td className="p-2">
+                        <input type="text" value={obs.w12} onChange={(e) => handleCellEdit(obs.obsNo, 'w12', e.target.value)} className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1.5 outline-none focus:border-emerald-600 w-full" />
                       </td>
-
-                      {/* DRY DENSITY */}
-                      <td className="p-2.5 bg-amber-100/50 dark:bg-amber-950/60 text-right font-extrabold text-amber-800 dark:text-amber-200">
-                        {obs.dryDensity.toFixed(4)} g/cc
-                      </td>
-
-                      {/* DELETE */}
-                      <td className="p-2.5 text-center">
-                        <button
-                          onClick={() => handleDeleteRow(obs.obsNo)}
-                          className="text-slate-400 hover:text-red-500 p-1 rounded transition-colors"
-                          title="Delete Trial"
-                        >
-                          <Trash2 className="w-4 h-4" />
-                        </button>
+                      <td className="p-2">
+                        <input type="text" value={obs.g} onChange={(e) => handleCellEdit(obs.obsNo, 'g', e.target.value)} className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1.5 outline-none focus:border-emerald-600 w-full" />
                       </td>
                     </tr>
                   ))}
@@ -483,76 +484,129 @@ export const SandReplacementPage: React.FC<SandReplacementPageProps> = ({ experi
         </div>
       )}
 
-      {/* 4. CALCULATION DETAILS CARD */}
-      <div className="bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-xl p-5 shadow-soft space-y-3">
-        <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2 border-b border-slate-200 dark:border-slate-700 pb-2">
-          <Calculator className="w-4 h-4 text-amber-600" />
-          Calculation Details & Governing Formulas
+      <div className="bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-xl p-6 shadow-soft space-y-4">
+        <h4 className="text-base font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2 border-b border-slate-200 dark:border-slate-700 pb-3">
+          <Calculator className="w-5 h-5 text-amber-600" />
+          Calculation Details
         </h4>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
-          <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl">
-            <span className="font-semibold text-slate-500 dark:text-slate-400 block text-[11px]">Sand Filling Receiver</span>
-            <code className="text-xs font-bold text-blue-600 dark:text-blue-400 font-mono block mt-1">
-              = W3 − W4 − Sand in Cone
-            </code>
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 text-sm">
+          <div className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl space-y-2">
+            <span className="font-bold text-slate-700 dark:text-slate-300 block">Sand in Receiver</span>
+            <code className="text-sm font-bold text-blue-600 dark:text-blue-400 font-mono block">Sand in Receiver = W5 - W2</code>
+            <div className="text-xs text-slate-500">
+              Result: {observations[0]?.sandInReceiver} g
+            </div>
           </div>
 
-          <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl">
-            <span className="font-semibold text-slate-500 dark:text-slate-400 block text-[11px]">Bulk Density of Sand (γs)</span>
-            <code className="text-xs font-bold text-blue-600 dark:text-blue-400 font-mono block mt-1">
-              = Receiver Sand Wt ÷ V1
-            </code>
+          <div className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl space-y-2">
+            <span className="font-bold text-slate-700 dark:text-slate-300 block">Density of Sand (γs)</span>
+            <code className="text-sm font-bold text-blue-600 dark:text-blue-400 font-mono block">γs = (W5 - W2) / V1</code>
+            <div className="text-xs text-slate-500">
+              Result: {observations[0]?.densitySand} g/cc
+            </div>
           </div>
 
-          <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl">
-            <span className="font-semibold text-slate-500 dark:text-slate-400 block text-[11px]">Volume of Hole</span>
-            <code className="text-xs font-bold text-amber-600 dark:text-amber-400 font-mono block mt-1">
-              = Sand in Hole ÷ γs
-            </code>
+          <div className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl space-y-2">
+            <span className="font-bold text-slate-700 dark:text-slate-300 block">Sand in Cone</span>
+            <code className="text-sm font-bold text-blue-600 dark:text-blue-400 font-mono block">Sand in Cone =<br/>(W3 - W1) - (W4 - W1) - (W5 - W2)</code>
+            <div className="text-xs text-slate-500">
+              Result: {observations[0]?.sandInCone} g
+            </div>
           </div>
 
-          <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl">
-            <span className="font-semibold text-slate-500 dark:text-slate-400 block text-[11px]">Dry Density</span>
-            <code className="text-xs font-bold text-amber-600 dark:text-amber-400 font-mono block mt-1">
-              = Wet Density ÷ (1 + w / 100)
-            </code>
+          <div className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl space-y-2">
+            <span className="font-bold text-slate-700 dark:text-slate-300 block">Sand in Hole</span>
+            <code className="text-sm font-bold text-amber-600 dark:text-amber-400 font-mono block">Sand in Hole =<br/>(W7 - W8) - Sand in Cone</code>
+            <div className="text-xs text-slate-500">
+              Result: {observations[0]?.sandInHole} g
+            </div>
+          </div>
+
+          <div className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl space-y-2">
+            <span className="font-bold text-slate-700 dark:text-slate-300 block">Volume of Hole</span>
+            <code className="text-sm font-bold text-amber-600 dark:text-amber-400 font-mono block">V2 = Sand in Hole / γs</code>
+            <div className="text-xs text-slate-500">
+              Result: {observations[0]?.volumeHole} cc
+            </div>
+          </div>
+
+          <div className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl space-y-2">
+            <span className="font-bold text-slate-700 dark:text-slate-300 block">Bulk Density (γ)</span>
+            <code className="text-sm font-bold text-amber-600 dark:text-amber-400 font-mono block">γ = W9 / V2</code>
+            <div className="text-xs text-slate-500">
+              Result: {observations[0]?.bulkDensity} g/cc
+            </div>
+          </div>
+
+          <div className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl space-y-2">
+            <span className="font-bold text-slate-700 dark:text-slate-300 block">Water Content (w)</span>
+            <code className="text-sm font-bold text-emerald-600 dark:text-emerald-400 font-mono block">w = ((W10 - W11) / (W11 - W12)) × 100</code>
+            <div className="text-xs text-slate-500">
+              Result: {observations[0]?.waterContent} %
+            </div>
+          </div>
+
+          <div className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl space-y-2">
+            <span className="font-bold text-slate-700 dark:text-slate-300 block">Dry Density (γd)</span>
+            <code className="text-sm font-bold text-purple-600 dark:text-purple-400 font-mono block">γd = γ / (1 + w / 100)</code>
+            <div className="text-xs text-slate-500">
+              Result: {observations[0]?.dryDensity} g/cc
+            </div>
+          </div>
+
+          <div className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl space-y-2">
+            <span className="font-bold text-slate-700 dark:text-slate-300 block">In-situ Void Ratio (e)</span>
+            <code className="text-sm font-bold text-rose-600 dark:text-rose-400 font-mono block">e = (G / γd) - 1</code>
+            <div className="text-xs text-slate-500">
+              Result: {observations[0]?.voidRatio}
+            </div>
           </div>
         </div>
       </div>
 
-      {/* 5. FINAL RESULTS PANEL MATCHING PYTHON CLI OUTPUT */}
       <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-soft space-y-4">
-        <h3 className="text-xs font-extrabold text-slate-900 dark:text-white uppercase tracking-wider border-b border-slate-100 dark:border-slate-800 pb-3 flex items-center gap-2">
-          <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+        <h3 className="text-base font-extrabold text-slate-900 dark:text-white uppercase tracking-wider border-b border-slate-100 dark:border-slate-800 pb-3 flex items-center gap-2">
+          <CheckCircle2 className="w-5 h-5 text-emerald-600" />
           FINAL RESULTS
         </h3>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="space-y-6">
           {observations.map((obs) => (
             <div 
               key={obs.obsNo}
-              className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700/80 space-y-3"
+              className="p-5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700/80 space-y-4"
             >
-              <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-700 pb-2">
-                <span className="font-bold text-slate-900 dark:text-white text-xs">Observation {obs.obsNo}</span>
-                <span className="text-xs font-semibold text-blue-600 dark:text-blue-400">
-                  Sand Density γs = {obs.densitySand.toFixed(4)} g/cc
-                </span>
+              <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-700 pb-3">
+                <span className="font-bold text-slate-900 dark:text-white text-sm">Observation {obs.obsNo}</span>
+                <button onClick={() => handleDeleteRow(obs.obsNo)} className="text-slate-400 hover:text-red-500 transition-colors">
+                  <Trash2 className="w-4 h-4" />
+                </button>
               </div>
 
-              <div className="grid grid-cols-3 gap-2 text-center text-xs font-mono">
-                <div className="p-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg">
-                  <span className="text-[10px] text-slate-400 block">Hole Volume</span>
-                  <span className="font-bold text-slate-700 dark:text-slate-300">{obs.volumeHole.toFixed(2)} cc</span>
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 text-center">
+                <div className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-sm border-b-2 border-b-amber-500">
+                  <span className="text-sm font-semibold text-slate-500 dark:text-slate-400 block mb-1">Dry Density</span>
+                  <span className="text-2xl font-extrabold text-amber-600 dark:text-amber-400">{obs.dryDensity !== '-' ? `${obs.dryDensity}` : '-'}</span>
+                  <span className="text-xs text-slate-400 block mt-1">g/cc</span>
                 </div>
-                <div className="p-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg">
-                  <span className="text-[10px] text-slate-400 block">Wet Density</span>
-                  <span className="font-bold text-blue-600">{obs.wetDensity.toFixed(4)} g/cc</span>
+                
+                <div className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-sm">
+                  <span className="text-sm font-semibold text-slate-500 dark:text-slate-400 block mb-1">Bulk Density</span>
+                  <span className="text-xl font-bold text-blue-600 dark:text-blue-400">{obs.bulkDensity !== '-' ? `${obs.bulkDensity}` : '-'}</span>
+                  <span className="text-xs text-slate-400 block mt-1">g/cc</span>
                 </div>
-                <div className="p-2 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800 rounded-lg">
-                  <span className="text-[10px] text-amber-600 dark:text-amber-400 font-bold block">Dry Density</span>
-                  <span className="font-extrabold text-amber-700 dark:text-amber-300">{obs.dryDensity.toFixed(4)} g/cc</span>
+
+                <div className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-sm">
+                  <span className="text-sm font-semibold text-slate-500 dark:text-slate-400 block mb-1">Water Content</span>
+                  <span className="text-xl font-bold text-emerald-600 dark:text-emerald-400">{obs.waterContent !== '-' ? `${obs.waterContent}` : '-'}</span>
+                  <span className="text-xs text-slate-400 block mt-1">%</span>
+                </div>
+
+                <div className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-sm">
+                  <span className="text-sm font-semibold text-slate-500 dark:text-slate-400 block mb-1">In-situ Void Ratio</span>
+                  <span className="text-xl font-bold text-purple-600 dark:text-purple-400">{obs.voidRatio !== '-' ? `${obs.voidRatio}` : '-'}</span>
+                  <span className="text-xs text-slate-400 block mt-1">-</span>
                 </div>
               </div>
             </div>
@@ -560,22 +614,21 @@ export const SandReplacementPage: React.FC<SandReplacementPageProps> = ({ experi
         </div>
       </div>
 
-      {/* 6. BOTTOM ACTION BUTTONS */}
       <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-4 flex flex-wrap items-center justify-between gap-4 shadow-soft">
         <div className="flex items-center gap-3">
           <button
-            onClick={() => onShowToast('Sand Replacement test data saved!')}
-            className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-xl text-xs font-bold shadow-md shadow-blue-600/20 transition-all"
+            onClick={() => onShowToast('Test data saved!')}
+            className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-xl text-sm font-bold shadow-md shadow-blue-600/20 transition-all"
           >
-            <Save className="w-4 h-4" />
+            <Save className="w-5 h-5" />
             <span>Save</span>
           </button>
 
           <button
             onClick={handleReset}
-            className="flex items-center gap-2 border border-slate-200 dark:border-slate-700 px-4 py-2.5 rounded-xl text-xs font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
+            className="flex items-center gap-2 border border-slate-200 dark:border-slate-700 px-4 py-2.5 rounded-xl text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
           >
-            <RotateCcw className="w-4 h-4 text-slate-500" />
+            <RotateCcw className="w-5 h-5 text-slate-500" />
             <span>Reset</span>
           </button>
         </div>
@@ -583,17 +636,17 @@ export const SandReplacementPage: React.FC<SandReplacementPageProps> = ({ experi
         <div className="flex items-center gap-3">
           <button
             onClick={handleExportExcel}
-            className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2.5 rounded-xl text-xs font-bold shadow-md shadow-emerald-600/20 transition-all"
+            className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2.5 rounded-xl text-sm font-bold shadow-md shadow-emerald-600/20 transition-all"
           >
-            <FileSpreadsheet className="w-4 h-4" />
+            <FileSpreadsheet className="w-5 h-5" />
             <span>Export Excel</span>
           </button>
 
           <button
             onClick={onBack}
-            className="flex items-center gap-2 border border-slate-200 dark:border-slate-700 px-4 py-2.5 rounded-xl text-xs font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
+            className="flex items-center gap-2 border border-slate-200 dark:border-slate-700 px-4 py-2.5 rounded-xl text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
           >
-            <ArrowLeft className="w-4 h-4 text-slate-500" />
+            <ArrowLeft className="w-5 h-5 text-slate-500" />
             <span>Back to Dashboard</span>
           </button>
         </div>
