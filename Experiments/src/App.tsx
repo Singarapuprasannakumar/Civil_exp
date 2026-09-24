@@ -25,6 +25,7 @@ export const AppContent: React.FC = () => {
   const location = useLocation();
   const [searchVal, setSearchVal] = useState('');
   const [toasts, setToasts] = useState<{ id: number; message: string }[]>([]);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   const showToast = (message: string) => {
     const id = Date.now();
@@ -60,6 +61,7 @@ export const AppContent: React.FC = () => {
       <Sidebar
         activeTab={activeTab}
         onSelectTab={handleSelectTab}
+        collapsed={!isSidebarOpen}
       />
 
       {/* ── MAIN COLUMN (everything to the right of sidebar) ── */}
@@ -69,6 +71,7 @@ export const AppContent: React.FC = () => {
         <TopHeader
           searchVal={searchVal}
           setSearchVal={setSearchVal}
+          onToggleSidebar={() => setIsSidebarOpen(prev => !prev)}
         />
 
         {/* PAGE CONTENT — scrollable, full remaining height */}

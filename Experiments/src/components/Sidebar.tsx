@@ -29,7 +29,7 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   ShieldCheck
 };
 
-export const Sidebar: React.FC<SidebarProps> = ({ activeTab, onSelectTab }) => {
+export const Sidebar: React.FC<SidebarProps> = ({ activeTab, onSelectTab, collapsed }) => {
   const experimentsNav = [
     { num: '01', title: 'Moisture Content', icon: 'Droplet' },
     { num: '02', title: 'Specific Gravity', icon: 'Scale' },
@@ -50,7 +50,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, onSelectTab }) => {
   ];
 
   return (
-    <aside className="w-[280px] min-w-[280px] flex-shrink-0 bg-[#0F172A] text-slate-300 h-full flex flex-col p-4 select-none z-40 border-r border-slate-800 overflow-y-auto">
+    <aside className={`flex-shrink-0 bg-[#0F172A] text-slate-300 h-full flex flex-col select-none z-40 border-r border-slate-800 overflow-y-auto transition-all duration-300 ease-in-out ${collapsed ? 'w-0 min-w-0 p-0 overflow-hidden opacity-0 border-r-0' : 'w-[280px] min-w-[280px] p-4 opacity-100'}`}>
       {/* BRAND LOGO */}
       <div className="px-3 py-4 mb-2 flex items-center gap-3">
         <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center text-white shadow-lg shadow-blue-600/30">
