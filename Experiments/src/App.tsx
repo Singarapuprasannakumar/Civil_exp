@@ -73,7 +73,7 @@ export const AppContent: React.FC = () => {
 
         {/* PAGE CONTENT — scrollable, full remaining height */}
         <main className="flex-1 overflow-y-auto">
-          {/* Inner centering wrapper — never exceeds 1600px, always padded 32px */}
+            {/* Inner centering wrapper — never exceeds 1600px, always padded 32px */}
           <div className="w-full max-w-[1600px] mx-auto px-8 py-8 flex flex-col min-h-full">
             <div className="flex-1">
               <Routes>
@@ -81,34 +81,6 @@ export const AppContent: React.FC = () => {
                 <Route path="/experiment/:id" element={<ExperimentWrapper onBack={() => navigate('/')} onShowToast={showToast} />} />
                 <Route path="*" element={<Navigate to="/" />} />
               </Routes>
-            </div>
-            
-            {/* GLOBAL AUTHORSHIP & COPYRIGHT FOOTER */}
-            <div className="mt-12 pt-6 border-t border-slate-200 dark:border-slate-800 grid grid-cols-1 md:grid-cols-3 gap-6 text-[11px] items-center text-slate-500">
-              
-              {/* Column 1: Product Definition */}
-              <div className="flex flex-col gap-1 border-b md:border-b-0 md:border-r border-slate-200 dark:border-slate-800 pb-4 md:pb-0 md:pr-4">
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="font-bold text-blue-600 dark:text-blue-400 text-sm">GeoTech Lab</span>
-                  <span className="text-slate-300 dark:text-slate-700">|</span>
-                  <span className="font-medium text-slate-600 dark:text-slate-300 tracking-wide text-xs">Soil Testing Suite</span>
-                </div>
-                <p>Accurate Testing. Reliable Engineering.</p>
-                <p>An Engineering Laboratory Software for Soil Testing, Calculations and Analysis.</p>
-              </div>
-
-              {/* Column 2: Creator Attribution */}
-              <div className="flex flex-col gap-1 text-center border-b md:border-b-0 md:border-r border-slate-200 dark:border-slate-800 pb-4 md:pb-0 px-4">
-                <span className="font-semibold text-slate-400">Created & Developed by</span>
-                <span className="font-extrabold text-blue-600 dark:text-blue-400 text-sm tracking-wide">Singarapu Prasanna Kumar</span>
-              </div>
-
-              {/* Column 3: Copyright */}
-              <div className="flex flex-col gap-1 md:text-right md:pl-4">
-                <span className="font-medium text-slate-500">© 2026 Singarapu Prasanna Kumar.</span>
-                <span className="font-medium text-slate-500">All Rights Reserved.</span>
-              </div>
-
             </div>
           </div>
         </main>
