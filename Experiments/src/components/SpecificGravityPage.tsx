@@ -173,7 +173,7 @@ export const SpecificGravityPage: React.FC<SpecificGravityPageProps> = ({ experi
     <div className="space-y-6 animate-in fade-in duration-200">
       {/* BREADCRUMB & HEADER */}
       <div className="flex flex-col gap-2 border-b border-slate-200 dark:border-slate-800 pb-4">
-        <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
+        <div className="flex items-center gap-2 text-[11px] text-slate-500 dark:text-slate-400">
           <button onClick={onBack} className="hover:underline flex items-center gap-1">
             <ArrowLeft className="w-3.5 h-3.5" />
             Dashboard
@@ -184,22 +184,22 @@ export const SpecificGravityPage: React.FC<SpecificGravityPageProps> = ({ experi
 
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-slate-900 dark:text-white tracking-tight flex items-center gap-3">
+            <h1 className="text-[11px] font-bold text-slate-900 dark:text-white tracking-tight flex items-center gap-3">
               <span>[02]</span>
               <span>Specific Gravity Test Using Pycnometer</span>
-              <span className="text-sm font-semibold bg-teal-50 dark:bg-teal-950 text-teal-600 dark:text-teal-400 px-2.5 py-1 rounded-full border border-teal-200 dark:border-teal-800 flex items-center gap-1">
+              <span className="text-[11px] font-semibold bg-teal-50 dark:bg-teal-950 text-teal-600 dark:text-teal-400 px-2.5 py-1 rounded-full border border-teal-200 dark:border-teal-800 flex items-center gap-1">
                 <CheckCircle2 className="w-3.5 h-3.5" />
                 <span>IS 2720 Part 3 / ASTM D854</span>
               </span>
             </h1>
-            <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
+            <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1">
               Determine the specific gravity of soil solids using the pycnometer method.
             </p>
           </div>
 
           <button
             onClick={onBack}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 text-[11px] font-semibold hover:bg-slate-50 dark:hover:bg-slate-800"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>Back to Dashboard</span>
@@ -209,7 +209,7 @@ export const SpecificGravityPage: React.FC<SpecificGravityPageProps> = ({ experi
 
       {/* 1. SEPARATE DEDICATED "TEST INFORMATION" CARD */}
       <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-soft space-y-4">
-        <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2 border-b border-slate-100 dark:border-slate-800 pb-3">
+        <h3 className="text-[11px] font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2 border-b border-slate-100 dark:border-slate-800 pb-3">
           <Thermometer className="w-4 h-4 text-teal-600" />
           Test Information
         </h3>
@@ -217,7 +217,7 @@ export const SpecificGravityPage: React.FC<SpecificGravityPageProps> = ({ experi
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 items-end">
           {/* REGISTRATION NUMBER */}
           <div className="flex flex-col gap-1">
-            <label className="text-sm font-semibold text-slate-600 dark:text-slate-300">
+            <label className="text-[11px] font-semibold text-slate-600 dark:text-slate-300">
               Registration No.
             </label>
             <input
@@ -225,19 +225,19 @@ export const SpecificGravityPage: React.FC<SpecificGravityPageProps> = ({ experi
               value={regdNo}
               onChange={(e) => setRegdNo(e.target.value)}
               placeholder="REG-2026-001"
-              className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-sm font-semibold text-slate-900 dark:text-white outline-none focus:border-teal-600"
+              className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-[11px] font-semibold text-slate-900 dark:text-white outline-none focus:border-teal-600"
             />
           </div>
 
           {/* LABORATORY TEMPERATURE DROPDOWN (1°C - 40°C VALIDATION) */}
           <div className="flex flex-col gap-1">
-            <label className="text-sm font-semibold text-slate-600 dark:text-slate-300">
+            <label className="text-[11px] font-semibold text-slate-600 dark:text-slate-300">
               Laboratory Temp (°C)
             </label>
             <select
               value={temp}
               onChange={(e) => handleTempChange(parseInt(e.target.value))}
-              className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-sm font-bold text-teal-600 outline-none focus:border-teal-600 cursor-pointer"
+              className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-[11px] font-bold text-teal-600 outline-none focus:border-teal-600 cursor-pointer"
             >
               {Array.from({ length: 40 }, (_, i) => i + 1).map((tVal) => (
                 <option key={tVal} value={tVal}>
@@ -249,20 +249,20 @@ export const SpecificGravityPage: React.FC<SpecificGravityPageProps> = ({ experi
 
           {/* READ-ONLY GL */}
           <div className="flex flex-col gap-1">
-            <label className="text-sm font-semibold text-slate-600 dark:text-slate-300">
+            <label className="text-[11px] font-semibold text-slate-600 dark:text-slate-300">
               Water Sp. Gr. (GL) [Read-Only]
             </label>
             <input
               type="text"
               readOnly
               value={GL.toFixed(4)}
-              className="bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-sm font-bold text-teal-600 cursor-not-allowed"
+              className="bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-[11px] font-bold text-teal-600 cursor-not-allowed"
             />
           </div>
 
           {/* NUMBER OF OBSERVATIONS */}
           <div className="flex flex-col gap-1">
-            <label className="text-sm font-semibold text-slate-600 dark:text-slate-300">
+            <label className="text-[11px] font-semibold text-slate-600 dark:text-slate-300">
               Number of Observations
             </label>
             <input
@@ -271,14 +271,14 @@ export const SpecificGravityPage: React.FC<SpecificGravityPageProps> = ({ experi
               max="20"
               value={numObsInput}
               onChange={(e) => setNumObsInput(parseInt(e.target.value) || 1)}
-              className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-sm font-bold text-slate-900 dark:text-white outline-none focus:border-teal-600 text-center"
+              className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-[11px] font-bold text-slate-900 dark:text-white outline-none focus:border-teal-600 text-center"
             />
           </div>
 
           {/* GENERATE TABLE ACTION */}
           <button
             onClick={handleGenerateTable}
-            className="flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-700 text-white font-bold text-sm py-2.5 rounded-xl shadow-md shadow-teal-600/20 transition-all hover:scale-102"
+            className="flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-700 text-white font-bold text-[11px] py-2.5 rounded-xl shadow-md shadow-teal-600/20 transition-all hover:scale-102"
           >
             <TableIcon className="w-4 h-4" />
             <span>Generate Table</span>
@@ -290,13 +290,13 @@ export const SpecificGravityPage: React.FC<SpecificGravityPageProps> = ({ experi
       {tableGenerated && (
         <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-5 shadow-soft space-y-4">
           <div className="flex items-center justify-between">
-            <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+            <h3 className="text-[11px] font-bold text-slate-900 dark:text-white uppercase tracking-wider">
               Observation Table ({observations.length} Samples)
             </h3>
 
             <button
               onClick={handleAddRow}
-              className="flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 font-bold text-sm px-3 py-1.5 rounded-xl transition-all"
+              className="flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 font-bold text-[11px] px-3 py-1.5 rounded-xl transition-all"
             >
               <Plus className="w-3.5 h-3.5" />
               <span>+ Add Row</span>
@@ -304,10 +304,10 @@ export const SpecificGravityPage: React.FC<SpecificGravityPageProps> = ({ experi
           </div>
 
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm border-collapse min-w-[1100px]">
+            <table className="w-full text-left text-[11px] border-collapse min-w-[1100px]">
               <thead className="sticky top-0 z-10">
                 {/* GROUPED CATEGORY HEADER ROW */}
-                <tr className="bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-300 font-bold border-b border-slate-200 dark:border-slate-700 text-sm uppercase tracking-wider">
+                <tr className="bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-300 font-bold border-b border-slate-200 dark:border-slate-700 text-[11px] uppercase tracking-wider">
                   <th className="p-2 border-r border-slate-200 dark:border-slate-700" colSpan={1}>Sample</th>
                   <th className="p-2 border-r border-slate-200 dark:border-slate-700 text-center bg-blue-50/80 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300" colSpan={4}>
                     Inputs (Editable Pycnometer Weights)
@@ -319,7 +319,7 @@ export const SpecificGravityPage: React.FC<SpecificGravityPageProps> = ({ experi
                 </tr>
 
                 {/* DETAILED COLUMN HEADER ROW */}
-                <tr className="bg-slate-50 dark:bg-slate-800/60 text-slate-600 dark:text-slate-400 font-semibold border-b border-slate-200 dark:border-slate-800 text-sm">
+                <tr className="bg-slate-50 dark:bg-slate-800/60 text-slate-600 dark:text-slate-400 font-semibold border-b border-slate-200 dark:border-slate-800 text-[11px]">
                   <th className="p-2.5 border-r border-slate-200 dark:border-slate-800">Sample No</th>
                   <th className="p-2.5">W1 (Pycnometer)</th>
                   <th className="p-2.5">W2 (Pyc + Soil)</th>
@@ -335,7 +335,7 @@ export const SpecificGravityPage: React.FC<SpecificGravityPageProps> = ({ experi
                 </tr>
               </thead>
 
-              <tbody className="divide-y divide-slate-100 dark:divide-slate-800 font-mono text-sm">
+              <tbody className="divide-y divide-slate-100 dark:divide-slate-800 font-mono text-[11px]">
                 {observations.map((obs) => (
                   <tr key={obs.sampleNo} className="hover:bg-slate-50/60 dark:hover:bg-slate-800/40 transition-colors">
                     <td className="p-2.5 font-bold text-slate-900 dark:text-white border-r border-slate-100 dark:border-slate-800">
@@ -349,7 +349,7 @@ export const SpecificGravityPage: React.FC<SpecificGravityPageProps> = ({ experi
                         step="0.0001"
                         value={obs.w1}
                         onChange={(e) => handleCellEdit(obs.sampleNo, 'w1', parseFloat(e.target.value) || 0)}
-                        className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1 text-sm outline-none focus:border-blue-600 w-full shadow-inner"
+                        className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1 text-[11px] outline-none focus:border-blue-600 w-full shadow-inner"
                       />
                     </td>
 
@@ -360,7 +360,7 @@ export const SpecificGravityPage: React.FC<SpecificGravityPageProps> = ({ experi
                         step="0.0001"
                         value={obs.w2}
                         onChange={(e) => handleCellEdit(obs.sampleNo, 'w2', parseFloat(e.target.value) || 0)}
-                        className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1 text-sm outline-none focus:border-blue-600 w-full shadow-inner"
+                        className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1 text-[11px] outline-none focus:border-blue-600 w-full shadow-inner"
                       />
                     </td>
 
@@ -371,7 +371,7 @@ export const SpecificGravityPage: React.FC<SpecificGravityPageProps> = ({ experi
                         step="0.0001"
                         value={obs.w3}
                         onChange={(e) => handleCellEdit(obs.sampleNo, 'w3', parseFloat(e.target.value) || 0)}
-                        className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1 text-sm outline-none focus:border-blue-600 w-full shadow-inner"
+                        className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1 text-[11px] outline-none focus:border-blue-600 w-full shadow-inner"
                       />
                     </td>
 
@@ -382,7 +382,7 @@ export const SpecificGravityPage: React.FC<SpecificGravityPageProps> = ({ experi
                         step="0.0001"
                         value={obs.w4}
                         onChange={(e) => handleCellEdit(obs.sampleNo, 'w4', parseFloat(e.target.value) || 0)}
-                        className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1 text-sm outline-none focus:border-blue-600 w-full shadow-inner"
+                        className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1 text-[11px] outline-none focus:border-blue-600 w-full shadow-inner"
                       />
                     </td>
 
@@ -427,43 +427,43 @@ export const SpecificGravityPage: React.FC<SpecificGravityPageProps> = ({ experi
 
       {/* 3. CALCULATION DETAILS & STEPS CARD */}
       <div className="bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-xl p-5 shadow-soft space-y-3">
-        <h4 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2 border-b border-slate-200 dark:border-slate-700 pb-2">
+        <h4 className="text-[11px] font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2 border-b border-slate-200 dark:border-slate-700 pb-2">
           <Calculator className="w-4 h-4 text-teal-600" />
           Calculation Details & Governing Formulas
         </h4>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-3 text-sm">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-3 text-[11px]">
           <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl">
-            <span className="font-semibold text-slate-500 dark:text-slate-400 block text-sm">Weight of Soil</span>
-            <code className="text-sm font-bold text-blue-600 dark:text-blue-400 font-mono block mt-1">
+            <span className="font-semibold text-slate-500 dark:text-slate-400 block text-[11px]">Weight of Soil</span>
+            <code className="text-[11px] font-bold text-blue-600 dark:text-blue-400 font-mono block mt-1">
               = W2 − W1
             </code>
           </div>
 
           <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl">
-            <span className="font-semibold text-slate-500 dark:text-slate-400 block text-sm">Water Filling Pycnometer</span>
-            <code className="text-sm font-bold text-blue-600 dark:text-blue-400 font-mono block mt-1">
+            <span className="font-semibold text-slate-500 dark:text-slate-400 block text-[11px]">Water Filling Pycnometer</span>
+            <code className="text-[11px] font-bold text-blue-600 dark:text-blue-400 font-mono block mt-1">
               = W4 − W1
             </code>
           </div>
 
           <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl">
-            <span className="font-semibold text-slate-500 dark:text-slate-400 block text-sm">Water Above Soil</span>
-            <code className="text-sm font-bold text-blue-600 dark:text-blue-400 font-mono block mt-1">
+            <span className="font-semibold text-slate-500 dark:text-slate-400 block text-[11px]">Water Above Soil</span>
+            <code className="text-[11px] font-bold text-blue-600 dark:text-blue-400 font-mono block mt-1">
               = W3 − W2
             </code>
           </div>
 
           <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl">
-            <span className="font-semibold text-slate-500 dark:text-slate-400 block text-sm">Gt (@ {temp}°C)</span>
-            <code className="text-sm font-bold text-teal-600 dark:text-teal-400 font-mono block mt-1">
+            <span className="font-semibold text-slate-500 dark:text-slate-400 block text-[11px]">Gt (@ {temp}°C)</span>
+            <code className="text-[11px] font-bold text-teal-600 dark:text-teal-400 font-mono block mt-1">
               = Soil Wt ÷ Denominator
             </code>
           </div>
 
           <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl">
-            <span className="font-semibold text-slate-500 dark:text-slate-400 block text-sm">G27 (@ 27°C)</span>
-            <code className="text-sm font-bold text-teal-600 dark:text-teal-400 font-mono block mt-1">
+            <span className="font-semibold text-slate-500 dark:text-slate-400 block text-[11px]">G27 (@ 27°C)</span>
+            <code className="text-[11px] font-bold text-teal-600 dark:text-teal-400 font-mono block mt-1">
               = (Gt × GL) ÷ G27Water
             </code>
           </div>
@@ -472,7 +472,7 @@ export const SpecificGravityPage: React.FC<SpecificGravityPageProps> = ({ experi
 
       {/* 4. FINAL RESULTS PANEL MATCHING PYTHON CLI OUTPUT */}
       <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-soft space-y-4">
-        <h3 className="text-sm font-extrabold text-slate-900 dark:text-white uppercase tracking-wider border-b border-slate-100 dark:border-slate-800 pb-3 flex items-center gap-2">
+        <h3 className="text-[11px] font-extrabold text-slate-900 dark:text-white uppercase tracking-wider border-b border-slate-100 dark:border-slate-800 pb-3 flex items-center gap-2">
           <CheckCircle2 className="w-4 h-4 text-emerald-600" />
           FINAL RESULTS
         </h3>
@@ -483,10 +483,10 @@ export const SpecificGravityPage: React.FC<SpecificGravityPageProps> = ({ experi
             {observations.map((obs) => (
               <div 
                 key={obs.sampleNo}
-                className="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700/80 text-sm font-mono"
+                className="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700/80 text-[11px] font-mono"
               >
                 <span className="font-bold text-slate-900 dark:text-white">Sample {obs.sampleNo}</span>
-                <span className="font-bold text-teal-600 dark:text-teal-400 text-base">
+                <span className="font-bold text-teal-600 dark:text-teal-400 text-[11px]">
                   G27 = {obs.g27.toFixed(4)}
                 </span>
               </div>
@@ -495,13 +495,13 @@ export const SpecificGravityPage: React.FC<SpecificGravityPageProps> = ({ experi
 
           {/* PROMINENT AVERAGE G27 CARD (5 COLS) */}
           <div className="md:col-span-5 bg-teal-50/90 dark:bg-teal-950/50 border border-teal-200 dark:border-teal-900/60 rounded-xl p-6 flex flex-col justify-center text-center shadow-soft">
-            <span className="text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+            <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
               Average G27
             </span>
             <span className="text-4xl font-extrabold text-teal-700 dark:text-teal-400 mt-2">
               {averageG27.toFixed(4)}
             </span>
-            <span className="text-sm text-slate-400 mt-2">
+            <span className="text-[11px] text-slate-400 mt-2">
               Final specific gravity at 27°C reference
             </span>
           </div>
@@ -513,7 +513,7 @@ export const SpecificGravityPage: React.FC<SpecificGravityPageProps> = ({ experi
         <div className="flex items-center gap-3">
           <button
             onClick={() => onShowToast('Specific Gravity test data saved!')}
-            className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-xl text-sm font-bold shadow-md shadow-blue-600/20 transition-all"
+            className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-xl text-[11px] font-bold shadow-md shadow-blue-600/20 transition-all"
           >
             <Save className="w-4 h-4" />
             <span>Save</span>
@@ -521,7 +521,7 @@ export const SpecificGravityPage: React.FC<SpecificGravityPageProps> = ({ experi
 
           <button
             onClick={handleReset}
-            className="flex items-center gap-2 border border-slate-200 dark:border-slate-700 px-4 py-2.5 rounded-xl text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
+            className="flex items-center gap-2 border border-slate-200 dark:border-slate-700 px-4 py-2.5 rounded-xl text-[11px] font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
           >
             <RotateCcw className="w-4 h-4 text-slate-500" />
             <span>Reset</span>
@@ -531,7 +531,7 @@ export const SpecificGravityPage: React.FC<SpecificGravityPageProps> = ({ experi
         <div className="flex items-center gap-3">
           <button
             onClick={handleExportExcel}
-            className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2.5 rounded-xl text-sm font-bold shadow-md shadow-emerald-600/20 transition-all"
+            className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2.5 rounded-xl text-[11px] font-bold shadow-md shadow-emerald-600/20 transition-all"
           >
             <FileSpreadsheet className="w-4 h-4" />
             <span>Export Excel</span>
@@ -539,7 +539,7 @@ export const SpecificGravityPage: React.FC<SpecificGravityPageProps> = ({ experi
 
           <button
             onClick={onBack}
-            className="flex items-center gap-2 border border-slate-200 dark:border-slate-700 px-4 py-2.5 rounded-xl text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
+            className="flex items-center gap-2 border border-slate-200 dark:border-slate-700 px-4 py-2.5 rounded-xl text-[11px] font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
           >
             <ArrowLeft className="w-4 h-4 text-slate-500" />
             <span>Back to Dashboard</span>

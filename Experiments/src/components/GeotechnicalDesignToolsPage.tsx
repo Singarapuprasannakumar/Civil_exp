@@ -278,7 +278,7 @@ export const GeotechnicalDesignToolsPage: React.FC<GeotechnicalDesignToolsPagePr
     <div className="space-y-6 animate-in fade-in duration-200">
       {/* BREADCRUMB & HEADER */}
       <div className="flex flex-col gap-2 border-b border-slate-200 dark:border-slate-800 pb-4">
-        <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
+        <div className="flex items-center gap-2 text-[11px] text-slate-500 dark:text-slate-400">
           <button onClick={onBack} className="hover:underline flex items-center gap-1">
             <ArrowLeft className="w-3.5 h-3.5" />
             Dashboard
@@ -289,22 +289,22 @@ export const GeotechnicalDesignToolsPage: React.FC<GeotechnicalDesignToolsPagePr
 
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-slate-900 dark:text-white tracking-tight flex items-center gap-3">
+            <h1 className="text-[11px] font-bold text-slate-900 dark:text-white tracking-tight flex items-center gap-3">
               <span>[17]</span>
               <span>Geotechnical Design Tools</span>
-              <span className="text-sm font-semibold bg-purple-50 dark:bg-purple-950 text-purple-600 dark:text-purple-400 px-2.5 py-1 rounded-full border border-purple-200 dark:border-purple-800 flex items-center gap-1">
+              <span className="text-[11px] font-semibold bg-purple-50 dark:bg-purple-950 text-purple-600 dark:text-purple-400 px-2.5 py-1 rounded-full border border-purple-200 dark:border-purple-800 flex items-center gap-1">
                 <CheckCircle2 className="w-3.5 h-3.5" />
                 <span>IS 2911 / Tomlinson 1957</span>
               </span>
             </h1>
-            <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
+            <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1">
               Engineering design calculators based on empirical correlations contained in N_combined.py.
             </p>
           </div>
 
           <button
             onClick={onBack}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 text-[11px] font-semibold hover:bg-slate-50 dark:hover:bg-slate-800"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>Back to Dashboard</span>
@@ -317,7 +317,7 @@ export const GeotechnicalDesignToolsPage: React.FC<GeotechnicalDesignToolsPagePr
         <div className="bg-slate-100 dark:bg-slate-800 p-1 rounded-xl flex items-center gap-2 max-w-2xl w-full">
           <button
             onClick={() => setActiveTab('spt')}
-            className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-bold transition-all ${
+            className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-[11px] font-bold transition-all ${
               activeTab === 'spt'
                 ? 'bg-purple-600 text-white shadow-md'
                 : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
@@ -329,7 +329,7 @@ export const GeotechnicalDesignToolsPage: React.FC<GeotechnicalDesignToolsPagePr
 
           <button
             onClick={() => setActiveTab('adhesion')}
-            className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-bold transition-all ${
+            className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-[11px] font-bold transition-all ${
               activeTab === 'adhesion'
                 ? 'bg-blue-600 text-white shadow-md'
                 : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
@@ -341,7 +341,7 @@ export const GeotechnicalDesignToolsPage: React.FC<GeotechnicalDesignToolsPagePr
 
           <button
             onClick={() => setActiveTab('nq')}
-            className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-bold transition-all ${
+            className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-[11px] font-bold transition-all ${
               activeTab === 'nq'
                 ? 'bg-emerald-600 text-white shadow-md'
                 : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
@@ -360,18 +360,18 @@ export const GeotechnicalDesignToolsPage: React.FC<GeotechnicalDesignToolsPagePr
         <div className="space-y-6">
           {/* INPUT FORM */}
           <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-soft space-y-4">
-            <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider border-b border-slate-100 dark:border-slate-800 pb-3 flex items-center gap-2">
+            <h3 className="text-[11px] font-bold text-slate-900 dark:text-white uppercase tracking-wider border-b border-slate-100 dark:border-slate-800 pb-3 flex items-center gap-2">
               <Layers className="w-4 h-4 text-purple-600" />
               Soil Property Estimator from SPT N-Values
             </h3>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="flex flex-col gap-2">
-                <label className="text-sm font-bold text-slate-700 dark:text-slate-300">Soil Type</label>
+                <label className="text-[11px] font-bold text-slate-700 dark:text-slate-300">Soil Type</label>
                 <div className="grid grid-cols-2 gap-3">
                   <button
                     onClick={() => setSoilType('clay')}
-                    className={`py-2.5 rounded-xl text-sm font-bold border transition-all ${
+                    className={`py-2.5 rounded-xl text-[11px] font-bold border transition-all ${
                       soilType === 'clay'
                         ? 'bg-purple-50 dark:bg-purple-950 text-purple-600 border-purple-300 shadow-sm'
                         : 'bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-600'
@@ -382,7 +382,7 @@ export const GeotechnicalDesignToolsPage: React.FC<GeotechnicalDesignToolsPagePr
 
                   <button
                     onClick={() => setSoilType('sand')}
-                    className={`py-2.5 rounded-xl text-sm font-bold border transition-all ${
+                    className={`py-2.5 rounded-xl text-[11px] font-bold border transition-all ${
                       soilType === 'sand'
                         ? 'bg-amber-50 dark:bg-amber-950 text-amber-600 border-amber-300 shadow-sm'
                         : 'bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-600'
@@ -394,7 +394,7 @@ export const GeotechnicalDesignToolsPage: React.FC<GeotechnicalDesignToolsPagePr
               </div>
 
               <div className="flex flex-col gap-2">
-                <label className="text-sm font-bold text-slate-700 dark:text-slate-300">
+                <label className="text-[11px] font-bold text-slate-700 dark:text-slate-300">
                   SPT N-Value (blows / 300mm)
                 </label>
                 <input
@@ -403,7 +403,7 @@ export const GeotechnicalDesignToolsPage: React.FC<GeotechnicalDesignToolsPagePr
                   max="100"
                   value={sptN}
                   onChange={(e) => setSptN(parseFloat(e.target.value) || 0)}
-                  className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2.5 text-sm font-bold text-purple-600 outline-none focus:border-purple-600"
+                  className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2.5 text-[11px] font-bold text-purple-600 outline-none focus:border-purple-600"
                 />
               </div>
             </div>
@@ -412,72 +412,72 @@ export const GeotechnicalDesignToolsPage: React.FC<GeotechnicalDesignToolsPagePr
           {/* CLAY RESULTS */}
           {soilType === 'clay' ? (
             <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-soft space-y-4">
-              <h3 className="text-sm font-extrabold text-slate-900 dark:text-white uppercase tracking-wider border-b border-slate-100 dark:border-slate-800 pb-3 flex items-center gap-2">
+              <h3 className="text-[11px] font-extrabold text-slate-900 dark:text-white uppercase tracking-wider border-b border-slate-100 dark:border-slate-800 pb-3 flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-purple-600" />
                 CLAY SOIL ANALYSIS RESULTS
               </h3>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="p-4 rounded-xl bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-800 space-y-1">
-                  <span className="text-sm font-bold text-slate-500 block">Consistency</span>
-                  <span className="text-3xl font-extrabold text-purple-600">{clayRes.consistency}</span>
+                  <span className="text-[11px] font-bold text-slate-500 block">Consistency</span>
+                  <span className="text-[11px] font-extrabold text-purple-600">{clayRes.consistency}</span>
                 </div>
 
                 <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 space-y-1">
-                  <span className="text-sm font-bold text-slate-500 block">Unconfined Strength (qu)</span>
-                  <span className="text-3xl font-extrabold text-slate-900 dark:text-white">{clayRes.qu} <span className="text-base">kPa</span></span>
+                  <span className="text-[11px] font-bold text-slate-500 block">Unconfined Strength (qu)</span>
+                  <span className="text-[11px] font-extrabold text-slate-900 dark:text-white">{clayRes.qu} <span className="text-[11px]">kPa</span></span>
                 </div>
 
                 <div className="p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 space-y-1">
-                  <span className="text-sm font-bold text-emerald-700 dark:text-emerald-400 block">Cohesion (c = qu / 2)</span>
-                  <span className="text-3xl font-extrabold text-emerald-600 dark:text-emerald-300">{clayRes.cohesion} <span className="text-base">kPa</span></span>
+                  <span className="text-[11px] font-bold text-emerald-700 dark:text-emerald-400 block">Cohesion (c = qu / 2)</span>
+                  <span className="text-[11px] font-extrabold text-emerald-600 dark:text-emerald-300">{clayRes.cohesion} <span className="text-[11px]">kPa</span></span>
                 </div>
               </div>
 
-              <div className="p-3 bg-slate-50 dark:bg-slate-800/40 rounded-xl border border-slate-200 dark:border-slate-700 text-sm font-semibold text-slate-700 dark:text-slate-300">
+              <div className="p-3 bg-slate-50 dark:bg-slate-800/40 rounded-xl border border-slate-200 dark:border-slate-700 text-[11px] font-semibold text-slate-700 dark:text-slate-300">
                 {clayRes.reco}
               </div>
             </div>
           ) : (
             /* SAND RESULTS */
             <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-soft space-y-4">
-              <h3 className="text-sm font-extrabold text-slate-900 dark:text-white uppercase tracking-wider border-b border-slate-100 dark:border-slate-800 pb-3 flex items-center gap-2">
+              <h3 className="text-[11px] font-extrabold text-slate-900 dark:text-white uppercase tracking-wider border-b border-slate-100 dark:border-slate-800 pb-3 flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-amber-600" />
                 SANDY SOIL FRICTION ANGLE ESTIMATES (MULTIPLE CORRELATIONS)
               </h3>
 
-              <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 text-sm font-mono">
+              <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 text-[11px] font-mono">
                 <div className="p-3 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
-                  <span className="text-xs text-slate-400 block">Interpolated</span>
-                  <span className="font-bold text-blue-600 text-base">{sandRes.phiInterp}°</span>
+                  <span className="text-[11px] text-slate-400 block">Interpolated</span>
+                  <span className="font-bold text-blue-600 text-[11px]">{sandRes.phiInterp}°</span>
                 </div>
                 <div className="p-3 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
-                  <span className="text-xs text-slate-400 block">Peck (1974)</span>
-                  <span className="font-bold text-blue-600 text-base">{sandRes.phiPeck}°</span>
+                  <span className="text-[11px] text-slate-400 block">Peck (1974)</span>
+                  <span className="font-bold text-blue-600 text-[11px]">{sandRes.phiPeck}°</span>
                 </div>
                 <div className="p-3 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
-                  <span className="text-xs text-slate-400 block">Meyerhof (1956)</span>
-                  <span className="font-bold text-blue-600 text-base">{sandRes.phiMeyerhof}°</span>
+                  <span className="text-[11px] text-slate-400 block">Meyerhof (1956)</span>
+                  <span className="font-bold text-blue-600 text-[11px]">{sandRes.phiMeyerhof}°</span>
                 </div>
                 <div className="p-3 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
-                  <span className="text-xs text-slate-400 block">Dunham (1954)</span>
-                  <span className="font-bold text-blue-600 text-base">{sandRes.phiDunham}°</span>
+                  <span className="text-[11px] text-slate-400 block">Dunham (1954)</span>
+                  <span className="font-bold text-blue-600 text-[11px]">{sandRes.phiDunham}°</span>
                 </div>
                 <div className="p-3 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
-                  <span className="text-xs text-slate-400 block">Hatanaka (1996)</span>
-                  <span className="font-bold text-blue-600 text-base">{sandRes.phiHatanaka}°</span>
+                  <span className="text-[11px] text-slate-400 block">Hatanaka (1996)</span>
+                  <span className="font-bold text-blue-600 text-[11px]">{sandRes.phiHatanaka}°</span>
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                 <div className="p-4 rounded-xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800 space-y-1">
-                  <span className="text-sm font-bold text-amber-700 dark:text-amber-300 block">Relative Density</span>
-                  <span className="text-2xl font-extrabold text-amber-600">{sandRes.density}</span>
+                  <span className="text-[11px] font-bold text-amber-700 dark:text-amber-300 block">Relative Density</span>
+                  <span className="text-[11px] font-extrabold text-amber-600">{sandRes.density}</span>
                 </div>
 
                 <div className="p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 space-y-1">
-                  <span className="text-sm font-bold text-emerald-700 dark:text-emerald-400 block">Most Conservative φ (Design Value)</span>
-                  <span className="text-3xl font-extrabold text-emerald-600">{sandRes.conservative}°</span>
+                  <span className="text-[11px] font-bold text-emerald-700 dark:text-emerald-400 block">Most Conservative φ (Design Value)</span>
+                  <span className="text-[11px] font-extrabold text-emerald-600">{sandRes.conservative}°</span>
                 </div>
               </div>
             </div>
@@ -492,14 +492,14 @@ export const GeotechnicalDesignToolsPage: React.FC<GeotechnicalDesignToolsPagePr
         <div className="space-y-6">
           {/* INPUT FORM */}
           <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-soft space-y-4">
-            <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider border-b border-slate-100 dark:border-slate-800 pb-3 flex items-center gap-2">
+            <h3 className="text-[11px] font-bold text-slate-900 dark:text-white uppercase tracking-wider border-b border-slate-100 dark:border-slate-800 pb-3 flex items-center gap-2">
               <Calculator className="w-4 h-4 text-blue-600" />
               Tomlinson (1957) Adhesion Factor (α) Calculator
             </h3>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="flex flex-col gap-2">
-                <label className="text-sm font-bold text-slate-700 dark:text-slate-300">
+                <label className="text-[11px] font-bold text-slate-700 dark:text-slate-300">
                   Cohesion c (kPa, range 0–150)
                 </label>
                 <input
@@ -508,16 +508,16 @@ export const GeotechnicalDesignToolsPage: React.FC<GeotechnicalDesignToolsPagePr
                   max="150"
                   value={adhesionCohesion}
                   onChange={(e) => setAdhesionCohesion(parseFloat(e.target.value) || 0)}
-                  className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2.5 text-sm font-bold text-blue-600 outline-none focus:border-blue-600"
+                  className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2.5 text-[11px] font-bold text-blue-600 outline-none focus:border-blue-600"
                 />
               </div>
 
               <div className="flex flex-col gap-2">
-                <label className="text-sm font-bold text-slate-700 dark:text-slate-300">Pile Type Selection</label>
+                <label className="text-[11px] font-bold text-slate-700 dark:text-slate-300">Pile Type Selection</label>
                 <div className="grid grid-cols-2 gap-3">
                   <button
                     onClick={() => setPileType('concrete')}
-                    className={`py-2.5 rounded-xl text-sm font-bold border transition-all ${
+                    className={`py-2.5 rounded-xl text-[11px] font-bold border transition-all ${
                       pileType === 'concrete'
                         ? 'bg-blue-50 dark:bg-blue-950 text-blue-600 border-blue-300 shadow-sm'
                         : 'bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-600'
@@ -528,7 +528,7 @@ export const GeotechnicalDesignToolsPage: React.FC<GeotechnicalDesignToolsPagePr
 
                   <button
                     onClick={() => setPileType('all')}
-                    className={`py-2.5 rounded-xl text-sm font-bold border transition-all ${
+                    className={`py-2.5 rounded-xl text-[11px] font-bold border transition-all ${
                       pileType === 'all'
                         ? 'bg-red-50 dark:bg-red-950 text-red-600 border-red-300 shadow-sm'
                         : 'bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-600'
@@ -543,20 +543,20 @@ export const GeotechnicalDesignToolsPage: React.FC<GeotechnicalDesignToolsPagePr
 
           {/* RESULTS CARD */}
           <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-soft space-y-4">
-            <h3 className="text-sm font-extrabold text-slate-900 dark:text-white uppercase tracking-wider border-b border-slate-100 dark:border-slate-800 pb-3 flex items-center gap-2">
+            <h3 className="text-[11px] font-extrabold text-slate-900 dark:text-white uppercase tracking-wider border-b border-slate-100 dark:border-slate-800 pb-3 flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-emerald-600" />
               ADHESION FACTOR RESULTS
             </h3>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
               <div className="p-6 bg-blue-50/90 dark:bg-blue-950/50 border border-blue-200 dark:border-blue-900/60 rounded-xl text-center shadow-soft">
-                <span className="text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
+                <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
                   Adhesion Factor (α)
                 </span>
                 <span className="text-4xl font-extrabold text-blue-600 dark:text-blue-400 mt-2 block">
                   {alphaVal.toFixed(4)}
                 </span>
-                <span className="text-sm text-slate-400 mt-2 block">
+                <span className="text-[11px] text-slate-400 mt-2 block">
                   Dimensionless multiplier for unit skin friction (0 ≤ α ≤ 1)
                 </span>
               </div>
@@ -587,13 +587,13 @@ export const GeotechnicalDesignToolsPage: React.FC<GeotechnicalDesignToolsPagePr
         <div className="space-y-6">
           {/* INPUT FORM */}
           <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-soft space-y-4">
-            <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider border-b border-slate-100 dark:border-slate-800 pb-3 flex items-center gap-2">
+            <h3 className="text-[11px] font-bold text-slate-900 dark:text-white uppercase tracking-wider border-b border-slate-100 dark:border-slate-800 pb-3 flex items-center gap-2">
               <ChartIcon className="w-4 h-4 text-emerald-600" />
               IS:2911 Part 1-1979 Fig 16.6 Bearing Capacity Factor (Nq)
             </h3>
 
             <div className="max-w-md space-y-2">
-              <label className="text-sm font-bold text-slate-700 dark:text-slate-300">
+              <label className="text-[11px] font-bold text-slate-700 dark:text-slate-300">
                 Angle of Internal Friction φ' (degrees, range 20°–45°)
               </label>
               <input
@@ -603,27 +603,27 @@ export const GeotechnicalDesignToolsPage: React.FC<GeotechnicalDesignToolsPagePr
                 step="0.5"
                 value={bearingPhi}
                 onChange={(e) => setBearingPhi(parseFloat(e.target.value) || 20)}
-                className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2.5 text-sm font-bold text-emerald-600 outline-none focus:border-emerald-600 w-full"
+                className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2.5 text-[11px] font-bold text-emerald-600 outline-none focus:border-emerald-600 w-full"
               />
             </div>
           </div>
 
           {/* RESULTS CARD */}
           <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-soft space-y-4">
-            <h3 className="text-sm font-extrabold text-slate-900 dark:text-white uppercase tracking-wider border-b border-slate-100 dark:border-slate-800 pb-3 flex items-center gap-2">
+            <h3 className="text-[11px] font-extrabold text-slate-900 dark:text-white uppercase tracking-wider border-b border-slate-100 dark:border-slate-800 pb-3 flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-emerald-600" />
               BEARING CAPACITY FACTOR Nq RESULTS
             </h3>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
               <div className="p-6 bg-emerald-50/90 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-900/60 rounded-xl text-center shadow-soft">
-                <span className="text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
+                <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
                   Design Nq Factor
                 </span>
                 <span className="text-4xl font-extrabold text-emerald-600 dark:text-emerald-400 mt-2 block">
                   {nqVal.toFixed(2)}
                 </span>
-                <span className="text-sm text-slate-400 mt-2 block">
+                <span className="text-[11px] text-slate-400 mt-2 block">
                   Dimensionless end-bearing capacity factor for driven piles
                 </span>
               </div>
@@ -649,45 +649,45 @@ export const GeotechnicalDesignToolsPage: React.FC<GeotechnicalDesignToolsPagePr
 
       {/* CALCULATION DETAILS & EQUATIONS */}
       <div className="bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-xl p-5 shadow-soft space-y-3">
-        <h4 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2 border-b border-slate-200 dark:border-slate-700 pb-2">
+        <h4 className="text-[11px] font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2 border-b border-slate-200 dark:border-slate-700 pb-2">
           <Calculator className="w-4 h-4 text-purple-600" />
           Governing Empirical Equations & Code References
         </h4>
 
         {activeTab === 'spt' && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 text-sm">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 text-[11px]">
             <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl">
-              <span className="font-semibold text-slate-500 block text-sm">Clay Cohesion</span>
-              <code className="text-sm font-bold text-purple-600 font-mono block mt-1">c = qu / 2</code>
+              <span className="font-semibold text-slate-500 block text-[11px]">Clay Cohesion</span>
+              <code className="text-[11px] font-bold text-purple-600 font-mono block mt-1">c = qu / 2</code>
             </div>
             <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl">
-              <span className="font-semibold text-slate-500 block text-sm">Meyerhof (1956)</span>
-              <code className="text-sm font-bold text-purple-600 font-mono block mt-1">φ = 25 + 0.15·N</code>
+              <span className="font-semibold text-slate-500 block text-[11px]">Meyerhof (1956)</span>
+              <code className="text-[11px] font-bold text-purple-600 font-mono block mt-1">φ = 25 + 0.15·N</code>
             </div>
             <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl">
-              <span className="font-semibold text-slate-500 block text-sm">Peck et al. (1974)</span>
-              <code className="text-sm font-bold text-purple-600 font-mono block mt-1">φ = 27.1 + 0.3N − 0.00054N²</code>
+              <span className="font-semibold text-slate-500 block text-[11px]">Peck et al. (1974)</span>
+              <code className="text-[11px] font-bold text-purple-600 font-mono block mt-1">φ = 27.1 + 0.3N − 0.00054N²</code>
             </div>
             <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl">
-              <span className="font-semibold text-slate-500 block text-sm">Hatanaka (1996)</span>
-              <code className="text-sm font-bold text-purple-600 font-mono block mt-1">φ = √(20N) + 20</code>
+              <span className="font-semibold text-slate-500 block text-[11px]">Hatanaka (1996)</span>
+              <code className="text-[11px] font-bold text-purple-600 font-mono block mt-1">φ = √(20N) + 20</code>
             </div>
           </div>
         )}
 
         {activeTab === 'adhesion' && (
-          <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-sm space-y-1">
+          <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-[11px] space-y-1">
             <span className="font-bold text-blue-600">Tomlinson (1957) Adhesion Factor Curve</span>
-            <p className="text-slate-600 dark:text-slate-400 text-sm">
+            <p className="text-slate-600 dark:text-slate-400 text-[11px]">
               Relates undrained shear strength (cohesion c) to adhesion factor α for skin friction capacity of driven piles.
             </p>
           </div>
         )}
 
         {activeTab === 'nq' && (
-          <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-sm space-y-1">
+          <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-[11px] space-y-1">
             <span className="font-bold text-emerald-600">IS:2911 Part 1-1979 Fig 16.6</span>
-            <p className="text-slate-600 dark:text-slate-400 text-sm">
+            <p className="text-slate-600 dark:text-slate-400 text-[11px]">
               End bearing capacity factor Nq for driven piles in sand as a function of effective friction angle φ'.
             </p>
           </div>
@@ -699,7 +699,7 @@ export const GeotechnicalDesignToolsPage: React.FC<GeotechnicalDesignToolsPagePr
         <div className="flex items-center gap-3">
           <button
             onClick={() => onShowToast('Geotechnical Design Tools calculation saved!')}
-            className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-xl text-sm font-bold shadow-md shadow-blue-600/20 transition-all"
+            className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-xl text-[11px] font-bold shadow-md shadow-blue-600/20 transition-all"
           >
             <Save className="w-4 h-4" />
             <span>Save</span>
@@ -707,7 +707,7 @@ export const GeotechnicalDesignToolsPage: React.FC<GeotechnicalDesignToolsPagePr
 
           <button
             onClick={handleReset}
-            className="flex items-center gap-2 border border-slate-200 dark:border-slate-700 px-4 py-2.5 rounded-xl text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
+            className="flex items-center gap-2 border border-slate-200 dark:border-slate-700 px-4 py-2.5 rounded-xl text-[11px] font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
           >
             <RotateCcw className="w-4 h-4 text-slate-500" />
             <span>Reset</span>
@@ -717,7 +717,7 @@ export const GeotechnicalDesignToolsPage: React.FC<GeotechnicalDesignToolsPagePr
         <div className="flex items-center gap-3">
           <button
             onClick={handleExportExcel}
-            className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2.5 rounded-xl text-sm font-bold shadow-md shadow-emerald-600/20 transition-all"
+            className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2.5 rounded-xl text-[11px] font-bold shadow-md shadow-emerald-600/20 transition-all"
           >
             <FileSpreadsheet className="w-4 h-4" />
             <span>Export Excel</span>
@@ -725,7 +725,7 @@ export const GeotechnicalDesignToolsPage: React.FC<GeotechnicalDesignToolsPagePr
 
           <button
             onClick={() => window.print()}
-            className="flex items-center gap-2 border border-slate-200 dark:border-slate-700 px-4 py-2.5 rounded-xl text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
+            className="flex items-center gap-2 border border-slate-200 dark:border-slate-700 px-4 py-2.5 rounded-xl text-[11px] font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
           >
             <Printer className="w-4 h-4 text-slate-500" />
             <span>Print Report</span>
@@ -733,7 +733,7 @@ export const GeotechnicalDesignToolsPage: React.FC<GeotechnicalDesignToolsPagePr
 
           <button
             onClick={onBack}
-            className="flex items-center gap-2 border border-slate-200 dark:border-slate-700 px-4 py-2.5 rounded-xl text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
+            className="flex items-center gap-2 border border-slate-200 dark:border-slate-700 px-4 py-2.5 rounded-xl text-[11px] font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
           >
             <ArrowLeft className="w-4 h-4 text-slate-500" />
             <span>Back to Dashboard</span>

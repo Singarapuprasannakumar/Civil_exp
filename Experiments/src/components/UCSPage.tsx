@@ -260,7 +260,7 @@ export const UCSPage: React.FC<UCSPageProps> = ({ experiment, onBack, onShowToas
     <div className="space-y-6 animate-in fade-in duration-200">
       {/* BREADCRUMB & HEADER */}
       <div className="flex flex-col gap-2 border-b border-slate-200 dark:border-slate-800 pb-4">
-        <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
+        <div className="flex items-center gap-2 text-[11px] text-slate-500 dark:text-slate-400">
           <button onClick={onBack} className="hover:underline flex items-center gap-1">
             <ArrowLeft className="w-3.5 h-3.5" />
             Dashboard
@@ -271,22 +271,22 @@ export const UCSPage: React.FC<UCSPageProps> = ({ experiment, onBack, onShowToas
 
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-slate-900 dark:text-white tracking-tight flex items-center gap-3">
+            <h1 className="text-[11px] font-bold text-slate-900 dark:text-white tracking-tight flex items-center gap-3">
               <span>[14]</span>
               <span>Unconfined Compressive Strength (UCS) Test</span>
-              <span className="text-sm font-semibold bg-teal-50 dark:bg-teal-950 text-teal-600 dark:text-teal-400 px-2.5 py-1 rounded-full border border-teal-200 dark:border-teal-800 flex items-center gap-1">
+              <span className="text-[11px] font-semibold bg-teal-50 dark:bg-teal-950 text-teal-600 dark:text-teal-400 px-2.5 py-1 rounded-full border border-teal-200 dark:border-teal-800 flex items-center gap-1">
                 <CheckCircle2 className="w-3.5 h-3.5" />
                 <span>IS 2720 Part 10 / ASTM D2166</span>
               </span>
             </h1>
-            <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
+            <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1">
               Determine Unconfined Compressive Strength (qu) and Cohesion (cu) of cohesive soil.
             </p>
           </div>
 
           <button
             onClick={onBack}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 text-[11px] font-semibold hover:bg-slate-50 dark:hover:bg-slate-800"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>Back to Dashboard</span>
@@ -296,50 +296,50 @@ export const UCSPage: React.FC<UCSPageProps> = ({ experiment, onBack, onShowToas
 
       {/* 1. TEST INFORMATION CARD */}
       <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-soft space-y-4">
-        <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2 border-b border-slate-100 dark:border-slate-800 pb-3">
+        <h3 className="text-[11px] font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2 border-b border-slate-100 dark:border-slate-800 pb-3">
           <ArrowDownToLine className="w-4 h-4 text-teal-600" />
           Test Information
         </h3>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <div className="flex flex-col gap-1">
-            <label className="text-sm font-semibold text-slate-600 dark:text-slate-300">Registration Number</label>
+            <label className="text-[11px] font-semibold text-slate-600 dark:text-slate-300">Registration Number</label>
             <input
               type="text"
               value={regdNo}
               onChange={(e) => setRegdNo(e.target.value)}
-              className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-sm font-semibold text-slate-900 dark:text-white outline-none focus:border-teal-600"
+              className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-[11px] font-semibold text-slate-900 dark:text-white outline-none focus:border-teal-600"
             />
           </div>
 
           <div className="flex flex-col gap-1">
-            <label className="text-sm font-semibold text-slate-600 dark:text-slate-300">Proving Ring Constant (N/div)</label>
+            <label className="text-[11px] font-semibold text-slate-600 dark:text-slate-300">Proving Ring Constant (N/div)</label>
             <input
               type="number"
               step="0.01"
               value={provingConstant}
               onChange={(e) => setProvingConstant(parseFloat(e.target.value) || 1)}
-              className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-sm font-bold text-teal-600 outline-none focus:border-teal-600"
+              className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-[11px] font-bold text-teal-600 outline-none focus:border-teal-600"
             />
           </div>
 
           <div className="flex flex-col gap-1">
-            <label className="text-sm font-semibold text-slate-600 dark:text-slate-300">Dial Gauge Least Count (mm/div)</label>
+            <label className="text-[11px] font-semibold text-slate-600 dark:text-slate-300">Dial Gauge Least Count (mm/div)</label>
             <input
               type="number"
               step="0.001"
               value={leastCount}
               onChange={(e) => setLeastCount(parseFloat(e.target.value) || 0.01)}
-              className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-sm font-bold text-blue-600 outline-none focus:border-teal-600"
+              className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-[11px] font-bold text-blue-600 outline-none focus:border-teal-600"
             />
           </div>
 
           <div className="flex flex-col gap-1">
-            <label className="text-sm font-semibold text-slate-600 dark:text-slate-300">Active Specimen View</label>
+            <label className="text-[11px] font-semibold text-slate-600 dark:text-slate-300">Active Specimen View</label>
             <select
               value={selectedSpecimen}
               onChange={(e) => setSelectedSpecimen(parseInt(e.target.value))}
-              className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-sm font-bold text-slate-900 dark:text-white outline-none focus:border-teal-600"
+              className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-[11px] font-bold text-slate-900 dark:text-white outline-none focus:border-teal-600"
             >
               {specimenIds.map(id => (
                 <option key={id} value={id}>Specimen #{id}</option>
@@ -353,13 +353,13 @@ export const UCSPage: React.FC<UCSPageProps> = ({ experiment, onBack, onShowToas
       {tableGenerated && (
         <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-5 shadow-soft space-y-4">
           <div className="flex items-center justify-between">
-            <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+            <h3 className="text-[11px] font-bold text-slate-900 dark:text-white uppercase tracking-wider">
               Observation Table (Specimen #{selectedSpecimen} - {activeObs.length} Readings)
             </h3>
 
             <button
               onClick={handleAddRow}
-              className="flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 font-bold text-sm px-3 py-1.5 rounded-xl transition-all"
+              className="flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 font-bold text-[11px] px-3 py-1.5 rounded-xl transition-all"
             >
               <Plus className="w-3.5 h-3.5" />
               <span>+ Add Reading</span>
@@ -367,9 +367,9 @@ export const UCSPage: React.FC<UCSPageProps> = ({ experiment, onBack, onShowToas
           </div>
 
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm border-collapse min-w-[1100px]">
+            <table className="w-full text-left text-[11px] border-collapse min-w-[1100px]">
               <thead className="sticky top-0 z-10">
-                <tr className="bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-300 font-bold border-b border-slate-200 dark:border-slate-700 text-sm uppercase tracking-wider">
+                <tr className="bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-300 font-bold border-b border-slate-200 dark:border-slate-700 text-[11px] uppercase tracking-wider">
                   <th className="p-2 border-r border-slate-200 dark:border-slate-700" colSpan={1}>Obs</th>
                   <th className="p-2 border-r border-slate-200 dark:border-slate-700 text-center bg-blue-50/80 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300" colSpan={4}>
                     Inputs (Dimensions & Readings)
@@ -380,7 +380,7 @@ export const UCSPage: React.FC<UCSPageProps> = ({ experiment, onBack, onShowToas
                   <th className="p-2 text-center" colSpan={1}>Action</th>
                 </tr>
 
-                <tr className="bg-slate-50 dark:bg-slate-800/60 text-slate-600 dark:text-slate-400 font-semibold border-b border-slate-200 dark:border-slate-800 text-sm">
+                <tr className="bg-slate-50 dark:bg-slate-800/60 text-slate-600 dark:text-slate-400 font-semibold border-b border-slate-200 dark:border-slate-800 text-[11px]">
                   <th className="p-2.5 border-r border-slate-200 dark:border-slate-800">Obs No.</th>
                   <th className="p-2.5">Diameter d (mm)</th>
                   <th className="p-2.5">Length L (mm)</th>
@@ -397,7 +397,7 @@ export const UCSPage: React.FC<UCSPageProps> = ({ experiment, onBack, onShowToas
                 </tr>
               </thead>
 
-              <tbody className="divide-y divide-slate-100 dark:divide-slate-800 font-mono text-sm">
+              <tbody className="divide-y divide-slate-100 dark:divide-slate-800 font-mono text-[11px]">
                 {activeObs.map((obs) => (
                   <tr key={obs.obsNo} className="hover:bg-slate-50/60 dark:hover:bg-slate-800/40 transition-colors">
                     <td className="p-2.5 font-bold text-slate-900 dark:text-white border-r border-slate-100 dark:border-slate-800">
@@ -411,7 +411,7 @@ export const UCSPage: React.FC<UCSPageProps> = ({ experiment, onBack, onShowToas
                         step="0.1"
                         value={obs.d}
                         onChange={(e) => handleCellEdit(obs.obsNo, obs.specimen, 'd', parseFloat(e.target.value) || 0)}
-                        className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1 text-sm outline-none focus:border-teal-600 w-full shadow-inner"
+                        className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1 text-[11px] outline-none focus:border-teal-600 w-full shadow-inner"
                       />
                     </td>
 
@@ -422,7 +422,7 @@ export const UCSPage: React.FC<UCSPageProps> = ({ experiment, onBack, onShowToas
                         step="0.1"
                         value={obs.l}
                         onChange={(e) => handleCellEdit(obs.obsNo, obs.specimen, 'l', parseFloat(e.target.value) || 0)}
-                        className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1 text-sm outline-none focus:border-teal-600 w-full shadow-inner"
+                        className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1 text-[11px] outline-none focus:border-teal-600 w-full shadow-inner"
                       />
                     </td>
 
@@ -433,7 +433,7 @@ export const UCSPage: React.FC<UCSPageProps> = ({ experiment, onBack, onShowToas
                         step="1"
                         value={obs.dial}
                         onChange={(e) => handleCellEdit(obs.obsNo, obs.specimen, 'dial', parseFloat(e.target.value) || 0)}
-                        className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1 text-sm font-semibold text-blue-600 outline-none focus:border-teal-600 w-full shadow-inner"
+                        className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1 text-[11px] font-semibold text-blue-600 outline-none focus:border-teal-600 w-full shadow-inner"
                       />
                     </td>
 
@@ -444,7 +444,7 @@ export const UCSPage: React.FC<UCSPageProps> = ({ experiment, onBack, onShowToas
                         step="1"
                         value={obs.prr}
                         onChange={(e) => handleCellEdit(obs.obsNo, obs.specimen, 'prr', parseFloat(e.target.value) || 0)}
-                        className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1 text-sm font-semibold text-blue-600 outline-none focus:border-teal-600 w-full shadow-inner"
+                        className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1 text-[11px] font-semibold text-blue-600 outline-none focus:border-teal-600 w-full shadow-inner"
                       />
                     </td>
 
@@ -494,30 +494,30 @@ export const UCSPage: React.FC<UCSPageProps> = ({ experiment, onBack, onShowToas
 
       {/* 3. CALCULATION DETAILS CARD */}
       <div className="bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-xl p-5 shadow-soft space-y-3">
-        <h4 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2 border-b border-slate-200 dark:border-slate-700 pb-2">
+        <h4 className="text-[11px] font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2 border-b border-slate-200 dark:border-slate-700 pb-2">
           <Calculator className="w-4 h-4 text-teal-600" />
           Calculation Details & Governing Formulas
         </h4>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 text-sm">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 text-[11px]">
           <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl">
-            <span className="font-semibold text-slate-500 block text-sm">Initial Area (A0)</span>
-            <code className="text-sm font-bold text-blue-600 font-mono block mt-1">= π · d² / 4</code>
+            <span className="font-semibold text-slate-500 block text-[11px]">Initial Area (A0)</span>
+            <code className="text-[11px] font-bold text-blue-600 font-mono block mt-1">= π · d² / 4</code>
           </div>
 
           <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl">
-            <span className="font-semibold text-slate-500 block text-sm">Corrected Area (Ac)</span>
-            <code className="text-sm font-bold text-blue-600 font-mono block mt-1">= A0 / (1 − Strain)</code>
+            <span className="font-semibold text-slate-500 block text-[11px]">Corrected Area (Ac)</span>
+            <code className="text-[11px] font-bold text-blue-600 font-mono block mt-1">= A0 / (1 − Strain)</code>
           </div>
 
           <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl">
-            <span className="font-semibold text-slate-500 block text-sm">Compressive Stress (σ)</span>
-            <code className="text-sm font-bold text-teal-600 font-mono block mt-1">= (Load / Ac) × 1000 kPa</code>
+            <span className="font-semibold text-slate-500 block text-[11px]">Compressive Stress (σ)</span>
+            <code className="text-[11px] font-bold text-teal-600 font-mono block mt-1">= (Load / Ac) × 1000 kPa</code>
           </div>
 
           <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl">
-            <span className="font-semibold text-slate-500 block text-sm">Undrained Cohesion (cu)</span>
-            <code className="text-sm font-bold text-teal-600 font-mono block mt-1">= qu / 2</code>
+            <span className="font-semibold text-slate-500 block text-[11px]">Undrained Cohesion (cu)</span>
+            <code className="text-[11px] font-bold text-teal-600 font-mono block mt-1">= qu / 2</code>
           </div>
         </div>
       </div>
@@ -526,16 +526,16 @@ export const UCSPage: React.FC<UCSPageProps> = ({ experiment, onBack, onShowToas
       <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-soft space-y-4">
         <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
           <div>
-            <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
+            <h3 className="text-[11px] font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
               <ChartIcon className="w-4 h-4 text-teal-600" />
               Stress vs Axial Deformation Curve (Specimen #{selectedSpecimen})
             </h3>
-            <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5">
+            <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
               Axial Deformation (mm) vs Compressive Stress (kPa) with Peak Stress marker.
             </p>
           </div>
 
-          <div className="flex items-center gap-3 text-sm font-bold">
+          <div className="flex items-center gap-3 text-[11px] font-bold">
             <span className="bg-teal-50 dark:bg-teal-950 text-teal-600 px-3 py-1 rounded-xl border border-teal-200">
               Peak = {activeSummary.peakStress} kPa
             </span>
@@ -570,7 +570,7 @@ export const UCSPage: React.FC<UCSPageProps> = ({ experiment, onBack, onShowToas
 
       {/* 5. FINAL RESULTS PANEL */}
       <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-soft space-y-4">
-        <h3 className="text-sm font-extrabold text-slate-900 dark:text-white uppercase tracking-wider border-b border-slate-100 dark:border-slate-800 pb-3 flex items-center gap-2">
+        <h3 className="text-[11px] font-extrabold text-slate-900 dark:text-white uppercase tracking-wider border-b border-slate-100 dark:border-slate-800 pb-3 flex items-center gap-2">
           <CheckCircle2 className="w-4 h-4 text-emerald-600" />
           FINAL RESULTS
         </h3>
@@ -579,33 +579,33 @@ export const UCSPage: React.FC<UCSPageProps> = ({ experiment, onBack, onShowToas
           {/* AVERAGE UCS & COHESION CARDS (6 COLS) */}
           <div className="md:col-span-6 grid grid-cols-2 gap-4">
             <div className="bg-teal-50/90 dark:bg-teal-950/50 border border-teal-200 dark:border-teal-900/60 rounded-xl p-5 text-center shadow-soft">
-              <span className="text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
+              <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
                 Average Final UCS (qu)
               </span>
               <span className="text-4xl font-extrabold text-teal-600 dark:text-teal-400 mt-2 block">
-                {quAvg.toFixed(2)} <span className="text-base font-semibold">kPa</span>
+                {quAvg.toFixed(2)} <span className="text-[11px] font-semibold">kPa</span>
               </span>
             </div>
 
             <div className="bg-blue-50/90 dark:bg-blue-950/50 border border-blue-200 dark:border-blue-900/60 rounded-xl p-5 text-center shadow-soft">
-              <span className="text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
+              <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
                 Average Cohesion (cu)
               </span>
               <span className="text-4xl font-extrabold text-blue-600 dark:text-blue-400 mt-2 block">
-                {cuAvg.toFixed(2)} <span className="text-base font-semibold">kPa</span>
+                {cuAvg.toFixed(2)} <span className="text-[11px] font-semibold">kPa</span>
               </span>
             </div>
           </div>
 
           {/* SPECIMEN BREAKDOWN TABLE (6 COLS) */}
           <div className="md:col-span-6 space-y-2 max-h-[140px] overflow-y-auto pr-1">
-            <h4 className="text-sm font-bold text-slate-500 uppercase tracking-wider">
+            <h4 className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">
               Specimen Summary Breakdown
             </h4>
             {specimenSummaries.map((s) => (
               <div 
                 key={s.specimen}
-                className="flex items-center justify-between p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700/80 text-sm font-mono"
+                className="flex items-center justify-between p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700/80 text-[11px] font-mono"
               >
                 <span className="font-bold text-slate-900 dark:text-white">Specimen {s.specimen}</span>
                 <span className="text-teal-600">qu = {s.qu.toFixed(2)} kPa</span>
@@ -621,7 +621,7 @@ export const UCSPage: React.FC<UCSPageProps> = ({ experiment, onBack, onShowToas
         <div className="flex items-center gap-3">
           <button
             onClick={() => onShowToast('UCS test data saved!')}
-            className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-xl text-sm font-bold shadow-md shadow-blue-600/20 transition-all"
+            className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-xl text-[11px] font-bold shadow-md shadow-blue-600/20 transition-all"
           >
             <Save className="w-4 h-4" />
             <span>Save</span>
@@ -629,7 +629,7 @@ export const UCSPage: React.FC<UCSPageProps> = ({ experiment, onBack, onShowToas
 
           <button
             onClick={handleReset}
-            className="flex items-center gap-2 border border-slate-200 dark:border-slate-700 px-4 py-2.5 rounded-xl text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
+            className="flex items-center gap-2 border border-slate-200 dark:border-slate-700 px-4 py-2.5 rounded-xl text-[11px] font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
           >
             <RotateCcw className="w-4 h-4 text-slate-500" />
             <span>Reset</span>
@@ -639,7 +639,7 @@ export const UCSPage: React.FC<UCSPageProps> = ({ experiment, onBack, onShowToas
         <div className="flex items-center gap-3">
           <button
             onClick={handleExportExcel}
-            className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2.5 rounded-xl text-sm font-bold shadow-md shadow-emerald-600/20 transition-all"
+            className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2.5 rounded-xl text-[11px] font-bold shadow-md shadow-emerald-600/20 transition-all"
           >
             <FileSpreadsheet className="w-4 h-4" />
             <span>Export Excel</span>
@@ -647,7 +647,7 @@ export const UCSPage: React.FC<UCSPageProps> = ({ experiment, onBack, onShowToas
 
           <button
             onClick={onBack}
-            className="flex items-center gap-2 border border-slate-200 dark:border-slate-700 px-4 py-2.5 rounded-xl text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
+            className="flex items-center gap-2 border border-slate-200 dark:border-slate-700 px-4 py-2.5 rounded-xl text-[11px] font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
           >
             <ArrowLeft className="w-4 h-4 text-slate-500" />
             <span>Back to Dashboard</span>

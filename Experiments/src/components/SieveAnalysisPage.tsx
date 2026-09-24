@@ -257,7 +257,7 @@ export const SieveAnalysisPage: React.FC<SieveAnalysisPageProps> = ({ experiment
     <div className="space-y-6 animate-in fade-in duration-200">
       {/* BREADCRUMB & HEADER */}
       <div className="flex flex-col gap-2 border-b border-slate-200 dark:border-slate-800 pb-4">
-        <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
+        <div className="flex items-center gap-2 text-[11px] text-slate-500 dark:text-slate-400">
           <button onClick={onBack} className="hover:underline flex items-center gap-1">
             <ArrowLeft className="w-3.5 h-3.5" />
             Dashboard
@@ -268,22 +268,22 @@ export const SieveAnalysisPage: React.FC<SieveAnalysisPageProps> = ({ experiment
 
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-slate-900 dark:text-white tracking-tight flex items-center gap-3">
+            <h1 className="text-[11px] font-bold text-slate-900 dark:text-white tracking-tight flex items-center gap-3">
               <span>[09]</span>
               <span>Sieve Analysis (Grain Size Analysis)</span>
-              <span className="text-sm font-semibold bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 px-2.5 py-1 rounded-full border border-blue-200 dark:border-blue-800 flex items-center gap-1">
+              <span className="text-[11px] font-semibold bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 px-2.5 py-1 rounded-full border border-blue-200 dark:border-blue-800 flex items-center gap-1">
                 <CheckCircle2 className="w-3.5 h-3.5" />
                 <span>IS 2720 Part 4 / ASTM D422</span>
               </span>
             </h1>
-            <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
+            <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1">
               Determine the particle size distribution of soil by sieve analysis and classify the soil based on grain size characteristics.
             </p>
           </div>
 
           <button
             onClick={onBack}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 text-[11px] font-semibold hover:bg-slate-50 dark:hover:bg-slate-800"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>Back to Dashboard</span>
@@ -293,14 +293,14 @@ export const SieveAnalysisPage: React.FC<SieveAnalysisPageProps> = ({ experiment
 
       {/* 1. TEST INFORMATION CARD */}
       <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-soft space-y-4">
-        <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2 border-b border-slate-100 dark:border-slate-800 pb-3">
+        <h3 className="text-[11px] font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2 border-b border-slate-100 dark:border-slate-800 pb-3">
           <Filter className="w-4 h-4 text-blue-600" />
           Test Information
         </h3>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-end">
           <div className="flex flex-col gap-1">
-            <label className="text-sm font-semibold text-slate-600 dark:text-slate-300">
+            <label className="text-[11px] font-semibold text-slate-600 dark:text-slate-300">
               Registration Number
             </label>
             <input
@@ -308,12 +308,12 @@ export const SieveAnalysisPage: React.FC<SieveAnalysisPageProps> = ({ experiment
               value={regdNo}
               onChange={(e) => setRegdNo(e.target.value)}
               placeholder="REG-2026-SA01"
-              className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-sm font-semibold text-slate-900 dark:text-white outline-none focus:border-blue-600"
+              className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-[11px] font-semibold text-slate-900 dark:text-white outline-none focus:border-blue-600"
             />
           </div>
 
           <div className="flex flex-col gap-1">
-            <label className="text-sm font-semibold text-slate-600 dark:text-slate-300">
+            <label className="text-[11px] font-semibold text-slate-600 dark:text-slate-300">
               Total Sample Weight (g)
             </label>
             <input
@@ -321,12 +321,12 @@ export const SieveAnalysisPage: React.FC<SieveAnalysisPageProps> = ({ experiment
               step="0.1"
               value={totalWeight}
               onChange={(e) => setTotalWeight(parseFloat(e.target.value) || 1)}
-              className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-sm font-bold text-blue-600 outline-none focus:border-blue-600"
+              className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-[11px] font-bold text-blue-600 outline-none focus:border-blue-600"
             />
           </div>
 
           <div className="flex flex-col gap-1">
-            <label className="text-sm font-semibold text-slate-600 dark:text-slate-300">
+            <label className="text-[11px] font-semibold text-slate-600 dark:text-slate-300">
               Number of Sieves
             </label>
             <input
@@ -335,13 +335,13 @@ export const SieveAnalysisPage: React.FC<SieveAnalysisPageProps> = ({ experiment
               max="20"
               value={numObsInput}
               onChange={(e) => setNumObsInput(parseInt(e.target.value) || 1)}
-              className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-sm font-bold text-slate-900 dark:text-white outline-none focus:border-blue-600 text-center"
+              className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-[11px] font-bold text-slate-900 dark:text-white outline-none focus:border-blue-600 text-center"
             />
           </div>
 
           <button
             onClick={handleGenerateTable}
-            className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm py-2.5 rounded-xl shadow-md shadow-blue-600/20 transition-all hover:scale-102 col-span-2 sm:col-span-1"
+            className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold text-[11px] py-2.5 rounded-xl shadow-md shadow-blue-600/20 transition-all hover:scale-102 col-span-2 sm:col-span-1"
           >
             <TableIcon className="w-4 h-4" />
             <span>Generate Table</span>
@@ -353,13 +353,13 @@ export const SieveAnalysisPage: React.FC<SieveAnalysisPageProps> = ({ experiment
       {tableGenerated && (
         <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-5 shadow-soft space-y-4">
           <div className="flex items-center justify-between">
-            <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+            <h3 className="text-[11px] font-bold text-slate-900 dark:text-white uppercase tracking-wider">
               Observation Table ({rows.length} Sieves - Sorted Descending)
             </h3>
 
             <button
               onClick={handleAddRow}
-              className="flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 font-bold text-sm px-3 py-1.5 rounded-xl transition-all"
+              className="flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 font-bold text-[11px] px-3 py-1.5 rounded-xl transition-all"
             >
               <Plus className="w-3.5 h-3.5" />
               <span>+ Add Sieve</span>
@@ -367,9 +367,9 @@ export const SieveAnalysisPage: React.FC<SieveAnalysisPageProps> = ({ experiment
           </div>
 
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm border-collapse min-w-[850px]">
+            <table className="w-full text-left text-[11px] border-collapse min-w-[850px]">
               <thead className="sticky top-0 z-10">
-                <tr className="bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-300 font-bold border-b border-slate-200 dark:border-slate-700 text-sm uppercase tracking-wider">
+                <tr className="bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-300 font-bold border-b border-slate-200 dark:border-slate-700 text-[11px] uppercase tracking-wider">
                   <th className="p-2 border-r border-slate-200 dark:border-slate-700" colSpan={1}>Obs</th>
                   <th className="p-2 border-r border-slate-200 dark:border-slate-700 text-center bg-blue-50/80 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300" colSpan={2}>
                     Inputs (Sieve Size & Mass Retained)
@@ -380,7 +380,7 @@ export const SieveAnalysisPage: React.FC<SieveAnalysisPageProps> = ({ experiment
                   <th className="p-2 text-center" colSpan={1}>Action</th>
                 </tr>
 
-                <tr className="bg-slate-50 dark:bg-slate-800/60 text-slate-600 dark:text-slate-400 font-semibold border-b border-slate-200 dark:border-slate-800 text-sm">
+                <tr className="bg-slate-50 dark:bg-slate-800/60 text-slate-600 dark:text-slate-400 font-semibold border-b border-slate-200 dark:border-slate-800 text-[11px]">
                   <th className="p-2.5 border-r border-slate-200 dark:border-slate-800">Obs No.</th>
                   <th className="p-2.5">Sieve Size (mm)</th>
                   <th className="p-2.5 border-r border-slate-200 dark:border-slate-800">Weight Retained (g)</th>
@@ -392,7 +392,7 @@ export const SieveAnalysisPage: React.FC<SieveAnalysisPageProps> = ({ experiment
                 </tr>
               </thead>
 
-              <tbody className="divide-y divide-slate-100 dark:divide-slate-800 font-mono text-sm">
+              <tbody className="divide-y divide-slate-100 dark:divide-slate-800 font-mono text-[11px]">
                 {rows.map((row, idx) => (
                   <tr key={row.obsNo} className="hover:bg-slate-50/60 dark:hover:bg-slate-800/40 transition-colors">
                     <td className="p-2.5 font-bold text-slate-900 dark:text-white border-r border-slate-100 dark:border-slate-800">
@@ -405,7 +405,7 @@ export const SieveAnalysisPage: React.FC<SieveAnalysisPageProps> = ({ experiment
                         type="text"
                         value={row.rawSieveSize}
                         onChange={(e) => handleCellEdit(row.id, 'sieveSize', e.target.value)}
-                        className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2.5 py-1 text-sm font-bold text-blue-600 outline-none focus:border-blue-600 w-full shadow-inner"
+                        className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2.5 py-1 text-[11px] font-bold text-blue-600 outline-none focus:border-blue-600 w-full shadow-inner"
                       />
                     </td>
 
@@ -415,7 +415,7 @@ export const SieveAnalysisPage: React.FC<SieveAnalysisPageProps> = ({ experiment
                         type="text"
                         value={row.rawWeightRetained}
                         onChange={(e) => handleCellEdit(row.id, 'weightRetained', e.target.value)}
-                        className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2.5 py-1 text-sm outline-none focus:border-blue-600 w-full shadow-inner"
+                        className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2.5 py-1 text-[11px] outline-none focus:border-blue-600 w-full shadow-inner"
                       />
                     </td>
 
@@ -453,43 +453,43 @@ export const SieveAnalysisPage: React.FC<SieveAnalysisPageProps> = ({ experiment
 
       {/* 3. CALCULATION DETAILS CARD */}
       <div className="bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-xl p-5 shadow-soft space-y-3">
-        <h4 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2 border-b border-slate-200 dark:border-slate-700 pb-2">
+        <h4 className="text-[11px] font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2 border-b border-slate-200 dark:border-slate-700 pb-2">
           <Calculator className="w-4 h-4 text-blue-600" />
           Calculation Details & Gradation Formulas
         </h4>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-3 text-sm">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-3 text-[11px]">
           <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl">
-            <span className="font-semibold text-slate-500 dark:text-slate-400 block text-sm">Cumulative Weight</span>
-            <code className="text-sm font-bold text-blue-600 dark:text-blue-400 font-mono block mt-1">
+            <span className="font-semibold text-slate-500 dark:text-slate-400 block text-[11px]">Cumulative Weight</span>
+            <code className="text-[11px] font-bold text-blue-600 dark:text-blue-400 font-mono block mt-1">
               = Running Sum of Retained Wt
             </code>
           </div>
 
           <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl">
-            <span className="font-semibold text-slate-500 dark:text-slate-400 block text-sm">Percent Retained</span>
-            <code className="text-sm font-bold text-blue-600 dark:text-blue-400 font-mono block mt-1">
+            <span className="font-semibold text-slate-500 dark:text-slate-400 block text-[11px]">Percent Retained</span>
+            <code className="text-[11px] font-bold text-blue-600 dark:text-blue-400 font-mono block mt-1">
               = (Retained Wt ÷ Total Wt) × 100
             </code>
           </div>
 
           <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl">
-            <span className="font-semibold text-slate-500 dark:text-slate-400 block text-sm">Percent Passing</span>
-            <code className="text-sm font-bold text-blue-600 dark:text-blue-400 font-mono block mt-1">
+            <span className="font-semibold text-slate-500 dark:text-slate-400 block text-[11px]">Percent Passing</span>
+            <code className="text-[11px] font-bold text-blue-600 dark:text-blue-400 font-mono block mt-1">
               = 100 − (Cum Wt ÷ Total Wt) × 100
             </code>
           </div>
 
           <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl">
-            <span className="font-semibold text-slate-500 dark:text-slate-400 block text-sm">Uniformity Coeff (Cu)</span>
-            <code className="text-sm font-bold text-emerald-600 dark:text-emerald-400 font-mono block mt-1">
+            <span className="font-semibold text-slate-500 dark:text-slate-400 block text-[11px]">Uniformity Coeff (Cu)</span>
+            <code className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 font-mono block mt-1">
               = D60 ÷ D10
             </code>
           </div>
 
           <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl">
-            <span className="font-semibold text-slate-500 dark:text-slate-400 block text-sm">Curvature Coeff (Cc)</span>
-            <code className="text-sm font-bold text-emerald-600 dark:text-emerald-400 font-mono block mt-1">
+            <span className="font-semibold text-slate-500 dark:text-slate-400 block text-[11px]">Curvature Coeff (Cc)</span>
+            <code className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 font-mono block mt-1">
               = (D30²) ÷ (D10 × D60)
             </code>
           </div>
@@ -500,16 +500,16 @@ export const SieveAnalysisPage: React.FC<SieveAnalysisPageProps> = ({ experiment
       <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-soft space-y-4">
         <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
           <div>
-            <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
+            <h3 className="text-[11px] font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
               <ChartIcon className="w-4 h-4 text-blue-600" />
               Grain Size Distribution Curve (Semi-Log Scale)
             </h3>
-            <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5">
+            <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
               Plotting Particle Size (mm) vs Percent Passing (%) with $D_{10}$, $D_{30}$, and $D_{60}$ reference points.
             </p>
           </div>
 
-          <div className="flex items-center gap-2 text-sm font-bold text-blue-600 bg-blue-50 dark:bg-blue-950 px-3 py-1 rounded-xl">
+          <div className="flex items-center gap-2 text-[11px] font-bold text-blue-600 bg-blue-50 dark:bg-blue-950 px-3 py-1 rounded-xl">
             <span>Classification: {classification}</span>
           </div>
         </div>
@@ -567,58 +567,58 @@ export const SieveAnalysisPage: React.FC<SieveAnalysisPageProps> = ({ experiment
 
       {/* 5. FINAL RESULTS PANEL */}
       <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-soft space-y-4">
-        <h3 className="text-sm font-extrabold text-slate-900 dark:text-white uppercase tracking-wider border-b border-slate-100 dark:border-slate-800 pb-3 flex items-center gap-2">
+        <h3 className="text-[11px] font-extrabold text-slate-900 dark:text-white uppercase tracking-wider border-b border-slate-100 dark:border-slate-800 pb-3 flex items-center gap-2">
           <CheckCircle2 className="w-4 h-4 text-emerald-600" />
           FINAL RESULTS
         </h3>
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
           {/* PARAMETERS GRID (7 COLS) */}
-          <div className="md:col-span-7 grid grid-cols-2 sm:grid-cols-4 gap-2 text-sm font-mono">
+          <div className="md:col-span-7 grid grid-cols-2 sm:grid-cols-4 gap-2 text-[11px] font-mono">
             <div className="p-3 bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700 rounded-xl">
-              <span className="text-xs text-slate-400 block">D10 (mm)</span>
+              <span className="text-[11px] text-slate-400 block">D10 (mm)</span>
               <span className="font-bold text-blue-600">{D10.toFixed(4)}</span>
             </div>
             <div className="p-3 bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700 rounded-xl">
-              <span className="text-xs text-slate-400 block">D30 (mm)</span>
+              <span className="text-[11px] text-slate-400 block">D30 (mm)</span>
               <span className="font-bold text-blue-600">{D30.toFixed(4)}</span>
             </div>
             <div className="p-3 bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700 rounded-xl">
-              <span className="text-xs text-slate-400 block">D60 (mm)</span>
+              <span className="text-[11px] text-slate-400 block">D60 (mm)</span>
               <span className="font-bold text-blue-600">{D60.toFixed(4)}</span>
             </div>
             <div className="p-3 bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700 rounded-xl">
-              <span className="text-xs text-slate-400 block">Coeff Uniformity (Cu)</span>
+              <span className="text-[11px] text-slate-400 block">Coeff Uniformity (Cu)</span>
               <span className="font-bold text-emerald-600">{Cu.toFixed(2)}</span>
             </div>
 
             <div className="p-3 bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700 rounded-xl">
-              <span className="text-xs text-slate-400 block">Coeff Curvature (Cc)</span>
+              <span className="text-[11px] text-slate-400 block">Coeff Curvature (Cc)</span>
               <span className="font-bold text-emerald-600">{Cc.toFixed(2)}</span>
             </div>
             <div className="p-3 bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700 rounded-xl">
-              <span className="text-xs text-slate-400 block">Gravel (&gt;4.75mm)</span>
+              <span className="text-[11px] text-slate-400 block">Gravel (&gt;4.75mm)</span>
               <span className="font-bold text-slate-700 dark:text-slate-300">{gravel.toFixed(2)} %</span>
             </div>
             <div className="p-3 bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700 rounded-xl">
-              <span className="text-xs text-slate-400 block">Sand (4.75-0.075mm)</span>
+              <span className="text-[11px] text-slate-400 block">Sand (4.75-0.075mm)</span>
               <span className="font-bold text-slate-700 dark:text-slate-300">{sand.toFixed(2)} %</span>
             </div>
             <div className="p-3 bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700 rounded-xl">
-              <span className="text-xs text-slate-400 block">Fines (&lt;0.075mm)</span>
+              <span className="text-[11px] text-slate-400 block">Fines (&lt;0.075mm)</span>
               <span className="font-bold text-slate-700 dark:text-slate-300">{fines.toFixed(2)} %</span>
             </div>
           </div>
 
           {/* SOIL CLASSIFICATION CARD (5 COLS) */}
           <div className="md:col-span-5 bg-blue-50/90 dark:bg-blue-950/50 border border-blue-200 dark:border-blue-900/60 rounded-xl p-6 flex flex-col justify-center text-center shadow-soft">
-            <span className="text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+            <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
               Soil Classification (USCS / IS)
             </span>
             <span className="text-4xl font-extrabold text-blue-600 dark:text-blue-400 mt-2">
               {classification}
             </span>
-            <span className="text-sm text-slate-400 mt-2">
+            <span className="text-[11px] text-slate-400 mt-2">
               Determined per Cu, Cc, Gravel, Sand, and Fines fractions
             </span>
           </div>
@@ -630,7 +630,7 @@ export const SieveAnalysisPage: React.FC<SieveAnalysisPageProps> = ({ experiment
         <div className="flex items-center gap-3">
           <button
             onClick={() => onShowToast('Sieve Analysis test data saved!')}
-            className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-xl text-sm font-bold shadow-md shadow-blue-600/20 transition-all"
+            className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-xl text-[11px] font-bold shadow-md shadow-blue-600/20 transition-all"
           >
             <Save className="w-4 h-4" />
             <span>Save</span>
@@ -638,7 +638,7 @@ export const SieveAnalysisPage: React.FC<SieveAnalysisPageProps> = ({ experiment
 
           <button
             onClick={handleReset}
-            className="flex items-center gap-2 border border-slate-200 dark:border-slate-700 px-4 py-2.5 rounded-xl text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
+            className="flex items-center gap-2 border border-slate-200 dark:border-slate-700 px-4 py-2.5 rounded-xl text-[11px] font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
           >
             <RotateCcw className="w-4 h-4 text-slate-500" />
             <span>Reset</span>
@@ -648,7 +648,7 @@ export const SieveAnalysisPage: React.FC<SieveAnalysisPageProps> = ({ experiment
         <div className="flex items-center gap-3">
           <button
             onClick={handleExportExcel}
-            className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2.5 rounded-xl text-sm font-bold shadow-md shadow-emerald-600/20 transition-all"
+            className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2.5 rounded-xl text-[11px] font-bold shadow-md shadow-emerald-600/20 transition-all"
           >
             <FileSpreadsheet className="w-4 h-4" />
             <span>Export Excel</span>
@@ -656,7 +656,7 @@ export const SieveAnalysisPage: React.FC<SieveAnalysisPageProps> = ({ experiment
 
           <button
             onClick={onBack}
-            className="flex items-center gap-2 border border-slate-200 dark:border-slate-700 px-4 py-2.5 rounded-xl text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
+            className="flex items-center gap-2 border border-slate-200 dark:border-slate-700 px-4 py-2.5 rounded-xl text-[11px] font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
           >
             <ArrowLeft className="w-4 h-4 text-slate-500" />
             <span>Back to Dashboard</span>

@@ -172,7 +172,7 @@ export const ShrinkageLimitPage: React.FC<ShrinkageLimitPageProps> = ({ experime
     <div className="space-y-6 animate-in fade-in duration-200">
       {/* BREADCRUMB & HEADER */}
       <div className="flex flex-col gap-2 border-b border-slate-200 dark:border-slate-800 pb-4">
-        <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
+        <div className="flex items-center gap-2 text-[11px] text-slate-500 dark:text-slate-400">
           <button onClick={onBack} className="hover:underline flex items-center gap-1">
             <ArrowLeft className="w-3.5 h-3.5" />
             Dashboard
@@ -183,22 +183,22 @@ export const ShrinkageLimitPage: React.FC<ShrinkageLimitPageProps> = ({ experime
 
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-slate-900 dark:text-white tracking-tight flex items-center gap-3">
+            <h1 className="text-[11px] font-bold text-slate-900 dark:text-white tracking-tight flex items-center gap-3">
               <span>[05]</span>
               <span>Shrinkage Limit Test</span>
-              <span className="text-sm font-semibold bg-emerald-50 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 px-2.5 py-1 rounded-full border border-emerald-200 dark:border-emerald-800 flex items-center gap-1">
+              <span className="text-[11px] font-semibold bg-emerald-50 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 px-2.5 py-1 rounded-full border border-emerald-200 dark:border-emerald-800 flex items-center gap-1">
                 <CheckCircle2 className="w-3.5 h-3.5" />
                 <span>IS 2720 Part 6 / ASTM D4943</span>
               </span>
             </h1>
-            <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
+            <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1">
               Determine the Shrinkage Limit of soil using the shrinkage dish and mercury displacement method.
             </p>
           </div>
 
           <button
             onClick={onBack}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 text-[11px] font-semibold hover:bg-slate-50 dark:hover:bg-slate-800"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>Back to Dashboard</span>
@@ -208,14 +208,14 @@ export const ShrinkageLimitPage: React.FC<ShrinkageLimitPageProps> = ({ experime
 
       {/* 1. TEST INFORMATION CARD */}
       <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-soft space-y-4">
-        <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2 border-b border-slate-100 dark:border-slate-800 pb-3">
+        <h3 className="text-[11px] font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2 border-b border-slate-100 dark:border-slate-800 pb-3">
           <TableIcon className="w-4 h-4 text-emerald-600" />
           Test Information
         </h3>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-end">
           <div className="flex flex-col gap-1">
-            <label className="text-sm font-semibold text-slate-600 dark:text-slate-300">
+            <label className="text-[11px] font-semibold text-slate-600 dark:text-slate-300">
               Registration Number
             </label>
             <input
@@ -223,12 +223,12 @@ export const ShrinkageLimitPage: React.FC<ShrinkageLimitPageProps> = ({ experime
               value={regdNo}
               onChange={(e) => setRegdNo(e.target.value)}
               placeholder="REG-2026-SL01"
-              className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-sm font-semibold text-slate-900 dark:text-white outline-none focus:border-emerald-600"
+              className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-[11px] font-semibold text-slate-900 dark:text-white outline-none focus:border-emerald-600"
             />
           </div>
 
           <div className="flex flex-col gap-1">
-            <label className="text-sm font-semibold text-slate-600 dark:text-slate-300">
+            <label className="text-[11px] font-semibold text-slate-600 dark:text-slate-300">
               Number of Observations (Pat Trials)
             </label>
             <input
@@ -237,13 +237,13 @@ export const ShrinkageLimitPage: React.FC<ShrinkageLimitPageProps> = ({ experime
               max="20"
               value={numObsInput}
               onChange={(e) => setNumObsInput(parseInt(e.target.value) || 1)}
-              className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-sm font-bold text-slate-900 dark:text-white outline-none focus:border-emerald-600 text-center"
+              className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-[11px] font-bold text-slate-900 dark:text-white outline-none focus:border-emerald-600 text-center"
             />
           </div>
 
           <button
             onClick={handleGenerateTable}
-            className="flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm py-2.5 rounded-xl shadow-md shadow-emerald-600/20 transition-all hover:scale-102 col-span-2 sm:col-span-1"
+            className="flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[11px] py-2.5 rounded-xl shadow-md shadow-emerald-600/20 transition-all hover:scale-102 col-span-2 sm:col-span-1"
           >
             <TableIcon className="w-4 h-4" />
             <span>Generate Table</span>
@@ -255,13 +255,13 @@ export const ShrinkageLimitPage: React.FC<ShrinkageLimitPageProps> = ({ experime
       {tableGenerated && (
         <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-5 shadow-soft space-y-4">
           <div className="flex items-center justify-between">
-            <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+            <h3 className="text-[11px] font-bold text-slate-900 dark:text-white uppercase tracking-wider">
               Observation Table ({observations.length} Mercury Displacement Trials)
             </h3>
 
             <button
               onClick={handleAddRow}
-              className="flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 font-bold text-sm px-3 py-1.5 rounded-xl transition-all"
+              className="flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 font-bold text-[11px] px-3 py-1.5 rounded-xl transition-all"
             >
               <Plus className="w-3.5 h-3.5" />
               <span>+ Add Row</span>
@@ -269,9 +269,9 @@ export const ShrinkageLimitPage: React.FC<ShrinkageLimitPageProps> = ({ experime
           </div>
 
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm border-collapse min-w-[1400px]">
+            <table className="w-full text-left text-[11px] border-collapse min-w-[1400px]">
               <thead className="sticky top-0 z-10">
-                <tr className="bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-300 font-bold border-b border-slate-200 dark:border-slate-700 text-sm uppercase tracking-wider">
+                <tr className="bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-300 font-bold border-b border-slate-200 dark:border-slate-700 text-[11px] uppercase tracking-wider">
                   <th className="p-2 border-r border-slate-200 dark:border-slate-700" colSpan={1}>Obs</th>
                   <th className="p-2 border-r border-slate-200 dark:border-slate-700 text-center bg-blue-50/80 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300" colSpan={6}>
                     Inputs (Raw Dish & Mercury Weights)
@@ -282,7 +282,7 @@ export const ShrinkageLimitPage: React.FC<ShrinkageLimitPageProps> = ({ experime
                   <th className="p-2 text-center" colSpan={1}>Action</th>
                 </tr>
 
-                <tr className="bg-slate-50 dark:bg-slate-800/60 text-slate-600 dark:text-slate-400 font-semibold border-b border-slate-200 dark:border-slate-800 text-sm">
+                <tr className="bg-slate-50 dark:bg-slate-800/60 text-slate-600 dark:text-slate-400 font-semibold border-b border-slate-200 dark:border-slate-800 text-[11px]">
                   <th className="p-2.5 border-r border-slate-200 dark:border-slate-800">Obs No.</th>
                   <th className="p-2.5">W1 (Dish)</th>
                   <th className="p-2.5">W2 (Dish + Wet)</th>
@@ -302,7 +302,7 @@ export const ShrinkageLimitPage: React.FC<ShrinkageLimitPageProps> = ({ experime
                 </tr>
               </thead>
 
-              <tbody className="divide-y divide-slate-100 dark:divide-slate-800 font-mono text-sm">
+              <tbody className="divide-y divide-slate-100 dark:divide-slate-800 font-mono text-[11px]">
                 {observations.map((obs) => (
                   <tr key={obs.obsNo} className="hover:bg-slate-50/60 dark:hover:bg-slate-800/40 transition-colors">
                     <td className="p-2.5 font-bold text-slate-900 dark:text-white border-r border-slate-100 dark:border-slate-800">
@@ -316,7 +316,7 @@ export const ShrinkageLimitPage: React.FC<ShrinkageLimitPageProps> = ({ experime
                         step="0.001"
                         value={obs.w1}
                         onChange={(e) => handleCellEdit(obs.obsNo, 'w1', parseFloat(e.target.value) || 0)}
-                        className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1 text-sm outline-none focus:border-blue-600 w-full shadow-inner"
+                        className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1 text-[11px] outline-none focus:border-blue-600 w-full shadow-inner"
                       />
                     </td>
 
@@ -327,7 +327,7 @@ export const ShrinkageLimitPage: React.FC<ShrinkageLimitPageProps> = ({ experime
                         step="0.001"
                         value={obs.w2}
                         onChange={(e) => handleCellEdit(obs.obsNo, 'w2', parseFloat(e.target.value) || 0)}
-                        className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1 text-sm outline-none focus:border-blue-600 w-full shadow-inner"
+                        className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1 text-[11px] outline-none focus:border-blue-600 w-full shadow-inner"
                       />
                     </td>
 
@@ -338,7 +338,7 @@ export const ShrinkageLimitPage: React.FC<ShrinkageLimitPageProps> = ({ experime
                         step="0.001"
                         value={obs.w3}
                         onChange={(e) => handleCellEdit(obs.obsNo, 'w3', parseFloat(e.target.value) || 0)}
-                        className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1 text-sm outline-none focus:border-blue-600 w-full shadow-inner"
+                        className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1 text-[11px] outline-none focus:border-blue-600 w-full shadow-inner"
                       />
                     </td>
 
@@ -349,7 +349,7 @@ export const ShrinkageLimitPage: React.FC<ShrinkageLimitPageProps> = ({ experime
                         step="0.001"
                         value={obs.w4}
                         onChange={(e) => handleCellEdit(obs.obsNo, 'w4', parseFloat(e.target.value) || 0)}
-                        className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1 text-sm outline-none focus:border-blue-600 w-full shadow-inner"
+                        className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1 text-[11px] outline-none focus:border-blue-600 w-full shadow-inner"
                       />
                     </td>
 
@@ -360,7 +360,7 @@ export const ShrinkageLimitPage: React.FC<ShrinkageLimitPageProps> = ({ experime
                         step="0.001"
                         value={obs.w5}
                         onChange={(e) => handleCellEdit(obs.obsNo, 'w5', parseFloat(e.target.value) || 0)}
-                        className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1 text-sm outline-none focus:border-blue-600 w-full shadow-inner"
+                        className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1 text-[11px] outline-none focus:border-blue-600 w-full shadow-inner"
                       />
                     </td>
 
@@ -371,7 +371,7 @@ export const ShrinkageLimitPage: React.FC<ShrinkageLimitPageProps> = ({ experime
                         step="0.001"
                         value={obs.w6}
                         onChange={(e) => handleCellEdit(obs.obsNo, 'w6', parseFloat(e.target.value) || 0)}
-                        className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1 text-sm outline-none focus:border-blue-600 w-full shadow-inner"
+                        className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1 text-[11px] outline-none focus:border-blue-600 w-full shadow-inner"
                       />
                     </td>
 
@@ -425,50 +425,50 @@ export const ShrinkageLimitPage: React.FC<ShrinkageLimitPageProps> = ({ experime
 
       {/* 3. CALCULATION DETAILS CARD */}
       <div className="bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-xl p-5 shadow-soft space-y-3">
-        <h4 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2 border-b border-slate-200 dark:border-slate-700 pb-2">
+        <h4 className="text-[11px] font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2 border-b border-slate-200 dark:border-slate-700 pb-2">
           <Calculator className="w-4 h-4 text-emerald-600" />
           Calculation Details & Mercury Displacement Formulas
         </h4>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-3 text-sm">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-3 text-[11px]">
           <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl">
-            <span className="font-semibold text-slate-500 dark:text-slate-400 block text-sm">Wet Soil</span>
-            <code className="text-sm font-bold text-blue-600 dark:text-blue-400 font-mono block mt-1">
+            <span className="font-semibold text-slate-500 dark:text-slate-400 block text-[11px]">Wet Soil</span>
+            <code className="text-[11px] font-bold text-blue-600 dark:text-blue-400 font-mono block mt-1">
               = W2 − W1
             </code>
           </div>
 
           <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl">
-            <span className="font-semibold text-slate-500 dark:text-slate-400 block text-sm">Dry Soil</span>
-            <code className="text-sm font-bold text-blue-600 dark:text-blue-400 font-mono block mt-1">
+            <span className="font-semibold text-slate-500 dark:text-slate-400 block text-[11px]">Dry Soil</span>
+            <code className="text-[11px] font-bold text-blue-600 dark:text-blue-400 font-mono block mt-1">
               = W3 − W1
             </code>
           </div>
 
           <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl">
-            <span className="font-semibold text-slate-500 dark:text-slate-400 block text-sm">V1 (Wet Pat Vol)</span>
-            <code className="text-sm font-bold text-blue-600 dark:text-blue-400 font-mono block mt-1">
+            <span className="font-semibold text-slate-500 dark:text-slate-400 block text-[11px]">V1 (Wet Pat Vol)</span>
+            <code className="text-[11px] font-bold text-blue-600 dark:text-blue-400 font-mono block mt-1">
               = (W4 − W1) ÷ 13.6
             </code>
           </div>
 
           <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl">
-            <span className="font-semibold text-slate-500 dark:text-slate-400 block text-sm">V2 (Dry Pat Vol)</span>
-            <code className="text-sm font-bold text-blue-600 dark:text-blue-400 font-mono block mt-1">
+            <span className="font-semibold text-slate-500 dark:text-slate-400 block text-[11px]">V2 (Dry Pat Vol)</span>
+            <code className="text-[11px] font-bold text-blue-600 dark:text-blue-400 font-mono block mt-1">
               = (W6 − W5) ÷ 13.6
             </code>
           </div>
 
           <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl">
-            <span className="font-semibold text-slate-500 dark:text-slate-400 block text-sm">Volume Reduction</span>
-            <code className="text-sm font-bold text-blue-600 dark:text-blue-400 font-mono block mt-1">
+            <span className="font-semibold text-slate-500 dark:text-slate-400 block text-[11px]">Volume Reduction</span>
+            <code className="text-[11px] font-bold text-blue-600 dark:text-blue-400 font-mono block mt-1">
               = V1 − V2
             </code>
           </div>
 
           <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl">
-            <span className="font-semibold text-slate-500 dark:text-slate-400 block text-sm">Shrinkage Limit (%)</span>
-            <code className="text-sm font-bold text-emerald-600 dark:text-emerald-400 font-mono block mt-1">
+            <span className="font-semibold text-slate-500 dark:text-slate-400 block text-[11px]">Shrinkage Limit (%)</span>
+            <code className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 font-mono block mt-1">
               = ((Water Lost − Vol Red) ÷ Dry Soil) × 100
             </code>
           </div>
@@ -477,7 +477,7 @@ export const ShrinkageLimitPage: React.FC<ShrinkageLimitPageProps> = ({ experime
 
       {/* 4. FINAL RESULTS PANEL MATCHING PYTHON CLI OUTPUT */}
       <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-soft space-y-4">
-        <h3 className="text-sm font-extrabold text-slate-900 dark:text-white uppercase tracking-wider border-b border-slate-100 dark:border-slate-800 pb-3 flex items-center gap-2">
+        <h3 className="text-[11px] font-extrabold text-slate-900 dark:text-white uppercase tracking-wider border-b border-slate-100 dark:border-slate-800 pb-3 flex items-center gap-2">
           <CheckCircle2 className="w-4 h-4 text-emerald-600" />
           FINAL RESULTS
         </h3>
@@ -485,16 +485,16 @@ export const ShrinkageLimitPage: React.FC<ShrinkageLimitPageProps> = ({ experime
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
           {/* INDIVIDUAL OBSERVATION SUMMARY (7 COLS) */}
           <div className="md:col-span-7 space-y-2">
-            <h4 className="text-sm font-bold text-slate-500 uppercase tracking-wider">
+            <h4 className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">
               Observation Summary
             </h4>
             {observations.map((obs) => (
               <div 
                 key={obs.obsNo}
-                className="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700/80 text-sm font-mono"
+                className="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700/80 text-[11px] font-mono"
               >
                 <span className="font-bold text-slate-900 dark:text-white">Observation {obs.obsNo}</span>
-                <span className="font-bold text-emerald-600 dark:text-emerald-400 text-base">
+                <span className="font-bold text-emerald-600 dark:text-emerald-400 text-[11px]">
                   Shrinkage Limit = {obs.shrinkageLimit.toFixed(2)} %
                 </span>
               </div>
@@ -503,13 +503,13 @@ export const ShrinkageLimitPage: React.FC<ShrinkageLimitPageProps> = ({ experime
 
           {/* PROMINENT AVERAGE SHRINKAGE LIMIT HIGHLIGHT CARD (5 COLS) */}
           <div className="md:col-span-5 bg-emerald-50/90 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-900/60 rounded-xl p-6 flex flex-col justify-center text-center shadow-soft">
-            <span className="text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+            <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
               Average Shrinkage Limit
             </span>
             <span className="text-4xl font-extrabold text-emerald-600 dark:text-emerald-400 mt-2">
               {averageSL.toFixed(2)} %
             </span>
-            <span className="text-sm text-slate-400 mt-2">
+            <span className="text-[11px] text-slate-400 mt-2">
               Mean of mercury displacement soil pat readings
             </span>
           </div>
@@ -521,7 +521,7 @@ export const ShrinkageLimitPage: React.FC<ShrinkageLimitPageProps> = ({ experime
         <div className="flex items-center gap-3">
           <button
             onClick={() => onShowToast('Shrinkage Limit test data saved!')}
-            className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-xl text-sm font-bold shadow-md shadow-blue-600/20 transition-all"
+            className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-xl text-[11px] font-bold shadow-md shadow-blue-600/20 transition-all"
           >
             <Save className="w-4 h-4" />
             <span>Save</span>
@@ -529,7 +529,7 @@ export const ShrinkageLimitPage: React.FC<ShrinkageLimitPageProps> = ({ experime
 
           <button
             onClick={handleReset}
-            className="flex items-center gap-2 border border-slate-200 dark:border-slate-700 px-4 py-2.5 rounded-xl text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
+            className="flex items-center gap-2 border border-slate-200 dark:border-slate-700 px-4 py-2.5 rounded-xl text-[11px] font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
           >
             <RotateCcw className="w-4 h-4 text-slate-500" />
             <span>Reset</span>
@@ -539,7 +539,7 @@ export const ShrinkageLimitPage: React.FC<ShrinkageLimitPageProps> = ({ experime
         <div className="flex items-center gap-3">
           <button
             onClick={handleExportExcel}
-            className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2.5 rounded-xl text-sm font-bold shadow-md shadow-emerald-600/20 transition-all"
+            className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2.5 rounded-xl text-[11px] font-bold shadow-md shadow-emerald-600/20 transition-all"
           >
             <FileSpreadsheet className="w-4 h-4" />
             <span>Export Excel</span>
@@ -547,7 +547,7 @@ export const ShrinkageLimitPage: React.FC<ShrinkageLimitPageProps> = ({ experime
 
           <button
             onClick={onBack}
-            className="flex items-center gap-2 border border-slate-200 dark:border-slate-700 px-4 py-2.5 rounded-xl text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
+            className="flex items-center gap-2 border border-slate-200 dark:border-slate-700 px-4 py-2.5 rounded-xl text-[11px] font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
           >
             <ArrowLeft className="w-4 h-4 text-slate-500" />
             <span>Back to Dashboard</span>

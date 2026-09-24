@@ -257,7 +257,7 @@ export const SandReplacementPage: React.FC<SandReplacementPageProps> = ({ experi
   return (
     <div className="space-y-6 animate-in fade-in duration-200">
       <div className="flex flex-col gap-2 border-b border-slate-200 dark:border-slate-800 pb-4">
-        <div className="flex items-center gap-2 text-base text-slate-500 dark:text-slate-400">
+        <div className="flex items-center gap-2 text-[11px] text-slate-500 dark:text-slate-400">
           <button onClick={onBack} className="hover:underline flex items-center gap-1">
             <ArrowLeft className="w-4 h-4" />
             Dashboard
@@ -271,19 +271,19 @@ export const SandReplacementPage: React.FC<SandReplacementPageProps> = ({ experi
             <h1 className="text-4xl font-bold text-slate-900 dark:text-white tracking-tight flex items-center gap-3">
               <span>[07]</span>
               <span>Sand Replacement Method</span>
-              <span className="text-base font-semibold bg-amber-50 dark:bg-amber-950 text-amber-600 dark:text-amber-400 px-3 py-1.5 rounded-full border border-amber-200 dark:border-amber-800 flex items-center gap-1">
+              <span className="text-[11px] font-semibold bg-amber-50 dark:bg-amber-950 text-amber-600 dark:text-amber-400 px-3 py-1.5 rounded-full border border-amber-200 dark:border-amber-800 flex items-center gap-1">
                 <CheckCircle2 className="w-4 h-4" />
                 <span>IS 2720 (Part 28) - 1974</span>
               </span>
             </h1>
-            <p className="text-base text-slate-500 dark:text-slate-400 mt-2">
+            <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-2">
               Determine the field/in-situ density of soil using the Sand Replacement Method.
             </p>
           </div>
 
           <button
             onClick={onBack}
-            className="flex items-center gap-1.5 px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 text-base font-semibold hover:bg-slate-50 dark:hover:bg-slate-800"
+            className="flex items-center gap-1.5 px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 text-[11px] font-semibold hover:bg-slate-50 dark:hover:bg-slate-800"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Back to Dashboard</span>
@@ -292,14 +292,14 @@ export const SandReplacementPage: React.FC<SandReplacementPageProps> = ({ experi
       </div>
 
       <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-soft space-y-4">
-        <h3 className="text-lg font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2 border-b border-slate-100 dark:border-slate-800 pb-3">
+        <h3 className="text-[11px] font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2 border-b border-slate-100 dark:border-slate-800 pb-3">
           <TableIcon className="w-5 h-5 text-amber-600" />
           Test Information
         </h3>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-end">
           <div className="flex flex-col gap-1.5">
-            <label className="text-base font-semibold text-slate-600 dark:text-slate-300">
+            <label className="text-[11px] font-semibold text-slate-600 dark:text-slate-300">
               Registration Number
             </label>
             <input
@@ -307,25 +307,25 @@ export const SandReplacementPage: React.FC<SandReplacementPageProps> = ({ experi
               value={regdNo}
               onChange={(e) => setRegdNo(e.target.value)}
               placeholder="REG-2026-SR01"
-              className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-lg font-semibold text-slate-900 dark:text-white outline-none focus:border-amber-600"
+              className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-[11px] font-semibold text-slate-900 dark:text-white outline-none focus:border-amber-600"
             />
           </div>
 
           <div className="flex flex-col gap-1.5">
-            <label className="text-base font-semibold text-slate-600 dark:text-slate-300">
+            <label className="text-[11px] font-semibold text-slate-600 dark:text-slate-300">
               Number of Observations
             </label>
             <input
               type="text"
               value={numObsInput}
               onChange={(e) => setNumObsInput(e.target.value)}
-              className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-lg font-bold text-slate-900 dark:text-white outline-none focus:border-amber-600 text-center"
+              className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-[11px] font-bold text-slate-900 dark:text-white outline-none focus:border-amber-600 text-center"
             />
           </div>
 
           <button
             onClick={handleGenerateTable}
-            className="flex items-center justify-center gap-2 bg-amber-600 hover:bg-amber-700 text-white font-bold text-lg py-2.5 rounded-xl shadow-md shadow-amber-600/20 transition-all col-span-2 sm:col-span-1"
+            className="flex items-center justify-center gap-2 bg-amber-600 hover:bg-amber-700 text-white font-bold text-[11px] py-2.5 rounded-xl shadow-md shadow-amber-600/20 transition-all col-span-2 sm:col-span-1"
           >
             <TableIcon className="w-5 h-5" />
             <span>Generate Setup</span>
@@ -337,13 +337,13 @@ export const SandReplacementPage: React.FC<SandReplacementPageProps> = ({ experi
         <div className="space-y-6">
           <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-soft space-y-4">
             <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
-              <h3 className="text-lg font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
+              <h3 className="text-[11px] font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
                 <Sliders className="w-5 h-5 text-blue-600" />
                 Section 1 — Calibration Data
               </h3>
               <button
                 onClick={handleAddRow}
-                className="flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 font-bold text-base px-4 py-2 rounded-xl transition-all"
+                className="flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 font-bold text-[11px] px-4 py-2 rounded-xl transition-all"
               >
                 <Plus className="w-4 h-4" />
                 <span>Add Record</span>
@@ -351,9 +351,9 @@ export const SandReplacementPage: React.FC<SandReplacementPageProps> = ({ experi
             </div>
             
             <div className="overflow-x-auto">
-              <table className="w-full text-left text-base border-collapse min-w-[1000px]">
+              <table className="w-full text-left text-[11px] border-collapse min-w-[1000px]">
                 <thead>
-                  <tr className="bg-blue-50/80 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 font-bold border-b border-blue-200 dark:border-blue-800 text-base uppercase tracking-wider">
+                  <tr className="bg-blue-50/80 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 font-bold border-b border-blue-200 dark:border-blue-800 text-[11px] uppercase tracking-wider">
                     <th className="p-3 border-r border-blue-200 dark:border-blue-800">Obs</th>
                     <th className="p-3">W1 (Cyl) (g)</th>
                     <th className="p-3">W2 (Container) (g)</th>
@@ -363,7 +363,7 @@ export const SandReplacementPage: React.FC<SandReplacementPageProps> = ({ experi
                     <th className="p-3">V1 (Rec Vol) (cc)</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-100 dark:divide-slate-800 font-mono text-lg">
+                <tbody className="divide-y divide-slate-100 dark:divide-slate-800 font-mono text-[11px]">
                   {observations.map((obs) => (
                     <tr key={obs.obsNo} className="hover:bg-slate-50/60 dark:hover:bg-slate-800/40 transition-colors">
                       <td className="p-3 font-bold text-slate-900 dark:text-white border-r border-slate-100 dark:border-slate-800">
@@ -396,23 +396,23 @@ export const SandReplacementPage: React.FC<SandReplacementPageProps> = ({ experi
 
           <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-soft space-y-4">
             <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
-              <h3 className="text-lg font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
+              <h3 className="text-[11px] font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
                 <Layers className="w-5 h-5 text-amber-600" />
                 Section 2 — Field Test Data
               </h3>
             </div>
             
             <div className="overflow-x-auto">
-              <table className="w-full text-left text-base border-collapse min-w-[700px]">
+              <table className="w-full text-left text-[11px] border-collapse min-w-[700px]">
                 <thead>
-                  <tr className="bg-amber-50/80 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300 font-bold border-b border-amber-200 dark:border-amber-800 text-base uppercase tracking-wider">
+                  <tr className="bg-amber-50/80 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300 font-bold border-b border-amber-200 dark:border-amber-800 text-[11px] uppercase tracking-wider">
                     <th className="p-3 border-r border-amber-200 dark:border-amber-800">Obs</th>
                     <th className="p-3">W7 (Cyl+Sand Pre Hole) (g)</th>
                     <th className="p-3">W8 (Cyl+Sand Post Hole) (g)</th>
                     <th className="p-3">W9 (Excavated Soil) (g)</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-100 dark:divide-slate-800 font-mono text-lg">
+                <tbody className="divide-y divide-slate-100 dark:divide-slate-800 font-mono text-[11px]">
                   {observations.map((obs) => (
                     <tr key={obs.obsNo} className="hover:bg-slate-50/60 dark:hover:bg-slate-800/40 transition-colors">
                       <td className="p-3 font-bold text-slate-900 dark:text-white border-r border-slate-100 dark:border-slate-800">
@@ -436,16 +436,16 @@ export const SandReplacementPage: React.FC<SandReplacementPageProps> = ({ experi
 
           <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-soft space-y-4">
             <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
-              <h3 className="text-lg font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
+              <h3 className="text-[11px] font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
                 <Droplets className="w-5 h-5 text-emerald-600" />
                 Section 3 — Water Content
               </h3>
             </div>
             
             <div className="overflow-x-auto">
-              <table className="w-full text-left text-base border-collapse min-w-[900px]">
+              <table className="w-full text-left text-[11px] border-collapse min-w-[900px]">
                 <thead>
-                  <tr className="bg-emerald-50/80 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-300 font-bold border-b border-emerald-200 dark:border-emerald-800 text-base uppercase tracking-wider">
+                  <tr className="bg-emerald-50/80 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-300 font-bold border-b border-emerald-200 dark:border-emerald-800 text-[11px] uppercase tracking-wider">
                     <th className="p-3 border-r border-emerald-200 dark:border-emerald-800">Obs</th>
                     <th className="p-3">Cup No</th>
                     <th className="p-3">W10 (Cup+Wet) (g)</th>
@@ -454,7 +454,7 @@ export const SandReplacementPage: React.FC<SandReplacementPageProps> = ({ experi
                     <th className="p-3">G (Spec. Grav)</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-100 dark:divide-slate-800 font-mono text-lg">
+                <tbody className="divide-y divide-slate-100 dark:divide-slate-800 font-mono text-[11px]">
                   {observations.map((obs) => (
                     <tr key={obs.obsNo} className="hover:bg-slate-50/60 dark:hover:bg-slate-800/40 transition-colors">
                       <td className="p-3 font-bold text-slate-900 dark:text-white border-r border-slate-100 dark:border-slate-800">
@@ -485,80 +485,80 @@ export const SandReplacementPage: React.FC<SandReplacementPageProps> = ({ experi
       )}
 
       <div className="bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-xl p-6 shadow-soft space-y-4">
-        <h4 className="text-lg font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2 border-b border-slate-200 dark:border-slate-700 pb-3">
+        <h4 className="text-[11px] font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2 border-b border-slate-200 dark:border-slate-700 pb-3">
           <Calculator className="w-5 h-5 text-amber-600" />
           Calculation Details
         </h4>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 text-base">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 text-[11px]">
           <div className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl space-y-2">
             <span className="font-bold text-slate-700 dark:text-slate-300 block">Sand in Receiver</span>
-            <code className="text-base font-bold text-blue-600 dark:text-blue-400 font-mono block">Sand in Receiver = W5 - W2</code>
-            <div className="text-sm text-slate-500">
+            <code className="text-[11px] font-bold text-blue-600 dark:text-blue-400 font-mono block">Sand in Receiver = W5 - W2</code>
+            <div className="text-[11px] text-slate-500">
               Result: {observations[0]?.sandInReceiver} g
             </div>
           </div>
 
           <div className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl space-y-2">
             <span className="font-bold text-slate-700 dark:text-slate-300 block">Density of Sand (γs)</span>
-            <code className="text-base font-bold text-blue-600 dark:text-blue-400 font-mono block">γs = (W5 - W2) / V1</code>
-            <div className="text-sm text-slate-500">
+            <code className="text-[11px] font-bold text-blue-600 dark:text-blue-400 font-mono block">γs = (W5 - W2) / V1</code>
+            <div className="text-[11px] text-slate-500">
               Result: {observations[0]?.densitySand} g/cc
             </div>
           </div>
 
           <div className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl space-y-2">
             <span className="font-bold text-slate-700 dark:text-slate-300 block">Sand in Cone</span>
-            <code className="text-base font-bold text-blue-600 dark:text-blue-400 font-mono block">Sand in Cone =<br/>(W3 - W1) - (W4 - W1) - (W5 - W2)</code>
-            <div className="text-sm text-slate-500">
+            <code className="text-[11px] font-bold text-blue-600 dark:text-blue-400 font-mono block">Sand in Cone =<br/>(W3 - W1) - (W4 - W1) - (W5 - W2)</code>
+            <div className="text-[11px] text-slate-500">
               Result: {observations[0]?.sandInCone} g
             </div>
           </div>
 
           <div className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl space-y-2">
             <span className="font-bold text-slate-700 dark:text-slate-300 block">Sand in Hole</span>
-            <code className="text-base font-bold text-amber-600 dark:text-amber-400 font-mono block">Sand in Hole =<br/>(W7 - W8) - Sand in Cone</code>
-            <div className="text-sm text-slate-500">
+            <code className="text-[11px] font-bold text-amber-600 dark:text-amber-400 font-mono block">Sand in Hole =<br/>(W7 - W8) - Sand in Cone</code>
+            <div className="text-[11px] text-slate-500">
               Result: {observations[0]?.sandInHole} g
             </div>
           </div>
 
           <div className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl space-y-2">
             <span className="font-bold text-slate-700 dark:text-slate-300 block">Volume of Hole</span>
-            <code className="text-base font-bold text-amber-600 dark:text-amber-400 font-mono block">V2 = Sand in Hole / γs</code>
-            <div className="text-sm text-slate-500">
+            <code className="text-[11px] font-bold text-amber-600 dark:text-amber-400 font-mono block">V2 = Sand in Hole / γs</code>
+            <div className="text-[11px] text-slate-500">
               Result: {observations[0]?.volumeHole} cc
             </div>
           </div>
 
           <div className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl space-y-2">
             <span className="font-bold text-slate-700 dark:text-slate-300 block">Bulk Density (γ)</span>
-            <code className="text-base font-bold text-amber-600 dark:text-amber-400 font-mono block">γ = W9 / V2</code>
-            <div className="text-sm text-slate-500">
+            <code className="text-[11px] font-bold text-amber-600 dark:text-amber-400 font-mono block">γ = W9 / V2</code>
+            <div className="text-[11px] text-slate-500">
               Result: {observations[0]?.bulkDensity} g/cc
             </div>
           </div>
 
           <div className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl space-y-2">
             <span className="font-bold text-slate-700 dark:text-slate-300 block">Water Content (w)</span>
-            <code className="text-base font-bold text-emerald-600 dark:text-emerald-400 font-mono block">w = ((W10 - W11) / (W11 - W12)) × 100</code>
-            <div className="text-sm text-slate-500">
+            <code className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 font-mono block">w = ((W10 - W11) / (W11 - W12)) × 100</code>
+            <div className="text-[11px] text-slate-500">
               Result: {observations[0]?.waterContent} %
             </div>
           </div>
 
           <div className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl space-y-2">
             <span className="font-bold text-slate-700 dark:text-slate-300 block">Dry Density (γd)</span>
-            <code className="text-base font-bold text-purple-600 dark:text-purple-400 font-mono block">γd = γ / (1 + w / 100)</code>
-            <div className="text-sm text-slate-500">
+            <code className="text-[11px] font-bold text-purple-600 dark:text-purple-400 font-mono block">γd = γ / (1 + w / 100)</code>
+            <div className="text-[11px] text-slate-500">
               Result: {observations[0]?.dryDensity} g/cc
             </div>
           </div>
 
           <div className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl space-y-2">
             <span className="font-bold text-slate-700 dark:text-slate-300 block">In-situ Void Ratio (e)</span>
-            <code className="text-base font-bold text-rose-600 dark:text-rose-400 font-mono block">e = (G / γd) - 1</code>
-            <div className="text-sm text-slate-500">
+            <code className="text-[11px] font-bold text-rose-600 dark:text-rose-400 font-mono block">e = (G / γd) - 1</code>
+            <div className="text-[11px] text-slate-500">
               Result: {observations[0]?.voidRatio}
             </div>
           </div>
@@ -566,7 +566,7 @@ export const SandReplacementPage: React.FC<SandReplacementPageProps> = ({ experi
       </div>
 
       <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-soft space-y-4">
-        <h3 className="text-lg font-extrabold text-slate-900 dark:text-white uppercase tracking-wider border-b border-slate-100 dark:border-slate-800 pb-3 flex items-center gap-2">
+        <h3 className="text-[11px] font-extrabold text-slate-900 dark:text-white uppercase tracking-wider border-b border-slate-100 dark:border-slate-800 pb-3 flex items-center gap-2">
           <CheckCircle2 className="w-5 h-5 text-emerald-600" />
           FINAL RESULTS
         </h3>
@@ -578,7 +578,7 @@ export const SandReplacementPage: React.FC<SandReplacementPageProps> = ({ experi
               className="p-5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700/80 space-y-4"
             >
               <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-700 pb-3">
-                <span className="font-bold text-slate-900 dark:text-white text-base">Observation {obs.obsNo}</span>
+                <span className="font-bold text-slate-900 dark:text-white text-[11px]">Observation {obs.obsNo}</span>
                 <button onClick={() => handleDeleteRow(obs.obsNo)} className="text-slate-400 hover:text-red-500 transition-colors">
                   <Trash2 className="w-4 h-4" />
                 </button>
@@ -586,27 +586,27 @@ export const SandReplacementPage: React.FC<SandReplacementPageProps> = ({ experi
 
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 text-center">
                 <div className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-sm border-b-2 border-b-amber-500">
-                  <span className="text-base font-semibold text-slate-500 dark:text-slate-400 block mb-1">Dry Density</span>
-                  <span className="text-3xl font-extrabold text-amber-600 dark:text-amber-400">{obs.dryDensity !== '-' ? `${obs.dryDensity}` : '-'}</span>
-                  <span className="text-sm text-slate-400 block mt-1">g/cc</span>
+                  <span className="text-[11px] font-semibold text-slate-500 dark:text-slate-400 block mb-1">Dry Density</span>
+                  <span className="text-[11px] font-extrabold text-amber-600 dark:text-amber-400">{obs.dryDensity !== '-' ? `${obs.dryDensity}` : '-'}</span>
+                  <span className="text-[11px] text-slate-400 block mt-1">g/cc</span>
                 </div>
                 
                 <div className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-sm">
-                  <span className="text-base font-semibold text-slate-500 dark:text-slate-400 block mb-1">Bulk Density</span>
-                  <span className="text-2xl font-bold text-blue-600 dark:text-blue-400">{obs.bulkDensity !== '-' ? `${obs.bulkDensity}` : '-'}</span>
-                  <span className="text-sm text-slate-400 block mt-1">g/cc</span>
+                  <span className="text-[11px] font-semibold text-slate-500 dark:text-slate-400 block mb-1">Bulk Density</span>
+                  <span className="text-[11px] font-bold text-blue-600 dark:text-blue-400">{obs.bulkDensity !== '-' ? `${obs.bulkDensity}` : '-'}</span>
+                  <span className="text-[11px] text-slate-400 block mt-1">g/cc</span>
                 </div>
 
                 <div className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-sm">
-                  <span className="text-base font-semibold text-slate-500 dark:text-slate-400 block mb-1">Water Content</span>
-                  <span className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">{obs.waterContent !== '-' ? `${obs.waterContent}` : '-'}</span>
-                  <span className="text-sm text-slate-400 block mt-1">%</span>
+                  <span className="text-[11px] font-semibold text-slate-500 dark:text-slate-400 block mb-1">Water Content</span>
+                  <span className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400">{obs.waterContent !== '-' ? `${obs.waterContent}` : '-'}</span>
+                  <span className="text-[11px] text-slate-400 block mt-1">%</span>
                 </div>
 
                 <div className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-sm">
-                  <span className="text-base font-semibold text-slate-500 dark:text-slate-400 block mb-1">In-situ Void Ratio</span>
-                  <span className="text-2xl font-bold text-purple-600 dark:text-purple-400">{obs.voidRatio !== '-' ? `${obs.voidRatio}` : '-'}</span>
-                  <span className="text-sm text-slate-400 block mt-1">-</span>
+                  <span className="text-[11px] font-semibold text-slate-500 dark:text-slate-400 block mb-1">In-situ Void Ratio</span>
+                  <span className="text-[11px] font-bold text-purple-600 dark:text-purple-400">{obs.voidRatio !== '-' ? `${obs.voidRatio}` : '-'}</span>
+                  <span className="text-[11px] text-slate-400 block mt-1">-</span>
                 </div>
               </div>
             </div>
@@ -618,7 +618,7 @@ export const SandReplacementPage: React.FC<SandReplacementPageProps> = ({ experi
         <div className="flex items-center gap-3">
           <button
             onClick={() => onShowToast('Test data saved!')}
-            className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-xl text-base font-bold shadow-md shadow-blue-600/20 transition-all"
+            className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-xl text-[11px] font-bold shadow-md shadow-blue-600/20 transition-all"
           >
             <Save className="w-5 h-5" />
             <span>Save</span>
@@ -626,7 +626,7 @@ export const SandReplacementPage: React.FC<SandReplacementPageProps> = ({ experi
 
           <button
             onClick={handleReset}
-            className="flex items-center gap-2 border border-slate-200 dark:border-slate-700 px-4 py-2.5 rounded-xl text-base font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
+            className="flex items-center gap-2 border border-slate-200 dark:border-slate-700 px-4 py-2.5 rounded-xl text-[11px] font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
           >
             <RotateCcw className="w-5 h-5 text-slate-500" />
             <span>Reset</span>
@@ -636,7 +636,7 @@ export const SandReplacementPage: React.FC<SandReplacementPageProps> = ({ experi
         <div className="flex items-center gap-3">
           <button
             onClick={handleExportExcel}
-            className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2.5 rounded-xl text-base font-bold shadow-md shadow-emerald-600/20 transition-all"
+            className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2.5 rounded-xl text-[11px] font-bold shadow-md shadow-emerald-600/20 transition-all"
           >
             <FileSpreadsheet className="w-5 h-5" />
             <span>Export Excel</span>
@@ -644,7 +644,7 @@ export const SandReplacementPage: React.FC<SandReplacementPageProps> = ({ experi
 
           <button
             onClick={onBack}
-            className="flex items-center gap-2 border border-slate-200 dark:border-slate-700 px-4 py-2.5 rounded-xl text-base font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
+            className="flex items-center gap-2 border border-slate-200 dark:border-slate-700 px-4 py-2.5 rounded-xl text-[11px] font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
           >
             <ArrowLeft className="w-5 h-5 text-slate-500" />
             <span>Back to Dashboard</span>
