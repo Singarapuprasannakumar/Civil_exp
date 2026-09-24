@@ -535,14 +535,21 @@ export const SieveAnalysisPage: React.FC<SieveAnalysisPageProps> = ({ experiment
                 x: {
                   type: 'logarithmic',
                   reverse: true, // Standard Grain Size charts often reverse X (largest to smallest)
+                  min: 0.01,
+                  max: 10,
                   title: { display: true, text: 'Particle Size (mm) [Log Scale]', font: { size: 16, weight: 'bold' } },
                   border: { display: true, color: '#1e3a8a', width: 1.5 },
                   // @ts-ignore
                   grid: { color: 'rgba(30, 58, 138, 0.35)', lineWidth: 1, borderDash: [5, 5] },
                   ticks: {
                     font: { size: 14, weight: 'bold' },
+                    maxTicksLimit: 15,
                     callback: function(value: any) {
-                        return value;
+                        const standardTicks = [10, 4.75, 2, 1, 0.425, 0.1, 0.075, 0.01];
+                        if (standardTicks.includes(Number(value)) || value === 10 || value === 1 || value === 0.1 || value === 0.01) {
+                            return value;
+                        }
+                        return '';
                     }
                   }
                 },
