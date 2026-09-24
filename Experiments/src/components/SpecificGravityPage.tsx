@@ -158,6 +158,9 @@ export const SpecificGravityPage: React.FC<SpecificGravityPageProps> = ({ experi
 
     csvContent += `${regdNo},,,,,,,,,,Average G27,,${averageG27.toFixed(4)}\n`;
 
+    csvContent += "\nProject:,GeoTech Lab - Soil Testing Suite\n";
+    csvContent += "Created & Developed By:,Singarapu Prasanna Kumar\n";
+    csvContent += "Copyright:,© " + new Date().getFullYear() + " Singarapu Prasanna Kumar. All Rights Reserved.\n";
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement("a");
     link.setAttribute("href", encodedUri);

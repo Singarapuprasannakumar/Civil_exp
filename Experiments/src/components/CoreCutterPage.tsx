@@ -137,6 +137,9 @@ export const CoreCutterPage: React.FC<CoreCutterPageProps> = ({ experiment, onBa
       csvContent += `${regdNo},${o.obsNo},${o.cutterNo},${o.d.toFixed(3)},${o.h.toFixed(3)},${o.volume.toFixed(3)},${o.w1.toFixed(3)},${o.w2.toFixed(3)},${o.wetSoil.toFixed(3)},${o.moisture.toFixed(2)},${o.bulkDensity.toFixed(4)},${o.dryDensity.toFixed(4)}\n`;
     });
 
+    csvContent += "\nProject:,GeoTech Lab - Soil Testing Suite\n";
+    csvContent += "Created & Developed By:,Singarapu Prasanna Kumar\n";
+    csvContent += "Copyright:,© " + new Date().getFullYear() + " Singarapu Prasanna Kumar. All Rights Reserved.\n";
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement("a");
     link.setAttribute("href", encodedUri);

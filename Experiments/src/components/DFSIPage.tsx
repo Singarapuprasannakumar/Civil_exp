@@ -82,6 +82,9 @@ export const DFSIPage: React.FC<DFSIPageProps> = ({ experiment, onBack, onShowTo
     const timestamp = new Date().toISOString().replace('T', ' ').substring(0, 19);
     csvContent += `${timestamp},${sno},${sampleNo},${volumeWater.toFixed(2)},${volumeKerosene.toFixed(2)},${dfsi.toFixed(2)},${severity}\n`;
 
+    csvContent += "\nProject:,GeoTech Lab - Soil Testing Suite\n";
+    csvContent += "Created & Developed By:,Singarapu Prasanna Kumar\n";
+    csvContent += "Copyright:,© " + new Date().getFullYear() + " Singarapu Prasanna Kumar. All Rights Reserved.\n";
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement("a");
     link.setAttribute("href", encodedUri);

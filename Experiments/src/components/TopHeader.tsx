@@ -39,7 +39,7 @@ export const TopHeader: React.FC<TopHeaderProps> = ({ searchVal, setSearchVal, o
       </div>
 
       {/* RIGHT ACTIONS */}
-      <div className="flex items-center justify-end">
+      <div className="flex items-center justify-end gap-3">
         <button
           onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
           className="w-10 h-10 rounded-xl flex items-center justify-center border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
@@ -47,6 +47,17 @@ export const TopHeader: React.FC<TopHeaderProps> = ({ searchVal, setSearchVal, o
         >
           <Sun className="w-5 h-5 text-amber-500 dark:text-amber-400" />
         </button>
+
+        {/* PERSONAL BRANDING BLOCK */}
+        <div className="flex items-center gap-3 pl-3 border-l border-slate-200 dark:border-slate-700">
+          <div className="text-right hidden sm:block leading-tight">
+            <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wide block">Created & Developed by</span>
+            <span className="text-[12px] font-bold text-blue-600 dark:text-blue-400">Singarapu Prasanna Kumar</span>
+          </div>
+          <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center font-bold text-blue-600 dark:text-blue-400 text-sm border border-blue-200 dark:border-blue-800 shrink-0">
+            SP
+          </div>
+        </div>
       </div>
     </header>
   );

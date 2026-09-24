@@ -123,6 +123,9 @@ export const PlasticLimitPage: React.FC<PlasticLimitPageProps> = ({ experiment, 
     // APPEND PLASTIC LIMIT SUMMARY ROW MATCHING PYTHON CODE
     csvContent += `\n${regdNo},,,,,,,Plastic Limit (%),${plasticLimit.toFixed(2)}\n`;
 
+    csvContent += "\nProject:,GeoTech Lab - Soil Testing Suite\n";
+    csvContent += "Created & Developed By:,Singarapu Prasanna Kumar\n";
+    csvContent += "Copyright:,© " + new Date().getFullYear() + " Singarapu Prasanna Kumar. All Rights Reserved.\n";
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement("a");
     link.setAttribute("href", encodedUri);

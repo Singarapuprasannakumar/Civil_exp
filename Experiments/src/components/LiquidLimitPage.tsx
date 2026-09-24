@@ -239,6 +239,9 @@ export const LiquidLimitPage: React.FC<LiquidLimitPageProps> = ({ experiment, on
 
     csvContent += `\n${regdNo},,,,,,,Liquid Limit (%),${typeof liquidLimit === 'number' ? liquidLimit.toFixed(2) : ''}\n`;
 
+    csvContent += "\nProject:,GeoTech Lab - Soil Testing Suite\n";
+    csvContent += "Created & Developed By:,Singarapu Prasanna Kumar\n";
+    csvContent += "Copyright:,© " + new Date().getFullYear() + " Singarapu Prasanna Kumar. All Rights Reserved.\n";
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement("a");
     link.setAttribute("href", encodedUri);

@@ -242,6 +242,9 @@ export const SieveAnalysisPage: React.FC<SieveAnalysisPageProps> = ({ experiment
       csvContent += `${regdNo},${r.sieveSize},${r.weightRetained.toFixed(3)},${r.cumulativeWeight.toFixed(3)},${r.percentRetained.toFixed(2)},${r.percentPassing.toFixed(2)}\n`;
     });
 
+    csvContent += "\nProject:,GeoTech Lab - Soil Testing Suite\n";
+    csvContent += "Created & Developed By:,Singarapu Prasanna Kumar\n";
+    csvContent += "Copyright:,© " + new Date().getFullYear() + " Singarapu Prasanna Kumar. All Rights Reserved.\n";
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement("a");
     link.setAttribute("href", encodedUri);

@@ -294,6 +294,9 @@ export const CBRPage: React.FC<CBRPageProps> = ({ experiment, onBack, onShowToas
     csvContent += `\nFINAL CBR VALUE\n`;
     csvContent += `CBR = ${finalCbr.toFixed(2)} % at ${finalPenetration.toFixed(1)} mm penetration,Status: ${testValid ? 'TEST VALID' : 'TEST NEEDS REPETITION'},Rating: ${ratingInfo.rating}\n`;
 
+    csvContent += "\nProject:,GeoTech Lab - Soil Testing Suite\n";
+    csvContent += "Created & Developed By:,Singarapu Prasanna Kumar\n";
+    csvContent += "Copyright:,© " + new Date().getFullYear() + " Singarapu Prasanna Kumar. All Rights Reserved.\n";
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement("a");
     link.setAttribute("href", encodedUri);

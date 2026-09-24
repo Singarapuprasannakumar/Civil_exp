@@ -57,8 +57,13 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, onSelectTab }) => {
           <FlaskConical className="w-5 h-5" />
         </div>
         <div className="flex flex-col">
-          <h1 className="text-lg font-bold text-white tracking-tight leading-none">GeoTech_Lab</h1>
-          <span className="text-[11px] font-medium text-slate-400 mt-1">Soil Testing Suite</span>
+          <h1 className="text-xl font-extrabold text-white tracking-tight leading-none">GeoTech Lab</h1>
+          <span className="text-xs font-medium text-slate-400 mt-1">Soil Testing Suite</span>
+          
+          <div className="mt-3">
+            <span className="text-[10px] font-medium text-slate-300 block">Created & Developed by</span>
+            <span className="text-[11px] font-bold text-yellow-400">Singarapu Prasanna Kumar</span>
+          </div>
         </div>
       </div>
 
@@ -119,10 +124,16 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, onSelectTab }) => {
           <div className="relative p-3 text-white">
             <div className="flex items-center gap-2 mb-1">
               <FlaskConical className="w-4 h-4 text-blue-400" />
-              <span className="text-[11px] font-bold tracking-wide uppercase text-blue-400">GeoTech_Lab</span>
+              <div className="flex flex-col">
+                <span className="text-[11px] font-bold tracking-wide uppercase text-white">GeoTech Lab</span>
+                <span className="text-[9px] text-blue-400 opacity-80">Soil Testing Suite</span>
+              </div>
             </div>
-            <p className="text-[11px] font-medium text-slate-200 leading-tight">
+            <p className="text-[10px] font-medium text-slate-200 leading-tight">
               Accurate Testing.<br />Reliable Engineering.
+            </p>
+            <p className="text-[10px] font-bold text-yellow-400 mt-1">
+              Created by Singarapu Prasanna Kumar
             </p>
           </div>
         </div>

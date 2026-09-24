@@ -243,6 +243,9 @@ export const SandReplacementPage: React.FC<SandReplacementPageProps> = ({ experi
       csvContent += `${regdNo},${o.obsNo},${fmt(o.w1)},${fmt(o.w2)},${fmt(o.w3)},${fmt(o.w4)},${fmt(o.w5)},${fmt(o.v1)},${fmt(o.sandInReceiver)},${fmt(o.densitySand)},${fmt(o.sandInCone)},${fmt(o.w7)},${fmt(o.w8)},${fmt(o.w9)},${fmt(o.sandInHole)},${fmt(o.volumeHole)},${fmt(o.bulkDensity)},${fmt(o.cupNo)},${fmt(o.w10)},${fmt(o.w11)},${fmt(o.w12)},${fmt(o.waterContent)},${fmt(o.dryDensity)},${fmt(o.g)},${fmt(o.voidRatio)}\n`;
     });
 
+    csvContent += "\nProject:,GeoTech Lab - Soil Testing Suite\n";
+    csvContent += "Created & Developed By:,Singarapu Prasanna Kumar\n";
+    csvContent += "Copyright:,© " + new Date().getFullYear() + " Singarapu Prasanna Kumar. All Rights Reserved.\n";
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement("a");
     link.setAttribute("href", encodedUri);
