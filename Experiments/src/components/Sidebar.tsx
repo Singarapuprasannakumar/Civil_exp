@@ -59,11 +59,6 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, onSelectTab }) => {
         <div className="flex flex-col">
           <h1 className="text-xl font-extrabold text-white tracking-tight leading-none">GeoTech Lab</h1>
           <span className="text-xs font-medium text-slate-400 mt-1">Soil Testing Suite</span>
-          
-          <div className="mt-3">
-            <span className="text-[10px] font-medium text-slate-300 block">Created & Developed by</span>
-            <span className="text-[11px] font-bold text-yellow-400">Singarapu Prasanna Kumar</span>
-          </div>
         </div>
       </div>
 
