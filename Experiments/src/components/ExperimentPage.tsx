@@ -222,7 +222,7 @@ export const ExperimentPage: React.FC<ExperimentPageProps> = ({ experiment, onBa
         <div className="max-w-xl w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-8 shadow-elevated text-center relative overflow-hidden space-y-6">
           <div className="absolute inset-0 opacity-5 dark:opacity-10 pointer-events-none bg-[radial-gradient(#2563EB_1px,transparent_1px)] [background-size:16px_16px]" />
 
-          <div className="flex items-center justify-center gap-2 text-xs text-slate-400">
+          <div className="flex items-center justify-center gap-2 text-sm text-slate-400">
             <button onClick={onBack} className="hover:underline flex items-center gap-1">
               <ArrowLeft className="w-3.5 h-3.5" />
               Dashboard
@@ -241,26 +241,26 @@ export const ExperimentPage: React.FC<ExperimentPageProps> = ({ experiment, onBa
           </div>
 
           <div className="space-y-2">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-purple-50 dark:bg-purple-950/60 text-purple-600 dark:text-purple-300 border border-purple-200 dark:border-purple-800">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-bold bg-purple-50 dark:bg-purple-950/60 text-purple-600 dark:text-purple-300 border border-purple-200 dark:border-purple-800">
               <Clock className="w-3.5 h-3.5" />
               <span>Status: Coming Soon</span>
             </div>
 
-            <h1 className="text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+            <h1 className="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
               [{experiment.num}] {experiment.title}
             </h1>
 
-            <p className="text-xs text-slate-500 dark:text-slate-400 max-w-md mx-auto">
+            <p className="text-sm text-slate-500 dark:text-slate-400 max-w-md mx-auto">
               {experiment.desc} • Standard: <span className="font-semibold text-slate-700 dark:text-slate-300">{experiment.standard}</span>
             </p>
           </div>
 
-          <div className="bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/80 rounded-xl p-5 text-xs space-y-2 text-left">
+          <div className="bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/80 rounded-xl p-5 text-sm space-y-2 text-left">
             <div className="flex items-start gap-2.5">
               <Code className="w-4 h-4 text-purple-600 dark:text-purple-400 shrink-0 mt-0.5" />
               <div>
                 <h4 className="font-bold text-slate-900 dark:text-white">Calculation Logic Pending</h4>
-                <p className="text-slate-600 dark:text-slate-300 text-[11px] leading-relaxed mt-0.5">
+                <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mt-0.5">
                   "This experiment interface will become available after its calculation logic has been integrated."
                 </p>
               </div>
@@ -268,7 +268,7 @@ export const ExperimentPage: React.FC<ExperimentPageProps> = ({ experiment, onBa
 
             <div className="border-t border-slate-200 dark:border-slate-700 pt-2.5 flex items-start gap-2.5">
               <Sparkles className="w-4 h-4 text-blue-600 dark:text-blue-400 shrink-0 mt-0.5" />
-              <p className="text-slate-500 dark:text-slate-400 text-[11px] leading-relaxed">
+              <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
                 "The frontend will be automatically generated from the corresponding Python experiment script."
               </p>
             </div>
@@ -277,7 +277,7 @@ export const ExperimentPage: React.FC<ExperimentPageProps> = ({ experiment, onBa
           <div className="pt-2">
             <button
               onClick={onBack}
-              className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs px-6 py-3 rounded-xl shadow-md shadow-blue-600/20 transition-all hover:scale-105"
+              className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm px-6 py-3 rounded-xl shadow-md shadow-blue-600/20 transition-all hover:scale-105"
             >
               <ArrowLeft className="w-4 h-4" />
               <span>Back to Dashboard</span>
@@ -429,7 +429,7 @@ export const ExperimentPage: React.FC<ExperimentPageProps> = ({ experiment, onBa
     <div className="space-y-6 animate-in fade-in duration-200">
       {/* BREADCRUMB & HEADER */}
       <div className="flex flex-col gap-2 border-b border-slate-200 dark:border-slate-800 pb-4">
-        <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+        <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
           <button onClick={onBack} className="hover:underline flex items-center gap-1">
             <ArrowLeft className="w-3.5 h-3.5" />
             Dashboard
@@ -440,22 +440,22 @@ export const ExperimentPage: React.FC<ExperimentPageProps> = ({ experiment, onBa
 
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight flex items-center gap-3">
+            <h1 className="text-3xl font-bold text-slate-900 dark:text-white tracking-tight flex items-center gap-3">
               <span>[01]</span>
               <span>Moisture Content Test</span>
-              <span className="text-xs font-semibold bg-emerald-50 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 px-2.5 py-1 rounded-full border border-emerald-200 dark:border-emerald-800 flex items-center gap-1">
+              <span className="text-sm font-semibold bg-emerald-50 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 px-2.5 py-1 rounded-full border border-emerald-200 dark:border-emerald-800 flex items-center gap-1">
                 <CheckCircle2 className="w-3.5 h-3.5" />
                 <span>IS 2720 Part 2 / ASTM D2216</span>
               </span>
             </h1>
-            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+            <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
               Determine the moisture content of soil using the oven drying method.
             </p>
           </div>
 
           <button
             onClick={onBack}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 text-xs font-semibold hover:bg-slate-50 dark:hover:bg-slate-800"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>Back to Dashboard</span>
@@ -468,7 +468,7 @@ export const ExperimentPage: React.FC<ExperimentPageProps> = ({ experiment, onBa
         <div className="flex items-center gap-3">
           <ListOrdered className="w-5 h-5 text-blue-600" />
           <div className="flex items-center gap-2">
-            <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
+            <label className="text-sm font-bold text-slate-700 dark:text-slate-300">
               Number of Observations:
             </label>
             <input
@@ -477,7 +477,7 @@ export const ExperimentPage: React.FC<ExperimentPageProps> = ({ experiment, onBa
               max="20"
               value={numObsInput}
               onChange={(e) => handleNumObsChange(parseInt(e.target.value) || 1)}
-              className="w-20 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-1.5 text-xs font-bold text-blue-600 text-center outline-none focus:border-blue-600"
+              className="w-20 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-1.5 text-sm font-bold text-blue-600 text-center outline-none focus:border-blue-600"
             />
           </div>
         </div>
@@ -485,7 +485,7 @@ export const ExperimentPage: React.FC<ExperimentPageProps> = ({ experiment, onBa
         <div className="flex items-center gap-2">
           <button
             onClick={handleAddRow}
-            className="flex items-center gap-1.5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs px-4 py-2 rounded-xl shadow-md shadow-blue-600/20 transition-all"
+            className="flex items-center gap-1.5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm px-4 py-2 rounded-xl shadow-md shadow-blue-600/20 transition-all"
           >
             <Plus className="w-4 h-4" />
             <span>Add Observation</span>
@@ -496,16 +496,16 @@ export const ExperimentPage: React.FC<ExperimentPageProps> = ({ experiment, onBa
       {/* OBSERVATION TABLE */}
       <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-5 shadow-soft space-y-4">
         <div className="flex items-center justify-between">
-          <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+          <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">
             Observation Table ({observations.length} Observations)
           </h3>
-          <span className="text-[11px] font-semibold text-slate-400">
+          <span className="text-sm font-semibold text-slate-400">
             Real-time live calculations active
           </span>
         </div>
 
         <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs border-collapse">
+          <table className="w-full text-left text-sm border-collapse">
             <thead className="bg-slate-50 dark:bg-slate-800/80 text-slate-600 dark:text-slate-300 font-bold border-b border-slate-200 dark:border-slate-800 sticky top-0">
               <tr>
                 <th className="p-3 w-28">Observation No</th>
@@ -519,7 +519,7 @@ export const ExperimentPage: React.FC<ExperimentPageProps> = ({ experiment, onBa
                 <th className="p-3 text-center w-16">Action</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100 dark:divide-slate-800 font-mono text-[11px]">
+            <tbody className="divide-y divide-slate-100 dark:divide-slate-800 font-mono text-sm">
               {observations.map((obs) => (
                 <tr key={obs.obsNo} className="hover:bg-slate-50/60 dark:hover:bg-slate-800/40 transition-colors">
                   <td className="p-3 font-bold text-slate-900 dark:text-white">Obs-{obs.obsNo}</td>
@@ -528,7 +528,7 @@ export const ExperimentPage: React.FC<ExperimentPageProps> = ({ experiment, onBa
                       type="text"
                       value={obs.containerNo}
                       onChange={(e) => handleCellEdit(obs.obsNo, 'containerNo', e.target.value)}
-                      className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-2.5 py-1 text-xs font-semibold text-blue-600 dark:text-blue-400 outline-none focus:border-blue-600 w-full"
+                      className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-2.5 py-1 text-sm font-semibold text-blue-600 dark:text-blue-400 outline-none focus:border-blue-600 w-full"
                     />
                   </td>
                   <td className="p-3">
@@ -537,7 +537,7 @@ export const ExperimentPage: React.FC<ExperimentPageProps> = ({ experiment, onBa
                       step="0.01"
                       value={obs.m1}
                       onChange={(e) => handleCellEdit(obs.obsNo, 'm1', e.target.value)}
-                      className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-2.5 py-1 text-xs outline-none focus:border-blue-600 w-full"
+                      className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-2.5 py-1 text-sm outline-none focus:border-blue-600 w-full"
                     />
                   </td>
                   <td className="p-3">
@@ -546,7 +546,7 @@ export const ExperimentPage: React.FC<ExperimentPageProps> = ({ experiment, onBa
                       step="0.01"
                       value={obs.m2}
                       onChange={(e) => handleCellEdit(obs.obsNo, 'm2', e.target.value)}
-                      className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-2.5 py-1 text-xs outline-none focus:border-blue-600 w-full"
+                      className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-2.5 py-1 text-sm outline-none focus:border-blue-600 w-full"
                     />
                   </td>
                   <td className="p-3">
@@ -555,7 +555,7 @@ export const ExperimentPage: React.FC<ExperimentPageProps> = ({ experiment, onBa
                       step="0.01"
                       value={obs.m3}
                       onChange={(e) => handleCellEdit(obs.obsNo, 'm3', e.target.value)}
-                      className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-2.5 py-1 text-xs outline-none focus:border-blue-600 w-full"
+                      className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-2.5 py-1 text-sm outline-none focus:border-blue-600 w-full"
                     />
                   </td>
                   <td className="p-3 bg-slate-50/50 dark:bg-slate-800/30 font-semibold text-slate-700 dark:text-slate-300">
@@ -586,19 +586,19 @@ export const ExperimentPage: React.FC<ExperimentPageProps> = ({ experiment, onBa
       {/* RESULT SUMMARY */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
         <div className="md:col-span-5 bg-blue-50/80 dark:bg-blue-950/40 border border-blue-100 dark:border-blue-900/60 rounded-xl p-6 flex flex-col justify-center text-center shadow-soft">
-          <span className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+          <span className="text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
             Average Moisture Content
           </span>
           <span className="text-4xl font-extrabold text-blue-600 dark:text-blue-400 mt-2">
             {avgMoisture.toFixed(2)} %
           </span>
-          <span className="text-[11px] text-slate-400 mt-2">
+          <span className="text-sm text-slate-400 mt-2">
             Mean of all {observations.length} observation readings
           </span>
         </div>
 
         <div className="md:col-span-7 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-5 shadow-soft space-y-3">
-          <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider border-b border-slate-100 dark:border-slate-800 pb-2">
+          <h4 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider border-b border-slate-100 dark:border-slate-800 pb-2">
             Observation Summary
           </h4>
 
@@ -606,7 +606,7 @@ export const ExperimentPage: React.FC<ExperimentPageProps> = ({ experiment, onBa
             {observations.map((obs) => (
               <div 
                 key={obs.obsNo}
-                className="flex items-center justify-between p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700/80 text-xs font-mono"
+                className="flex items-center justify-between p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700/80 text-sm font-mono"
               >
                 <div className="flex items-center gap-2">
                   <span className="font-bold text-slate-900 dark:text-white">Obs-{obs.obsNo}</span>
@@ -627,7 +627,7 @@ export const ExperimentPage: React.FC<ExperimentPageProps> = ({ experiment, onBa
         <div className="flex items-center gap-3">
           <button
             onClick={() => onShowToast('Moisture Content test data saved!')}
-            className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-xl text-xs font-bold shadow-md shadow-blue-600/20 transition-all"
+            className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-xl text-sm font-bold shadow-md shadow-blue-600/20 transition-all"
           >
             <Save className="w-4 h-4" />
             <span>Save</span>
@@ -635,7 +635,7 @@ export const ExperimentPage: React.FC<ExperimentPageProps> = ({ experiment, onBa
 
           <button
             onClick={handleReset}
-            className="flex items-center gap-2 border border-slate-200 dark:border-slate-700 px-4 py-2.5 rounded-xl text-xs font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
+            className="flex items-center gap-2 border border-slate-200 dark:border-slate-700 px-4 py-2.5 rounded-xl text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
           >
             <RotateCcw className="w-4 h-4 text-slate-500" />
             <span>Reset</span>
@@ -645,7 +645,7 @@ export const ExperimentPage: React.FC<ExperimentPageProps> = ({ experiment, onBa
         <div className="flex items-center gap-3">
           <button
             onClick={handleExportExcel}
-            className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2.5 rounded-xl text-xs font-bold shadow-md shadow-emerald-600/20 transition-all"
+            className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2.5 rounded-xl text-sm font-bold shadow-md shadow-emerald-600/20 transition-all"
           >
             <FileSpreadsheet className="w-4 h-4" />
             <span>Export Excel</span>
@@ -653,7 +653,7 @@ export const ExperimentPage: React.FC<ExperimentPageProps> = ({ experiment, onBa
 
           <button
             onClick={onBack}
-            className="flex items-center gap-2 border border-slate-200 dark:border-slate-700 px-4 py-2.5 rounded-xl text-xs font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
+            className="flex items-center gap-2 border border-slate-200 dark:border-slate-700 px-4 py-2.5 rounded-xl text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
           >
             <ArrowLeft className="w-4 h-4 text-slate-500" />
             <span>Back to Dashboard</span>

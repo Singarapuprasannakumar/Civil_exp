@@ -109,16 +109,16 @@ export const MoistureContentWorkbench: React.FC<MoistureContentWorkbenchProps> =
       {/* BREADCRUMB HEADER */}
       <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-4">
         <div>
-          <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+          <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
             <button onClick={onBack} className="hover:underline">Dashboard</button>
             <ChevronRight className="w-3.5 h-3.5" />
             <button onClick={onBack} className="hover:underline">Laboratory</button>
             <ChevronRight className="w-3.5 h-3.5" />
             <span className="font-semibold text-blue-600 dark:text-blue-400">Moisture Content Test</span>
           </div>
-          <h1 className="text-xl font-bold text-slate-900 dark:text-white mt-1 flex items-center gap-2">
+          <h1 className="text-2xl font-bold text-slate-900 dark:text-white mt-1 flex items-center gap-2">
             <span>Moisture Content Test Workbench</span>
-            <span className="text-xs font-semibold bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 px-2.5 py-0.5 rounded-full border border-blue-200 dark:border-blue-800">
+            <span className="text-sm font-semibold bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 px-2.5 py-0.5 rounded-full border border-blue-200 dark:border-blue-800">
               IS 2720 Part 2 / ASTM D2216
             </span>
           </h1>
@@ -126,7 +126,7 @@ export const MoistureContentWorkbench: React.FC<MoistureContentWorkbenchProps> =
 
         <button 
           onClick={onBack} 
-          className="text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800"
+          className="text-sm font-semibold px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800"
         >
           ← Back to Catalog
         </button>
@@ -137,40 +137,40 @@ export const MoistureContentWorkbench: React.FC<MoistureContentWorkbenchProps> =
         {/* LEFT PANEL (35% = 4 COLS IN 12-GRID) - SAMPLE INFO & OBSERVATION INPUTS */}
         <div className="lg:col-span-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-5 shadow-soft space-y-4">
           <div className="border-b border-slate-100 dark:border-slate-800 pb-3 flex items-center justify-between">
-            <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
+            <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
               <Calculator className="w-4 h-4 text-blue-600" />
               Sample & Observation Input
             </h3>
-            <span className="text-[10px] font-bold bg-blue-50 dark:bg-blue-950 text-blue-600 px-2 py-0.5 rounded">
+            <span className="text-xs font-bold bg-blue-50 dark:bg-blue-950 text-blue-600 px-2 py-0.5 rounded">
               35% Panel
             </span>
           </div>
 
           <form onSubmit={handleAddObservation} className="space-y-3.5">
             <div className="flex flex-col gap-1">
-              <label className="text-xs font-semibold text-slate-600 dark:text-slate-300">Sample Identifier</label>
+              <label className="text-sm font-semibold text-slate-600 dark:text-slate-300">Sample Identifier</label>
               <input
                 type="text"
                 value={sampleId}
                 onChange={(e) => setSampleId(e.target.value)}
-                className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-xs font-medium outline-none focus:border-blue-600"
+                className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-sm font-medium outline-none focus:border-blue-600"
                 required
               />
             </div>
 
             <div className="flex flex-col gap-1">
-              <label className="text-xs font-semibold text-slate-600 dark:text-slate-300">Container Number</label>
+              <label className="text-sm font-semibold text-slate-600 dark:text-slate-300">Container Number</label>
               <input
                 type="text"
                 value={containerNo}
                 onChange={(e) => setContainerNo(e.target.value)}
-                className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-xs font-medium outline-none focus:border-blue-600"
+                className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-sm font-medium outline-none focus:border-blue-600"
                 required
               />
             </div>
 
             <div className="flex flex-col gap-1">
-              <label className="text-xs font-semibold text-slate-600 dark:text-slate-300">
+              <label className="text-sm font-semibold text-slate-600 dark:text-slate-300">
                 Mass of Container + Lid ($M_1$) (g)
               </label>
               <input
@@ -178,13 +178,13 @@ export const MoistureContentWorkbench: React.FC<MoistureContentWorkbenchProps> =
                 step="0.01"
                 value={m1}
                 onChange={(e) => setM1(e.target.value === '' ? '' : parseFloat(e.target.value))}
-                className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-xs font-medium outline-none focus:border-blue-600"
+                className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-sm font-medium outline-none focus:border-blue-600"
                 required
               />
             </div>
 
             <div className="flex flex-col gap-1">
-              <label className="text-xs font-semibold text-slate-600 dark:text-slate-300">
+              <label className="text-sm font-semibold text-slate-600 dark:text-slate-300">
                 Mass of Container + Lid + Moist Soil ($M_2$) (g)
               </label>
               <input
@@ -192,13 +192,13 @@ export const MoistureContentWorkbench: React.FC<MoistureContentWorkbenchProps> =
                 step="0.01"
                 value={m2}
                 onChange={(e) => setM2(e.target.value === '' ? '' : parseFloat(e.target.value))}
-                className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-xs font-medium outline-none focus:border-blue-600"
+                className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-sm font-medium outline-none focus:border-blue-600"
                 required
               />
             </div>
 
             <div className="flex flex-col gap-1">
-              <label className="text-xs font-semibold text-slate-600 dark:text-slate-300">
+              <label className="text-sm font-semibold text-slate-600 dark:text-slate-300">
                 Mass of Container + Lid + Oven Dry Soil ($M_3$) (g)
               </label>
               <input
@@ -206,14 +206,14 @@ export const MoistureContentWorkbench: React.FC<MoistureContentWorkbenchProps> =
                 step="0.01"
                 value={m3}
                 onChange={(e) => setM3(e.target.value === '' ? '' : parseFloat(e.target.value))}
-                className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-xs font-medium outline-none focus:border-blue-600"
+                className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-sm font-medium outline-none focus:border-blue-600"
                 required
               />
             </div>
 
             <button
               type="submit"
-              className="w-full flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs py-2.5 rounded-xl shadow-md shadow-blue-600/20 transition-all mt-2"
+              className="w-full flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm py-2.5 rounded-xl shadow-md shadow-blue-600/20 transition-all mt-2"
             >
               <Plus className="w-4 h-4" />
               <span>+ Add Observation</span>
@@ -224,16 +224,16 @@ export const MoistureContentWorkbench: React.FC<MoistureContentWorkbenchProps> =
         {/* CENTER PANEL (40% = 5 COLS IN 12-GRID) - OBSERVATION TABLE */}
         <div className="lg:col-span-5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-5 shadow-soft space-y-4">
           <div className="border-b border-slate-100 dark:border-slate-800 pb-3 flex items-center justify-between">
-            <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+            <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">
               Observation Table ({observations.length} Entries)
             </h3>
-            <span className="text-[10px] font-bold bg-purple-50 dark:bg-purple-950 text-purple-600 px-2 py-0.5 rounded">
+            <span className="text-xs font-bold bg-purple-50 dark:bg-purple-950 text-purple-600 px-2 py-0.5 rounded">
               40% Panel
             </span>
           </div>
 
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs border-collapse">
+            <table className="w-full text-left text-sm border-collapse">
               <thead className="bg-slate-50 dark:bg-slate-800 text-slate-500 font-bold border-b border-slate-200 dark:border-slate-800">
                 <tr>
                   <th className="p-2">Obs</th>
@@ -247,7 +247,7 @@ export const MoistureContentWorkbench: React.FC<MoistureContentWorkbenchProps> =
                   <th className="p-2 text-center">Action</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100 dark:divide-slate-800 font-mono text-[11px]">
+              <tbody className="divide-y divide-slate-100 dark:divide-slate-800 font-mono text-sm">
                 {observations.map((obs) => (
                   <tr key={obs.obsNo} className="hover:bg-slate-50/50 dark:hover:bg-slate-800/40">
                     <td className="p-2 font-bold">{obs.obsNo}</td>
@@ -277,25 +277,25 @@ export const MoistureContentWorkbench: React.FC<MoistureContentWorkbenchProps> =
         {/* RIGHT PANEL (25% = 3 COLS IN 12-GRID) - LIVE CALCULATION & STATS */}
         <div className="lg:col-span-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-5 shadow-soft space-y-4">
           <div className="border-b border-slate-100 dark:border-slate-800 pb-3 flex items-center justify-between">
-            <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
+            <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
               <Sparkles className="w-4 h-4 text-purple-600" />
               Live Calculations
             </h3>
-            <span className="text-[10px] font-bold bg-teal-50 dark:bg-teal-950 text-teal-600 px-2 py-0.5 rounded">
+            <span className="text-xs font-bold bg-teal-50 dark:bg-teal-950 text-teal-600 px-2 py-0.5 rounded">
               25% Panel
             </span>
           </div>
 
           <div className="bg-blue-50/60 dark:bg-blue-950/40 border border-blue-100 dark:border-blue-900/60 rounded-xl p-4 text-center">
-            <span className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
+            <span className="text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
               Average Moisture Content
             </span>
-            <span className="text-3xl font-extrabold text-blue-600 dark:text-blue-400 mt-1 block">
+            <span className="text-4xl font-extrabold text-blue-600 dark:text-blue-400 mt-1 block">
               {avgMoisture.toFixed(2)} %
             </span>
           </div>
 
-          <div className="space-y-2.5 text-xs">
+          <div className="space-y-2.5 text-sm">
             <div className="flex justify-between p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700">
               <span className="text-slate-600 dark:text-slate-400 font-medium">Maximum Moisture:</span>
               <span className="font-bold text-slate-900 dark:text-white">{maxMoisture.toFixed(2)} %</span>
@@ -320,12 +320,12 @@ export const MoistureContentWorkbench: React.FC<MoistureContentWorkbenchProps> =
           </div>
 
           {/* IS STANDARD CARD */}
-          <div className="p-3 bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-xl text-xs space-y-1">
+          <div className="p-3 bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-xl text-sm space-y-1">
             <div className="flex items-center gap-1.5 text-slate-700 dark:text-slate-300 font-bold">
               <BookOpen className="w-3.5 h-3.5 text-blue-600" />
               <span>IS 2720 Part 2 Reference</span>
             </div>
-            <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-normal">
+            <p className="text-sm text-slate-500 dark:text-slate-400 leading-normal">
               Oven drying at 105°C – 110°C for 16-24 hours until constant mass is attained.
             </p>
           </div>
@@ -337,7 +337,7 @@ export const MoistureContentWorkbench: React.FC<MoistureContentWorkbenchProps> =
         <div className="flex items-center gap-3">
           <button 
             onClick={handleExportExcel}
-            className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-xl text-xs font-bold shadow-md shadow-emerald-600/20 transition-all"
+            className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-xl text-sm font-bold shadow-md shadow-emerald-600/20 transition-all"
           >
             <FileSpreadsheet className="w-4 h-4" />
             <span>Export Excel (moisture_content_results.xlsx)</span>
@@ -345,7 +345,7 @@ export const MoistureContentWorkbench: React.FC<MoistureContentWorkbenchProps> =
 
           <button 
             onClick={onOpenPdfPreview}
-            className="flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-xl text-xs font-bold shadow-md shadow-red-600/20 transition-all"
+            className="flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-xl text-sm font-bold shadow-md shadow-red-600/20 transition-all"
           >
             <FileDown className="w-4 h-4" />
             <span>Export PDF</span>
@@ -353,7 +353,7 @@ export const MoistureContentWorkbench: React.FC<MoistureContentWorkbenchProps> =
 
           <button 
             onClick={() => onShowToast('Printing Observation Summary Sheet...')}
-            className="flex items-center gap-1.5 px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 text-xs font-semibold hover:bg-slate-100 dark:hover:bg-slate-800"
+            className="flex items-center gap-1.5 px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 text-sm font-semibold hover:bg-slate-100 dark:hover:bg-slate-800"
           >
             <Printer className="w-4 h-4 text-slate-500" />
             <span>Print</span>
@@ -363,7 +363,7 @@ export const MoistureContentWorkbench: React.FC<MoistureContentWorkbenchProps> =
         <div className="flex items-center gap-3">
           <button 
             onClick={() => onShowToast('AI Agent Analyzing Soil Moisture Variance...')}
-            className="flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-xl text-xs font-bold shadow-md shadow-purple-600/20 transition-all"
+            className="flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-xl text-sm font-bold shadow-md shadow-purple-600/20 transition-all"
           >
             <Sparkles className="w-4 h-4" />
             <span>AI Analysis</span>
@@ -374,7 +374,7 @@ export const MoistureContentWorkbench: React.FC<MoistureContentWorkbenchProps> =
               onShowToast('Moisture Content results appended to database!');
               onBack();
             }}
-            className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-xl text-xs font-bold shadow-md shadow-blue-600/20 transition-all"
+            className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-xl text-sm font-bold shadow-md shadow-blue-600/20 transition-all"
           >
             <Save className="w-4 h-4" />
             <span>Save Result</span>

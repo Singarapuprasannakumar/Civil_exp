@@ -253,7 +253,7 @@ export const LiquidLimitPage: React.FC<LiquidLimitPageProps> = ({ experiment, on
   return (
     <div className="space-y-6 animate-in fade-in duration-200">
       <div className="flex flex-col gap-2 border-b border-slate-200 dark:border-slate-800 pb-4">
-        <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
+        <div className="flex items-center gap-2 text-base text-slate-500 dark:text-slate-400">
           <button onClick={onBack} className="hover:underline flex items-center gap-1">
             <ArrowLeft className="w-4 h-4" />
             Dashboard
@@ -264,22 +264,22 @@ export const LiquidLimitPage: React.FC<LiquidLimitPageProps> = ({ experiment, on
 
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-slate-900 dark:text-white tracking-tight flex items-center gap-3">
+            <h1 className="text-4xl font-bold text-slate-900 dark:text-white tracking-tight flex items-center gap-3">
               <span>[03]</span>
               <span>Liquid Limit Test</span>
-              <span className="text-sm font-semibold bg-amber-50 dark:bg-amber-950 text-amber-600 dark:text-amber-400 px-3 py-1.5 rounded-full border border-amber-200 dark:border-amber-800 flex items-center gap-1">
+              <span className="text-base font-semibold bg-amber-50 dark:bg-amber-950 text-amber-600 dark:text-amber-400 px-3 py-1.5 rounded-full border border-amber-200 dark:border-amber-800 flex items-center gap-1">
                 <CheckCircle2 className="w-4 h-4" />
                 <span>IS 2720 Part 5 / ASTM D4318</span>
               </span>
             </h1>
-            <p className="text-sm text-slate-500 dark:text-slate-400 mt-2">
+            <p className="text-base text-slate-500 dark:text-slate-400 mt-2">
               Determine the Liquid Limit of soil using the Casagrande apparatus and Flow Curve method.
             </p>
           </div>
 
           <button
             onClick={onBack}
-            className="flex items-center gap-1.5 px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800"
+            className="flex items-center gap-1.5 px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 text-base font-semibold hover:bg-slate-50 dark:hover:bg-slate-800"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Back to Dashboard</span>
@@ -288,14 +288,14 @@ export const LiquidLimitPage: React.FC<LiquidLimitPageProps> = ({ experiment, on
       </div>
 
       <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-soft space-y-4">
-        <h3 className="text-base font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2 border-b border-slate-100 dark:border-slate-800 pb-3">
+        <h3 className="text-lg font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2 border-b border-slate-100 dark:border-slate-800 pb-3">
           <TableIcon className="w-5 h-5 text-amber-600" />
           Test Information
         </h3>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-end">
           <div className="flex flex-col gap-1.5">
-            <label className="text-sm font-semibold text-slate-600 dark:text-slate-300">
+            <label className="text-base font-semibold text-slate-600 dark:text-slate-300">
               Registration Number
             </label>
             <input
@@ -303,25 +303,25 @@ export const LiquidLimitPage: React.FC<LiquidLimitPageProps> = ({ experiment, on
               value={regdNo}
               onChange={(e) => setRegdNo(e.target.value)}
               placeholder="REG-2026-LL01"
-              className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-base font-semibold text-slate-900 dark:text-white outline-none focus:border-amber-600"
+              className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-lg font-semibold text-slate-900 dark:text-white outline-none focus:border-amber-600"
             />
           </div>
 
           <div className="flex flex-col gap-1.5">
-            <label className="text-sm font-semibold text-slate-600 dark:text-slate-300">
+            <label className="text-base font-semibold text-slate-600 dark:text-slate-300">
               Number of Observations (Trials)
             </label>
             <input
               type="text"
               value={numObsInput}
               onChange={(e) => setNumObsInput(e.target.value)}
-              className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-base font-bold text-slate-900 dark:text-white outline-none focus:border-amber-600 text-center"
+              className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-lg font-bold text-slate-900 dark:text-white outline-none focus:border-amber-600 text-center"
             />
           </div>
 
           <button
             onClick={handleGenerateTable}
-            className="flex items-center justify-center gap-2 bg-amber-600 hover:bg-amber-700 text-white font-bold text-base py-2.5 rounded-xl shadow-md shadow-amber-600/20 transition-all hover:scale-102 col-span-2 sm:col-span-1"
+            className="flex items-center justify-center gap-2 bg-amber-600 hover:bg-amber-700 text-white font-bold text-lg py-2.5 rounded-xl shadow-md shadow-amber-600/20 transition-all hover:scale-102 col-span-2 sm:col-span-1"
           >
             <TableIcon className="w-5 h-5" />
             <span>Generate Table</span>
@@ -332,13 +332,13 @@ export const LiquidLimitPage: React.FC<LiquidLimitPageProps> = ({ experiment, on
       {tableGenerated && (
         <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-5 shadow-soft space-y-4">
           <div className="flex items-center justify-between">
-            <h3 className="text-base font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+            <h3 className="text-lg font-bold text-slate-900 dark:text-white uppercase tracking-wider">
               Observation Table ({observations.length} Casagrande Trials)
             </h3>
 
             <button
               onClick={handleAddRow}
-              className="flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 font-bold text-base px-4 py-2 rounded-xl transition-all"
+              className="flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 font-bold text-lg px-4 py-2 rounded-xl transition-all"
             >
               <Plus className="w-4 h-4" />
               <span>+ Add Row</span>
@@ -346,9 +346,9 @@ export const LiquidLimitPage: React.FC<LiquidLimitPageProps> = ({ experiment, on
           </div>
 
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm border-collapse min-w-[980px]">
+            <table className="w-full text-left text-base border-collapse min-w-[980px]">
               <thead className="sticky top-0 z-10">
-                <tr className="bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-300 font-bold border-b border-slate-200 dark:border-slate-700 text-sm uppercase tracking-wider">
+                <tr className="bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-300 font-bold border-b border-slate-200 dark:border-slate-700 text-base uppercase tracking-wider">
                   <th className="p-3 border-r border-slate-200 dark:border-slate-700" colSpan={1}>Obs</th>
                   <th className="p-3 border-r border-slate-200 dark:border-slate-700 text-center bg-blue-50/80 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300" colSpan={4}>
                     Inputs (Casagrande Test Values)
@@ -359,7 +359,7 @@ export const LiquidLimitPage: React.FC<LiquidLimitPageProps> = ({ experiment, on
                   <th className="p-3 text-center" colSpan={1}>Action</th>
                 </tr>
 
-                <tr className="bg-slate-50 dark:bg-slate-800/60 text-slate-600 dark:text-slate-400 font-semibold border-b border-slate-200 dark:border-slate-800 text-sm">
+                <tr className="bg-slate-50 dark:bg-slate-800/60 text-slate-600 dark:text-slate-400 font-semibold border-b border-slate-200 dark:border-slate-800 text-base">
                   <th className="p-3 border-r border-slate-200 dark:border-slate-800">Observation No.</th>
                   <th className="p-3">Number of Blows (N)</th>
                   <th className="p-3">Weight of Cup (W1) (g)</th>
@@ -373,7 +373,7 @@ export const LiquidLimitPage: React.FC<LiquidLimitPageProps> = ({ experiment, on
                 </tr>
               </thead>
 
-              <tbody className="divide-y divide-slate-100 dark:divide-slate-800 font-mono text-base">
+              <tbody className="divide-y divide-slate-100 dark:divide-slate-800 font-mono text-lg">
                 {observations.map((obs) => (
                   <tr key={obs.obsNo} className="hover:bg-slate-50/60 dark:hover:bg-slate-800/40 transition-colors">
                     <td className="p-3 font-bold text-slate-900 dark:text-white border-r border-slate-100 dark:border-slate-800">
@@ -385,7 +385,7 @@ export const LiquidLimitPage: React.FC<LiquidLimitPageProps> = ({ experiment, on
                         type="text"
                         value={obs.blows}
                         onChange={(e) => handleCellEdit(obs.obsNo, 'blows', e.target.value)}
-                        className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1.5 text-base font-bold text-blue-600 outline-none focus:border-blue-600 w-full shadow-inner text-center"
+                        className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1.5 text-lg font-bold text-blue-600 outline-none focus:border-blue-600 w-full shadow-inner text-center"
                       />
                     </td>
 
@@ -394,7 +394,7 @@ export const LiquidLimitPage: React.FC<LiquidLimitPageProps> = ({ experiment, on
                         type="text"
                         value={obs.w1}
                         onChange={(e) => handleCellEdit(obs.obsNo, 'w1', e.target.value)}
-                        className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1.5 text-base outline-none focus:border-blue-600 w-full shadow-inner"
+                        className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1.5 text-lg outline-none focus:border-blue-600 w-full shadow-inner"
                       />
                     </td>
 
@@ -403,7 +403,7 @@ export const LiquidLimitPage: React.FC<LiquidLimitPageProps> = ({ experiment, on
                         type="text"
                         value={obs.w2}
                         onChange={(e) => handleCellEdit(obs.obsNo, 'w2', e.target.value)}
-                        className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1.5 text-base outline-none focus:border-blue-600 w-full shadow-inner"
+                        className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1.5 text-lg outline-none focus:border-blue-600 w-full shadow-inner"
                       />
                     </td>
 
@@ -412,7 +412,7 @@ export const LiquidLimitPage: React.FC<LiquidLimitPageProps> = ({ experiment, on
                         type="text"
                         value={obs.w3}
                         onChange={(e) => handleCellEdit(obs.obsNo, 'w3', e.target.value)}
-                        className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1.5 text-base outline-none focus:border-blue-600 w-full shadow-inner"
+                        className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1.5 text-lg outline-none focus:border-blue-600 w-full shadow-inner"
                       />
                     </td>
 
@@ -424,7 +424,7 @@ export const LiquidLimitPage: React.FC<LiquidLimitPageProps> = ({ experiment, on
                       {obs.drySoilWeight !== '-' ? `${obs.drySoilWeight}` : '-'}
                     </td>
 
-                    <td className="p-3 bg-amber-100/40 dark:bg-amber-950/40 text-right font-extrabold text-amber-700 dark:text-amber-300 text-base">
+                    <td className="p-3 bg-amber-100/40 dark:bg-amber-950/40 text-right font-extrabold text-amber-700 dark:text-amber-300 text-lg">
                       {obs.waterContent !== '-' ? `${obs.waterContent}` : '-'}
                     </td>
 
@@ -446,36 +446,36 @@ export const LiquidLimitPage: React.FC<LiquidLimitPageProps> = ({ experiment, on
       )}
 
       <div className="bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-xl p-5 shadow-soft space-y-3">
-        <h4 className="text-base font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2 border-b border-slate-200 dark:border-slate-700 pb-2">
+        <h4 className="text-lg font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2 border-b border-slate-200 dark:border-slate-700 pb-2">
           <Calculator className="w-5 h-5 text-amber-600" />
           Calculation Details & Regression Formulas
         </h4>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 text-sm">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 text-base">
           <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl">
-            <span className="font-semibold text-slate-500 dark:text-slate-400 block text-sm">Weight of Water</span>
-            <code className="text-sm font-bold text-blue-600 dark:text-blue-400 font-mono block mt-1">
+            <span className="font-semibold text-slate-500 dark:text-slate-400 block text-base">Weight of Water</span>
+            <code className="text-base font-bold text-blue-600 dark:text-blue-400 font-mono block mt-1">
               = W2 − W3
             </code>
           </div>
 
           <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl">
-            <span className="font-semibold text-slate-500 dark:text-slate-400 block text-sm">Dry Soil Weight</span>
-            <code className="text-sm font-bold text-blue-600 dark:text-blue-400 font-mono block mt-1">
+            <span className="font-semibold text-slate-500 dark:text-slate-400 block text-base">Dry Soil Weight</span>
+            <code className="text-base font-bold text-blue-600 dark:text-blue-400 font-mono block mt-1">
               = W3 − W1
             </code>
           </div>
 
           <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl">
-            <span className="font-semibold text-slate-500 dark:text-slate-400 block text-sm">Water Content (w %)</span>
-            <code className="text-sm font-bold text-amber-600 dark:text-amber-400 font-mono block mt-1">
+            <span className="font-semibold text-slate-500 dark:text-slate-400 block text-base">Water Content (w %)</span>
+            <code className="text-base font-bold text-amber-600 dark:text-amber-400 font-mono block mt-1">
               = (W2 − W3) ÷ (W3 − W1) × 100
             </code>
           </div>
 
           <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl">
-            <span className="font-semibold text-slate-500 dark:text-slate-400 block text-sm">Flow Index (If)</span>
-            <code className="text-sm font-bold text-emerald-600 dark:text-emerald-400 font-mono block mt-1 break-words">
+            <span className="font-semibold text-slate-500 dark:text-slate-400 block text-base">Flow Index (If)</span>
+            <code className="text-base font-bold text-emerald-600 dark:text-emerald-400 font-mono block mt-1 break-words">
               If = (w1 − w2) / log10(n2 / n1)
             </code>
           </div>
@@ -485,16 +485,16 @@ export const LiquidLimitPage: React.FC<LiquidLimitPageProps> = ({ experiment, on
       <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-soft space-y-4">
         <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
           <div>
-            <h3 className="text-lg font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
+            <h3 className="text-xl font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
               <ChartIcon className="w-5 h-5 text-blue-600" />
               Liquid Limit Flow Curve
             </h3>
-            <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5">
+            <p className="text-base text-slate-500 dark:text-slate-400 mt-0.5">
               Regression: w = a × log10(N) + b. LL evaluated at N = 25.
             </p>
           </div>
 
-          <div className="flex items-center gap-2 text-sm font-bold bg-emerald-50 dark:bg-emerald-950 text-emerald-600 px-4 py-2 rounded-xl border border-emerald-200 dark:border-emerald-800">
+          <div className="flex items-center gap-2 text-base font-bold bg-emerald-50 dark:bg-emerald-950 text-emerald-600 px-4 py-2 rounded-xl border border-emerald-200 dark:border-emerald-800">
             <span>LL @ 25 Blows = {typeof liquidLimit === 'number' ? liquidLimit.toFixed(2) : '-'} %</span>
           </div>
         </div>
@@ -565,23 +565,23 @@ export const LiquidLimitPage: React.FC<LiquidLimitPageProps> = ({ experiment, on
       </div>
 
       <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-soft space-y-4">
-        <h3 className="text-base font-extrabold text-slate-900 dark:text-white uppercase tracking-wider border-b border-slate-100 dark:border-slate-800 pb-3 flex items-center gap-2">
+        <h3 className="text-lg font-extrabold text-slate-900 dark:text-white uppercase tracking-wider border-b border-slate-100 dark:border-slate-800 pb-3 flex items-center gap-2">
           <CheckCircle2 className="w-5 h-5 text-emerald-600" />
           FINAL RESULTS
         </h3>
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
           <div className="md:col-span-7 space-y-2">
-            <h4 className="text-sm font-bold text-slate-500 uppercase tracking-wider">
+            <h4 className="text-base font-bold text-slate-500 uppercase tracking-wider">
               Observation Summary
             </h4>
             {validPoints.map((obs) => (
               <div 
                 key={obs.obsNo}
-                className="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700/80 text-sm font-mono"
+                className="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700/80 text-base font-mono"
               >
                 <span className="font-bold text-slate-900 dark:text-white">Observation {obs.obsNo} (N = {obs.blows})</span>
-                <span className="font-bold text-amber-600 dark:text-amber-400 text-base">
+                <span className="font-bold text-amber-600 dark:text-amber-400 text-lg">
                   Water Content = {obs.waterContentNum.toFixed(2)} %
                 </span>
               </div>
@@ -589,13 +589,13 @@ export const LiquidLimitPage: React.FC<LiquidLimitPageProps> = ({ experiment, on
           </div>
 
           <div className="md:col-span-5 bg-amber-50/90 dark:bg-amber-950/50 border border-amber-200 dark:border-amber-900/60 rounded-xl p-6 flex flex-col justify-center text-center shadow-soft">
-            <span className="text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+            <span className="text-base font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
               Liquid Limit (LL)
             </span>
             <span className="text-5xl font-extrabold text-amber-600 dark:text-amber-400 mt-2">
               {typeof liquidLimit === 'number' ? liquidLimit.toFixed(2) : '-'} %
             </span>
-            <span className="text-sm text-slate-500 mt-3 font-semibold">
+            <span className="text-base text-slate-500 mt-3 font-semibold">
               Flow Index (If): {typeof flowIndexValue === 'number' ? flowIndexValue.toFixed(4) : '-'}
             </span>
           </div>
@@ -606,7 +606,7 @@ export const LiquidLimitPage: React.FC<LiquidLimitPageProps> = ({ experiment, on
         <div className="flex items-center gap-3">
           <button
             onClick={() => onShowToast('Liquid Limit test data saved!')}
-            className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-xl text-base font-bold shadow-md shadow-blue-600/20 transition-all"
+            className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-xl text-lg font-bold shadow-md shadow-blue-600/20 transition-all"
           >
             <Save className="w-5 h-5" />
             <span>Save</span>
@@ -614,7 +614,7 @@ export const LiquidLimitPage: React.FC<LiquidLimitPageProps> = ({ experiment, on
 
           <button
             onClick={handleReset}
-            className="flex items-center gap-2 border border-slate-200 dark:border-slate-700 px-4 py-2.5 rounded-xl text-base font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
+            className="flex items-center gap-2 border border-slate-200 dark:border-slate-700 px-4 py-2.5 rounded-xl text-lg font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
           >
             <RotateCcw className="w-5 h-5 text-slate-500" />
             <span>Reset</span>
@@ -624,7 +624,7 @@ export const LiquidLimitPage: React.FC<LiquidLimitPageProps> = ({ experiment, on
         <div className="flex items-center gap-3">
           <button
             onClick={handleExportExcel}
-            className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2.5 rounded-xl text-base font-bold shadow-md shadow-emerald-600/20 transition-all"
+            className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2.5 rounded-xl text-lg font-bold shadow-md shadow-emerald-600/20 transition-all"
           >
             <FileSpreadsheet className="w-5 h-5" />
             <span>Export Excel</span>
@@ -632,7 +632,7 @@ export const LiquidLimitPage: React.FC<LiquidLimitPageProps> = ({ experiment, on
 
           <button
             onClick={onBack}
-            className="flex items-center gap-2 border border-slate-200 dark:border-slate-700 px-4 py-2.5 rounded-xl text-base font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
+            className="flex items-center gap-2 border border-slate-200 dark:border-slate-700 px-4 py-2.5 rounded-xl text-lg font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
           >
             <ArrowLeft className="w-5 h-5 text-slate-500" />
             <span>Back to Dashboard</span>

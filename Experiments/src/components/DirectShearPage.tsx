@@ -413,12 +413,12 @@ export const DirectShearPage: React.FC<{ onBack: () => void }> = ({ onBack }) =>
             <ArrowLeft className="w-5 h-5 text-slate-600" />
           </button>
           <div>
-            <div className="flex items-center space-x-2 text-sm text-slate-500">
+            <div className="flex items-center space-x-2 text-base text-slate-500">
               <span>Dashboard</span>
               <span>/</span>
               <span className="font-medium text-slate-900">Direct Shear Test</span>
             </div>
-            <h1 className="text-2xl font-bold text-slate-900">Direct Shear Test</h1>
+            <h1 className="text-3xl font-bold text-slate-900">Direct Shear Test</h1>
           </div>
         </div>
 
@@ -426,10 +426,10 @@ export const DirectShearPage: React.FC<{ onBack: () => void }> = ({ onBack }) =>
         <div className="bg-white rounded-xl shadow-sm p-6 border border-slate-200">
           <div className="flex justify-between items-start">
             <div>
-              <h2 className="text-xl font-semibold text-slate-800">Experiment 13: Direct Shear Test</h2>
+              <h2 className="text-2xl font-semibold text-slate-800">Experiment 13: Direct Shear Test</h2>
               <p className="text-slate-500 mt-1">IS 2720 Part 13</p>
             </div>
-            <div className="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">
+            <div className="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-base font-medium">
               Geotechnical
             </div>
           </div>
@@ -442,13 +442,13 @@ export const DirectShearPage: React.FC<{ onBack: () => void }> = ({ onBack }) =>
 
         {/* Test Information */}
         <div className="bg-white rounded-xl shadow-sm p-6 border border-slate-200">
-          <h3 className="text-lg font-semibold text-slate-800 mb-4 flex items-center">
+          <h3 className="text-xl font-semibold text-slate-800 mb-4 flex items-center">
             <Calculator className="w-5 h-5 mr-2 text-blue-600" />
             Test Information
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1">Registration No.</label>
+              <label className="block text-base font-medium text-slate-700 mb-1">Registration No.</label>
               <input
                 type="text"
                 name="regdNo"
@@ -458,7 +458,7 @@ export const DirectShearPage: React.FC<{ onBack: () => void }> = ({ onBack }) =>
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1">Least Count (mm/div)</label>
+              <label className="block text-base font-medium text-slate-700 mb-1">Least Count (mm/div)</label>
               <input
                 type="number"
                 name="lch"
@@ -469,7 +469,7 @@ export const DirectShearPage: React.FC<{ onBack: () => void }> = ({ onBack }) =>
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1">Proving Ring Constant (kN/div)</label>
+              <label className="block text-base font-medium text-slate-700 mb-1">Proving Ring Constant (kN/div)</label>
               <input
                 type="number"
                 name="pc"
@@ -480,7 +480,7 @@ export const DirectShearPage: React.FC<{ onBack: () => void }> = ({ onBack }) =>
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1">Length, L (mm)</label>
+              <label className="block text-base font-medium text-slate-700 mb-1">Length, L (mm)</label>
               <input
                 type="number"
                 name="L"
@@ -491,7 +491,7 @@ export const DirectShearPage: React.FC<{ onBack: () => void }> = ({ onBack }) =>
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1">Breadth, B (mm)</label>
+              <label className="block text-base font-medium text-slate-700 mb-1">Breadth, B (mm)</label>
               <input
                 type="number"
                 name="B"
@@ -502,7 +502,7 @@ export const DirectShearPage: React.FC<{ onBack: () => void }> = ({ onBack }) =>
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1">Depth, D (mm)</label>
+              <label className="block text-base font-medium text-slate-700 mb-1">Depth, D (mm)</label>
               <input
                 type="number"
                 name="D"
@@ -518,7 +518,7 @@ export const DirectShearPage: React.FC<{ onBack: () => void }> = ({ onBack }) =>
         {/* Observation Table */}
         <div className="bg-white rounded-xl shadow-sm p-6 border border-slate-200">
           <div className="flex justify-between items-center mb-4">
-            <h3 className="text-lg font-semibold text-slate-800">Observation Table</h3>
+            <h3 className="text-xl font-semibold text-slate-800">Observation Table</h3>
             <div className="flex space-x-3">
               <input 
                 type="file" 
@@ -529,14 +529,14 @@ export const DirectShearPage: React.FC<{ onBack: () => void }> = ({ onBack }) =>
               />
               <button
                 onClick={() => fileInputRef.current?.click()}
-                className="flex items-center px-3 py-2 text-sm font-medium text-slate-700 bg-white border border-slate-300 rounded-lg hover:bg-slate-50 transition-colors"
+                className="flex items-center px-3 py-2 text-base font-medium text-slate-700 bg-white border border-slate-300 rounded-lg hover:bg-slate-50 transition-colors"
               >
                 <Upload className="w-4 h-4 mr-2" />
                 Upload Data
               </button>
               <button
                 onClick={handleAddObservation}
-                className="flex items-center px-3 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors"
+                className="flex items-center px-3 py-2 text-base font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors"
               >
                 <Plus className="w-4 h-4 mr-2" />
                 Add Row
@@ -545,8 +545,8 @@ export const DirectShearPage: React.FC<{ onBack: () => void }> = ({ onBack }) =>
           </div>
           
           <div className="overflow-x-auto">
-            <table className="w-full text-sm text-left">
-              <thead className="text-xs text-slate-700 uppercase bg-slate-50">
+            <table className="w-full text-base text-left">
+              <thead className="text-sm text-slate-700 uppercase bg-slate-50">
                 <tr>
                   <th className="px-4 py-3 rounded-tl-lg">Specimen No</th>
                   <th className="px-4 py-3">Normal Stress (kPa)</th>
@@ -614,15 +614,15 @@ export const DirectShearPage: React.FC<{ onBack: () => void }> = ({ onBack }) =>
 
         {/* Calculation Details */}
         <div className="bg-white rounded-xl shadow-sm p-6 border border-slate-200">
-          <h3 className="text-lg font-semibold text-slate-800 mb-4">Calculation Details</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 text-sm text-slate-600 bg-slate-50 p-4 rounded-lg">
+          <h3 className="text-xl font-semibold text-slate-800 mb-4">Calculation Details</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 text-base text-slate-600 bg-slate-50 p-4 rounded-lg">
             <p>Initial Area (A₀): <span className="font-medium text-slate-800">{calculatedData.A0.toFixed(2)} mm²</span></p>
             <p>Initial Volume (V): <span className="font-medium text-slate-800">{calculatedData.V.toFixed(2)} mm³</span></p>
           </div>
           
           <div className="overflow-x-auto max-h-96">
-            <table className="w-full text-sm text-left">
-              <thead className="text-xs text-slate-700 uppercase bg-slate-50 sticky top-0">
+            <table className="w-full text-base text-left">
+              <thead className="text-sm text-slate-700 uppercase bg-slate-50 sticky top-0">
                 <tr>
                   <th className="px-4 py-3">Specimen</th>
                   <th className="px-4 py-3">Norm. Stress</th>
@@ -655,14 +655,14 @@ export const DirectShearPage: React.FC<{ onBack: () => void }> = ({ onBack }) =>
         {/* Specimen Graph & Failure Envelope */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div className="bg-white rounded-xl shadow-sm p-6 border border-slate-200">
-            <h3 className="text-lg font-semibold text-slate-800 mb-4">Specimen Graph</h3>
+            <h3 className="text-xl font-semibold text-slate-800 mb-4">Specimen Graph</h3>
             <div className="h-80">
               <Line data={specimenChartData} options={specimenChartOptions} />
             </div>
           </div>
           
           <div className="bg-white rounded-xl shadow-sm p-6 border border-slate-200">
-            <h3 className="text-lg font-semibold text-slate-800 mb-4">Failure Envelope</h3>
+            <h3 className="text-xl font-semibold text-slate-800 mb-4">Failure Envelope</h3>
             <div className="h-80 flex justify-center">
               <Line data={failureEnvelopeData as any} options={failureEnvelopeOptions} />
             </div>
@@ -671,18 +671,18 @@ export const DirectShearPage: React.FC<{ onBack: () => void }> = ({ onBack }) =>
 
         {/* Final Results */}
         <div className="bg-blue-600 rounded-xl shadow-sm p-6 text-white">
-          <h3 className="text-lg font-semibold mb-6 opacity-90">Final Results</h3>
+          <h3 className="text-xl font-semibold mb-6 opacity-90">Final Results</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-blue-700/50 rounded-lg p-6 border border-blue-500/30">
-              <div className="text-blue-200 text-sm mb-2">Cohesion, c</div>
+              <div className="text-blue-200 text-base mb-2">Cohesion, c</div>
               <div className="text-4xl font-bold">
-                {calculatedData.c.toFixed(3)} <span className="text-xl font-normal opacity-80">kPa</span>
+                {calculatedData.c.toFixed(3)} <span className="text-2xl font-normal opacity-80">kPa</span>
               </div>
             </div>
             <div className="bg-blue-700/50 rounded-lg p-6 border border-blue-500/30">
-              <div className="text-blue-200 text-sm mb-2">Angle of Shearing Resistance, φ</div>
+              <div className="text-blue-200 text-base mb-2">Angle of Shearing Resistance, φ</div>
               <div className="text-4xl font-bold">
-                {calculatedData.phi.toFixed(3)} <span className="text-xl font-normal opacity-80">°</span>
+                {calculatedData.phi.toFixed(3)} <span className="text-2xl font-normal opacity-80">°</span>
               </div>
             </div>
           </div>
