@@ -57,7 +57,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ searchVal, onSelec
                 <span>100% Complete • 16/16 Experiments Ready</span>
               </div>
               <h2 className="text-xl font-extrabold tracking-tight">
-                GEoTech_Lab Laboratory Suite Fully Implemented
+                GeoTech_Lab Laboratory Suite Fully Implemented
               </h2>
               <p className="text-xs text-blue-100 max-w-xl leading-relaxed">
                 All 16 Soil Mechanics laboratory experiments are fully active with exact IS standards, live calculations, interactive graphs, and Excel exports.

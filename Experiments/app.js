@@ -1,5 +1,5 @@
 /* ==========================================================================
-   GEoTech_Lab - Geotechnical Soil Testing Suite
+   GeoTech_Lab - Geotechnical Soil Testing Suite
    Main Interactive Application Logic
    ========================================================================== */
 

@@ -14,7 +14,7 @@ export const AIAssistantDrawer: React.FC<AIAssistantDrawerProps> = ({ isOpen, on
   const [messages, setMessages] = useState([
     {
       sender: 'ai',
-      text: 'Hello! I am your GEoTech_Lab Engineering Assistant. I can predict USCS soil classifications, analyze CBR failure envelopes, check compaction OMC, or generate formal test reports. What would you like to do today?'
+      text: 'Hello! I am your GeoTech_Lab Engineering Assistant. I can predict USCS soil classifications, analyze CBR failure envelopes, check compaction OMC, or generate formal test reports. What would you like to do today?'
     }
   ]);
 
@@ -44,7 +44,7 @@ export const AIAssistantDrawer: React.FC<AIAssistantDrawerProps> = ({ isOpen, on
               <Sparkles className="w-4 h-4" />
             </div>
             <div>
-              <h3 className="text-sm font-bold text-slate-900 dark:text-white">GEoTech_Lab Assistant</h3>
+              <h3 className="text-sm font-bold text-slate-900 dark:text-white">GeoTech_Lab Assistant</h3>
               <span className="text-[11px] text-purple-600 dark:text-purple-400 font-semibold">Geotechnical Intelligence Model</span>
             </div>
           </div>

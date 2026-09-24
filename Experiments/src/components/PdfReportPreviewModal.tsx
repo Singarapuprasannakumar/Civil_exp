@@ -36,7 +36,7 @@ export const PdfReportPreviewModal: React.FC<PdfReportPreviewModalProps> = ({
             {/* REPORT HEADER */}
             <div className="flex items-start justify-between border-b-2 border-slate-900 pb-4">
               <div>
-                <h1 className="text-lg font-bold text-slate-900">GEoTech_Lab ENTERPRISE LABORATORIES</h1>
+                <h1 className="text-lg font-bold text-slate-900">GeoTech_Lab ENTERPRISE LABORATORIES</h1>
                 <p className="text-[11px] text-slate-600">Accredited ISO/IEC 17025 Geotechnical Soil Testing Facility</p>
                 <p className="text-[10px] text-slate-500">Report No: <strong>REP-2026-NH16-004</strong> | Date: <strong>01 August 2026</strong></p>
               </div>
