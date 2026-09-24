@@ -127,9 +127,10 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, onSelectTab }) => {
             <p className="text-[10px] font-medium text-slate-200 leading-tight">
               Accurate Testing.<br />Reliable Engineering.
             </p>
-            <p className="text-[10px] font-bold text-yellow-400 mt-1">
-              Created by Singarapu Prasanna Kumar
-            </p>
+            <div className="mt-2">
+              <span className="text-[10px] font-medium text-slate-300 block">Created & Developed by</span>
+              <span className="text-[11px] font-bold text-yellow-400">Singarapu Prasanna Kumar</span>
+            </div>
           </div>
         </div>
       </div>
