@@ -526,7 +526,7 @@ export const mockNotifications: NotificationItem[] = [
   {
     id: 'NOTIF-04',
     title: 'AI Prediction Ready: CBR Value',
-    message: 'GeoLab AI model predicted 7.2% CBR for Sample S-2026-BH01-01.',
+    message: 'GEoTech_Lab model predicted 7.2% CBR for Sample S-2026-BH01-01.',
     category: 'AI Prediction Ready',
     timestamp: '4 hours ago',
     read: true

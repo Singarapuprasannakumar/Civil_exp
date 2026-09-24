@@ -1,5 +1,5 @@
 /* ==========================================================================
-   GeoLab AI - Geotechnical Soil Testing Suite
+   GEoTech_Lab - Geotechnical Soil Testing Suite
    Main Interactive Application Logic
    ========================================================================== */
 

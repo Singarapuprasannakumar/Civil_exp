@@ -57,7 +57,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, onSelectTab }) => {
           <FlaskConical className="w-5 h-5" />
         </div>
         <div className="flex flex-col">
-          <h1 className="text-lg font-bold text-white tracking-tight leading-none">GeoLab AI</h1>
+          <h1 className="text-lg font-bold text-white tracking-tight leading-none">GEoTech_Lab</h1>
           <span className="text-[11px] font-medium text-slate-400 mt-1">Soil Testing Suite</span>
         </div>
       </div>
@@ -119,7 +119,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, onSelectTab }) => {
           <div className="relative p-3 text-white">
             <div className="flex items-center gap-2 mb-1">
               <FlaskConical className="w-4 h-4 text-blue-400" />
-              <span className="text-[11px] font-bold tracking-wide uppercase text-blue-400">GeoLab AI</span>
+              <span className="text-[11px] font-bold tracking-wide uppercase text-blue-400">GEoTech_Lab</span>
             </div>
             <p className="text-[11px] font-medium text-slate-200 leading-tight">
               Accurate Testing.<br />Reliable Engineering.

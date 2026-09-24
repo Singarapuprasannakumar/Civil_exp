@@ -9,7 +9,7 @@ export const AICopilotView: React.FC<AICopilotViewProps> = ({ onShowToast }) => 
   const [messages, setMessages] = useState([
     {
       sender: 'ai',
-      text: 'Welcome to GeoLab AI Copilot — your intelligent geotechnical assistant. Select a action shortcut or type any question regarding ASTM/IS standards, soil classification, or failure envelope analysis.'
+      text: 'Welcome to GEoTech_Lab Copilot — your intelligent geotechnical assistant. Select a action shortcut or type any question regarding ASTM/IS standards, soil classification, or failure envelope analysis.'
     }
   ]);
   const [inputVal, setInputVal] = useState('');
@@ -44,7 +44,7 @@ export const AICopilotView: React.FC<AICopilotViewProps> = ({ onShowToast }) => 
       <div>
         <h1 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight flex items-center gap-2">
           <Sparkles className="w-5 h-5 text-purple-600" />
-          GeoLab AI Engineering Copilot
+          GEoTech_Lab Engineering Copilot
         </h1>
         <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
           Trained on ASTM, AASHTO, and IS Geotechnical Soil Mechanics Standards.
